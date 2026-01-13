@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkSwitchLinkAggregation
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/switch/linkAggregations/:linkAggregationId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  linkAggregationId: {{linkAggregationId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Split a link aggregation group into separate ports
+}

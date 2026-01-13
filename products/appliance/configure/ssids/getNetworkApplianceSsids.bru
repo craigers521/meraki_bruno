@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceSsids
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/ssids
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the MX SSIDs in a network
+}

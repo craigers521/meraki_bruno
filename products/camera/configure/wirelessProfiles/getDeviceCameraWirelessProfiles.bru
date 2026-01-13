@@ -1,0 +1,28 @@
+meta {
+  name: getDeviceCameraWirelessProfiles
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/camera/wirelessProfiles
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns wireless profile assigned to the given camera
+}

@@ -1,0 +1,40 @@
+meta {
+  name: updateOrganizationApplianceDnsLocalRecord
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/dns/local/records/:recordId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  recordId: {{recordId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "hostname": "<string>",
+    "address": "<string>",
+    "profile": {
+      "id": "<string>"
+    }
+  }
+}
+
+docs {
+  Updates a local DNS record
+}

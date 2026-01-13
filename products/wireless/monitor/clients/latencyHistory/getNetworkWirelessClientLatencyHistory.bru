@@ -1,0 +1,36 @@
+meta {
+  name: getNetworkWirelessClientLatencyHistory
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/clients/:clientId/latencyHistory
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~resolution: {{resolution}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  clientId: {{clientId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the latency history for a client. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP. The latency data is from a sample of 2% of packets and is grouped into 4 traffic categories: background, best effort, video, voice. Within these categories the sampled packet counters are bucketed by latency in milliseconds.
+}

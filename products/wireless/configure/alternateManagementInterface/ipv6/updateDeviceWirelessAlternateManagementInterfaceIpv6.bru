@@ -1,0 +1,62 @@
+meta {
+  name: updateDeviceWirelessAlternateManagementInterfaceIpv6
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/wireless/alternateManagementInterface/ipv6
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "addresses": [
+      {
+        "protocol": "<string>",
+        "assignmentMode": "<string>",
+        "address": "<string>",
+        "gateway": "<string>",
+        "prefix": "<string>",
+        "nameservers": {
+          "addresses": [
+            "<string>",
+            "<string>"
+          ]
+        }
+      },
+      {
+        "protocol": "<string>",
+        "assignmentMode": "<string>",
+        "address": "<string>",
+        "gateway": "<string>",
+        "prefix": "<string>",
+        "nameservers": {
+          "addresses": [
+            "<string>",
+            "<string>"
+          ]
+        }
+      }
+    ]
+  }
+}
+
+docs {
+  Update alternate management interface IPv6 address
+}

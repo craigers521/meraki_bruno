@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationConfigTemplate
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/configTemplates/:configTemplateId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  configTemplateId: {{configTemplateId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Remove a configuration template
+}

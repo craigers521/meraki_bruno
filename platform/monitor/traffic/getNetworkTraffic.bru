@@ -1,0 +1,34 @@
+meta {
+  name: getNetworkTraffic
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/traffic
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~timespan: {{timespan}}
+  ~deviceType: {{deviceType}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the traffic analysis data for this network. Traffic analysis with hostname visibility must be enabled on the network.
+}

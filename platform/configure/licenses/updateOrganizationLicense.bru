@@ -1,0 +1,36 @@
+meta {
+  name: updateOrganizationLicense
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/licenses/:licenseId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  licenseId: {{licenseId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "deviceSerial": "<string>"
+  }
+}
+
+docs {
+  Update a license
+}

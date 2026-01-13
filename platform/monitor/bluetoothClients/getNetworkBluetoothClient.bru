@@ -1,0 +1,34 @@
+meta {
+  name: getNetworkBluetoothClient
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/bluetoothClients/:bluetoothClientId
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~includeConnectivityHistory: {{includeConnectivityHistory}}
+  ~connectivityHistoryTimespan: {{connectivityHistoryTimespan}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  bluetoothClientId: {{bluetoothClientId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a Bluetooth client. Bluetooth clients can be identified by their ID or their MAC.
+}

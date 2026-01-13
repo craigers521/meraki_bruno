@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationCameraCustomAnalyticsArtifact
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/camera/customAnalytics/artifacts/:artifactId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  artifactId: {{artifactId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get Custom Analytics Artifact
+}

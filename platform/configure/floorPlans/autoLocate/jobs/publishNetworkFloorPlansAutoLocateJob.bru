@@ -1,0 +1,53 @@
+meta {
+  name: publishNetworkFloorPlansAutoLocateJob
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/floorPlans/autoLocate/jobs/:jobId/publish
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  jobId: {{jobId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "devices": [
+      {
+        "serial": "<string>",
+        "lat": "<float>",
+        "lng": "<float>",
+        "autoLocate": {
+          "isAnchor": "<boolean>"
+        }
+      },
+      {
+        "serial": "<string>",
+        "lat": "<float>",
+        "lng": "<float>",
+        "autoLocate": {
+          "isAnchor": "<boolean>"
+        }
+      }
+    ]
+  }
+}
+
+docs {
+  Update the status of a finished auto locate job to be published, and update device locations
+}

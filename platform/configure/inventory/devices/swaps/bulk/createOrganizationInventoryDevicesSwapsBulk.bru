@@ -1,0 +1,50 @@
+meta {
+  name: createOrganizationInventoryDevicesSwapsBulk
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/inventory/devices/swaps/bulk
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "swaps": [
+      {
+        "devices": {
+          "old": "<string>",
+          "new": "<string>"
+        },
+        "afterAction": "<string>"
+      },
+      {
+        "devices": {
+          "old": "<string>",
+          "new": "<string>"
+        },
+        "afterAction": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Swap the devices identified by devices.old with a devices.new, then perform the :afterAction on the devices.old.
+}

@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkAppliancePrefixesDelegatedStatic
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  staticDelegatedPrefixId: {{staticDelegatedPrefixId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a static delegated prefix from a network
+}

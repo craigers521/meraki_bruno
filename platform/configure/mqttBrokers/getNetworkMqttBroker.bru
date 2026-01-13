@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkMqttBroker
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/mqttBrokers/:mqttBrokerId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  mqttBrokerId: {{mqttBrokerId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return an MQTT broker
+}

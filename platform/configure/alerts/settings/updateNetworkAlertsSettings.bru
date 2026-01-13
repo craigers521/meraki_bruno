@@ -1,0 +1,201 @@
+meta {
+  name: updateNetworkAlertsSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/alerts/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "defaultDestinations": {
+      "emails": [
+        "<string>",
+        "<string>"
+      ],
+      "allAdmins": "<boolean>",
+      "snmp": "<boolean>",
+      "httpServerIds": [
+        "<string>",
+        "<string>"
+      ]
+    },
+    "alerts": [
+      {
+        "type": "<string>",
+        "enabled": "<boolean>",
+        "alertDestinations": {
+          "emails": [
+            "<string>",
+            "<string>"
+          ],
+          "smsNumbers": [
+            "<string>",
+            "<string>"
+          ],
+          "allAdmins": "<boolean>",
+          "snmp": "<boolean>",
+          "httpServerIds": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "filters": {
+          "conditions": [
+            {
+              "type": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "unit": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "duration": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "direction": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "threshold": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            },
+            {
+              "type": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "unit": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "duration": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "direction": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "threshold": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          ],
+          "failureType": "<string>",
+          "lookbackWindow": "<integer>",
+          "minDuration": "<integer>",
+          "name": "<string>",
+          "period": "<integer>",
+          "priority": "<string>",
+          "regex": "<string>",
+          "selector": "<string>",
+          "serials": [
+            "<string>",
+            "<string>"
+          ],
+          "ssidNum": "<integer>",
+          "tag": "<string>",
+          "threshold": "<integer>",
+          "timeout": "<integer>"
+        }
+      },
+      {
+        "type": "<string>",
+        "enabled": "<boolean>",
+        "alertDestinations": {
+          "emails": [
+            "<string>",
+            "<string>"
+          ],
+          "smsNumbers": [
+            "<string>",
+            "<string>"
+          ],
+          "allAdmins": "<boolean>",
+          "snmp": "<boolean>",
+          "httpServerIds": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "filters": {
+          "conditions": [
+            {
+              "type": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "unit": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "duration": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "direction": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "threshold": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            },
+            {
+              "type": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "unit": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "duration": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "direction": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "threshold": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          ],
+          "failureType": "<string>",
+          "lookbackWindow": "<integer>",
+          "minDuration": "<integer>",
+          "name": "<string>",
+          "period": "<integer>",
+          "priority": "<string>",
+          "regex": "<string>",
+          "selector": "<string>",
+          "serials": [
+            "<string>",
+            "<string>"
+          ],
+          "ssidNum": "<integer>",
+          "tag": "<string>",
+          "threshold": "<integer>",
+          "timeout": "<integer>"
+        }
+      }
+    ],
+    "muting": {
+      "byPortSchedules": {
+        "enabled": "<boolean>"
+      }
+    }
+  }
+}
+
+docs {
+  Update the alert configuration for this network
+}

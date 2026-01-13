@@ -1,0 +1,40 @@
+meta {
+  name: updateNetworkWebhooksHttpServer
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  httpServerId: {{httpServerId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "sharedSecret": "<string>",
+    "payloadTemplate": {
+      "payloadTemplateId": "<string>"
+    }
+  }
+}
+
+docs {
+  Update an HTTP server. To change a URL, create a new HTTP server.
+}

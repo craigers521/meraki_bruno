@@ -1,0 +1,37 @@
+meta {
+  name: getNetworkBluetoothClients
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/bluetoothClients
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~timespan: {{timespan}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~includeConnectivityHistory: {{includeConnectivityHistory}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the Bluetooth clients seen by APs in this network
+}

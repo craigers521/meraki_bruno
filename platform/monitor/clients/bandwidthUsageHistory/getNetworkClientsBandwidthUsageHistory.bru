@@ -1,0 +1,37 @@
+meta {
+  name: getNetworkClientsBandwidthUsageHistory
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/clients/bandwidthUsageHistory
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns a timeseries of total traffic consumption rates for all clients on a network within a given timespan, in megabits per second.
+}

@@ -1,0 +1,40 @@
+meta {
+  name: updateNetworkApplianceFirewallFirewalledService
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/firewalledServices/:service
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  service: {{service}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "access": "<string>",
+    "allowedIps": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Updates the accessibility settings for the given service ('ICMP', 'web', or 'SNMP')
+}

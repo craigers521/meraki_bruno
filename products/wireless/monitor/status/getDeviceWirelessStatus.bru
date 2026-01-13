@@ -1,0 +1,28 @@
+meta {
+  name: getDeviceWirelessStatus
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/wireless/status
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the SSID statuses of an access point
+}

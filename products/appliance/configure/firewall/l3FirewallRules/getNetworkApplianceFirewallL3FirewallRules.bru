@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceFirewallL3FirewallRules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/l3FirewallRules
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the L3 firewall rules for an MX network
+}

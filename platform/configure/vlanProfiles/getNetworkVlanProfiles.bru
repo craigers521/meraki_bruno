@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkVlanProfiles
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/vlanProfiles
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List VLAN profiles for a network
+}

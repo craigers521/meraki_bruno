@@ -1,0 +1,48 @@
+meta {
+  name: createDeviceLiveToolsCableTest
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/liveTools/cableTest
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "ports": [
+      "<string>",
+      "<string>"
+    ],
+    "callback": {
+      "url": "<string>",
+      "sharedSecret": "<string>",
+      "httpServer": {
+        "id": "<string>"
+      },
+      "payloadTemplate": {
+        "id": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Enqueue a job to perform a cable test for the device on the specified ports. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests.
+}

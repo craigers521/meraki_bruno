@@ -1,0 +1,38 @@
+meta {
+  name: wipeNetworkSmDevices
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/wipe
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "wifiMac": "<string>",
+    "id": "<string>",
+    "serial": "<string>",
+    "pin": "<integer>"
+  }
+}
+
+docs {
+  Wipe a device
+}

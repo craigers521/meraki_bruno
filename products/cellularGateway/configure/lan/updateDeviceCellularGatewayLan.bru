@@ -1,0 +1,58 @@
+meta {
+  name: updateDeviceCellularGatewayLan
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/cellularGateway/lan
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "reservedIpRanges": [
+      {
+        "start": "<string>",
+        "end": "<string>",
+        "comment": "<string>"
+      },
+      {
+        "start": "<string>",
+        "end": "<string>",
+        "comment": "<string>"
+      }
+    ],
+    "fixedIpAssignments": [
+      {
+        "ip": "<string>",
+        "mac": "<string>",
+        "name": "<string>"
+      },
+      {
+        "ip": "<string>",
+        "mac": "<string>",
+        "name": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the LAN Settings for a single MG.
+}

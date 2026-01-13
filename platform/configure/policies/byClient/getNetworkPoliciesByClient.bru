@@ -1,0 +1,36 @@
+meta {
+  name: getNetworkPoliciesByClient
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/policies/byClient
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~t0: {{t0}}
+  ~timespan: {{timespan}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get policies for all clients with policies
+}

@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkApplianceVlan
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/vlans/:vlanId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  vlanId: {{vlanId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a VLAN
+}

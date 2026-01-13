@@ -1,0 +1,33 @@
+meta {
+  name: getDeviceSwitchPortsStatuses
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/switch/ports/statuses
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~timespan: {{timespan}}
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the status for all the ports of a switch
+}

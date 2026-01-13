@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationBrandingPolicy
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/brandingPolicies/:brandingPolicyId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  brandingPolicyId: {{brandingPolicyId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a branding policy
+}

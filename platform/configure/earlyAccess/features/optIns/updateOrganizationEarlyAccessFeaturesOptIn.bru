@@ -1,0 +1,39 @@
+meta {
+  name: updateOrganizationEarlyAccessFeaturesOptIn
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/earlyAccess/features/optIns/:optInId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  optInId: {{optInId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "limitScopeToNetworks": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Update an early access feature opt-in for an organization
+}

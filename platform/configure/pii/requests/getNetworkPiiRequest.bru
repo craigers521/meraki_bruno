@@ -1,0 +1,35 @@
+meta {
+  name: getNetworkPiiRequest
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/pii/requests/:requestId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  requestId: {{requestId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a PII request
+  
+  ## ALTERNATE PATH
+  
+  ```
+  /organizations/{organizationId}/pii/requests/{requestId}
+  ```
+}

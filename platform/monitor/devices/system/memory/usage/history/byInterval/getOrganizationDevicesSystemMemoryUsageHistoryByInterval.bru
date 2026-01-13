@@ -1,0 +1,44 @@
+meta {
+  name: getOrganizationDevicesSystemMemoryUsageHistoryByInterval
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices/system/memory/usage/history/byInterval
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~interval: {{interval}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the memory utilization history in kB for devices in the organization.
+}

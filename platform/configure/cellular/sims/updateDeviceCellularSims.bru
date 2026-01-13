@@ -1,0 +1,146 @@
+meta {
+  name: updateDeviceCellularSims
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/cellular/sims
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "sims": [
+      {
+        "slot": "<string>",
+        "isPrimary": false,
+        "apns": [
+          {
+            "name": "<string>",
+            "allowedIpTypes": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ],
+            "authentication": {
+              "type": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "username": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "password": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          {
+            "name": "<string>",
+            "allowedIpTypes": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ],
+            "authentication": {
+              "type": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "username": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "password": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        ],
+        "simOrder": "<integer>"
+      },
+      {
+        "slot": "<string>",
+        "isPrimary": false,
+        "apns": [
+          {
+            "name": "<string>",
+            "allowedIpTypes": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ],
+            "authentication": {
+              "type": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "username": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "password": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          {
+            "name": "<string>",
+            "allowedIpTypes": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ],
+            "authentication": {
+              "type": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "username": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "password": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        ],
+        "simOrder": "<integer>"
+      }
+    ],
+    "simOrdering": [
+      "<string>",
+      "<string>"
+    ],
+    "simFailover": {
+      "enabled": "<boolean>",
+      "timeout": "<integer>"
+    }
+  }
+}
+
+docs {
+  Updates the SIM and APN configurations for a cellular device.
+}

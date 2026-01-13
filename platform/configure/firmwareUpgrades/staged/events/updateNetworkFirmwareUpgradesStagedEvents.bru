@@ -1,0 +1,52 @@
+meta {
+  name: updateNetworkFirmwareUpgradesStagedEvents
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "stages": [
+      {
+        "group": {
+          "id": "<string>"
+        },
+        "milestones": {
+          "scheduledFor": "<string>"
+        }
+      },
+      {
+        "group": {
+          "id": "<string>"
+        },
+        "milestones": {
+          "scheduledFor": "<string>"
+        }
+      }
+    ]
+  }
+}
+
+docs {
+  Update the Staged Upgrade Event for a network
+}

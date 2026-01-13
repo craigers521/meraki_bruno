@@ -1,0 +1,76 @@
+meta {
+  name: updateDeviceSwitchPort
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/switch/ports/:portId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  portId: {{portId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "tags": [
+      "<string>",
+      "<string>"
+    ],
+    "enabled": "<boolean>",
+    "poeEnabled": "<boolean>",
+    "type": "<string>",
+    "vlan": "<integer>",
+    "voiceVlan": "<integer>",
+    "allowedVlans": "<string>",
+    "isolationEnabled": "<boolean>",
+    "rstpEnabled": "<boolean>",
+    "stpGuard": "<string>",
+    "linkNegotiation": "<string>",
+    "portScheduleId": "<string>",
+    "udld": "<string>",
+    "accessPolicyType": "<string>",
+    "accessPolicyNumber": "<integer>",
+    "macAllowList": [
+      "<string>",
+      "<string>"
+    ],
+    "stickyMacAllowList": [
+      "<string>",
+      "<string>"
+    ],
+    "stickyMacAllowListLimit": "<integer>",
+    "stormControlEnabled": "<boolean>",
+    "adaptivePolicyGroupId": "<string>",
+    "peerSgtCapable": "<boolean>",
+    "flexibleStackingEnabled": "<boolean>",
+    "daiTrusted": "<boolean>",
+    "profile": {
+      "enabled": "<boolean>",
+      "id": "<string>",
+      "iname": "<string>"
+    },
+    "dot3az": {
+      "enabled": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update a switch port
+}

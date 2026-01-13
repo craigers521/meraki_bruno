@@ -1,0 +1,57 @@
+meta {
+  name: createNetworkFloorPlan
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/floorPlans
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "imageContents": "<byte>",
+    "center": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "bottomLeftCorner": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "bottomRightCorner": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "topLeftCorner": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "topRightCorner": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "floorNumber": "<integer>"
+  }
+}
+
+docs {
+  Upload a floor plan
+}

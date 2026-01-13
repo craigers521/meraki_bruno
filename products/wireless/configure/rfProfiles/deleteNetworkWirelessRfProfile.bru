@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkWirelessRfProfile
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/wireless/rfProfiles/:rfProfileId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  rfProfileId: {{rfProfileId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a RF Profile
+}

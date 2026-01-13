@@ -1,0 +1,196 @@
+meta {
+  name: createNetworkSensorAlertsProfile
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sensor/alerts/profiles
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "conditions": [
+      {
+        "metric": "<string>",
+        "threshold": {
+          "temperature": {
+            "celsius": "<float>",
+            "fahrenheit": "<float>",
+            "quality": "<string>"
+          },
+          "humidity": {
+            "relativePercentage": "<integer>",
+            "quality": "<string>"
+          },
+          "water": {
+            "present": "<boolean>"
+          },
+          "door": {
+            "open": "<boolean>"
+          },
+          "tvoc": {
+            "concentration": "<integer>",
+            "quality": "<string>"
+          },
+          "co2": {
+            "concentration": "<integer>",
+            "quality": "<string>"
+          },
+          "pm25": {
+            "concentration": "<integer>",
+            "quality": "<string>"
+          },
+          "noise": {
+            "ambient": {
+              "level": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "quality": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "indoorAirQuality": {
+            "score": "<integer>",
+            "quality": "<string>"
+          },
+          "realPower": {
+            "draw": "<float>"
+          },
+          "apparentPower": {
+            "draw": "<float>"
+          },
+          "powerFactor": {
+            "percentage": "<integer>"
+          },
+          "current": {
+            "draw": "<float>"
+          },
+          "voltage": {
+            "level": "<float>"
+          },
+          "frequency": {
+            "level": "<float>"
+          },
+          "upstreamPower": {
+            "outageDetected": "<boolean>"
+          }
+        },
+        "direction": "<string>",
+        "duration": 0
+      },
+      {
+        "metric": "<string>",
+        "threshold": {
+          "temperature": {
+            "celsius": "<float>",
+            "fahrenheit": "<float>",
+            "quality": "<string>"
+          },
+          "humidity": {
+            "relativePercentage": "<integer>",
+            "quality": "<string>"
+          },
+          "water": {
+            "present": "<boolean>"
+          },
+          "door": {
+            "open": "<boolean>"
+          },
+          "tvoc": {
+            "concentration": "<integer>",
+            "quality": "<string>"
+          },
+          "co2": {
+            "concentration": "<integer>",
+            "quality": "<string>"
+          },
+          "pm25": {
+            "concentration": "<integer>",
+            "quality": "<string>"
+          },
+          "noise": {
+            "ambient": {
+              "level": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "quality": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "indoorAirQuality": {
+            "score": "<integer>",
+            "quality": "<string>"
+          },
+          "realPower": {
+            "draw": "<float>"
+          },
+          "apparentPower": {
+            "draw": "<float>"
+          },
+          "powerFactor": {
+            "percentage": "<integer>"
+          },
+          "current": {
+            "draw": "<float>"
+          },
+          "voltage": {
+            "level": "<float>"
+          },
+          "frequency": {
+            "level": "<float>"
+          },
+          "upstreamPower": {
+            "outageDetected": "<boolean>"
+          }
+        },
+        "direction": "<string>",
+        "duration": 0
+      }
+    ],
+    "schedule": {
+      "id": "<string>"
+    },
+    "recipients": {
+      "emails": [
+        "<string>",
+        "<string>"
+      ],
+      "smsNumbers": [
+        "<string>",
+        "<string>"
+      ],
+      "httpServerIds": [
+        "<string>",
+        "<string>"
+      ]
+    },
+    "serials": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Creates a sensor alert profile for a network.
+}

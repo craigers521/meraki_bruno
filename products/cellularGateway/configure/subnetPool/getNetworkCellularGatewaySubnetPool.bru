@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkCellularGatewaySubnetPool
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/cellularGateway/subnetPool
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the subnet pool and mask configured for MGs in the network.
+}

@@ -1,0 +1,33 @@
+meta {
+  name: getOrganizationInventoryOnboardingCloudMonitoringImports
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/inventory/onboarding/cloudMonitoring/imports
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~importIds: {{importIds}}
+  ~importIds: {{importIds}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Check the status of a committed Import operation
+}

@@ -1,0 +1,29 @@
+meta {
+  name: deleteNetworkGroupPolicy
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/groupPolicies/:groupPolicyId
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~force: {{force}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  groupPolicyId: {{groupPolicyId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a group policy
+}

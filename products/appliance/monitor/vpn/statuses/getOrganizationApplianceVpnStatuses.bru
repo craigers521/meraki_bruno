@@ -1,0 +1,36 @@
+meta {
+  name: getOrganizationApplianceVpnStatuses
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/vpn/statuses
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Show VPN status for networks in an organization
+}

@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkWebhooksHttpServer
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  httpServerId: {{httpServerId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete an HTTP server from a network
+}

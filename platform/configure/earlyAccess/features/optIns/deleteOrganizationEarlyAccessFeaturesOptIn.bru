@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationEarlyAccessFeaturesOptIn
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/earlyAccess/features/optIns/:optInId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  optInId: {{optInId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete an early access feature opt-in
+}

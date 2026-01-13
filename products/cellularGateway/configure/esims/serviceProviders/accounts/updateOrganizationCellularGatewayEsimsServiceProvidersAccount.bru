@@ -1,0 +1,37 @@
+meta {
+  name: updateOrganizationCellularGatewayEsimsServiceProvidersAccount
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts/:accountId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  accountId: {{accountId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "title": "<string>",
+    "apiKey": "<string>"
+  }
+}
+
+docs {
+  Edit service provider account info stored in Meraki's database.
+}

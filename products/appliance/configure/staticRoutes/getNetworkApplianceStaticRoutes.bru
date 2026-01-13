@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceStaticRoutes
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/staticRoutes
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the static routes for an MX or teleworker network
+}

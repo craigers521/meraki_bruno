@@ -1,0 +1,48 @@
+meta {
+  name: updateNetworkApplianceTrafficShapingUplinkBandwidth
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/trafficShaping/uplinkBandwidth
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "bandwidthLimits": {
+      "wan1": {
+        "limitUp": "<integer>",
+        "limitDown": "<integer>"
+      },
+      "wan2": {
+        "limitUp": "<integer>",
+        "limitDown": "<integer>"
+      },
+      "cellular": {
+        "limitUp": "<integer>",
+        "limitDown": "<integer>"
+      }
+    }
+  }
+}
+
+docs {
+  Updates the uplink bandwidth settings for your MX network.
+}

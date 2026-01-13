@@ -1,0 +1,46 @@
+meta {
+  name: getOrganizationApiRequests
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/apiRequests
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~adminId: {{adminId}}
+  ~path: {{path}}
+  ~method: {{method}}
+  ~responseCode: {{responseCode}}
+  ~sourceIp: {{sourceIp}}
+  ~userAgent: {{userAgent}}
+  ~version: {{version}}
+  ~operationIds: {{operationIds}}
+  ~operationIds: {{operationIds}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the API requests made by an organization
+}

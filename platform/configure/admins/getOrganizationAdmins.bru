@@ -1,0 +1,33 @@
+meta {
+  name: getOrganizationAdmins
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/admins
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the dashboard administrators in this organization
+}

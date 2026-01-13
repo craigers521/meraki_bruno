@@ -1,0 +1,92 @@
+meta {
+  name: updateNetworkWirelessSsidHotspot20
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/hotspot20
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "operator": {
+      "name": "<string>"
+    },
+    "venue": {
+      "name": "<string>",
+      "type": "<string>"
+    },
+    "networkAccessType": "<string>",
+    "domains": [
+      "<string>",
+      "<string>"
+    ],
+    "roamConsortOis": [
+      "<string>",
+      "<string>"
+    ],
+    "mccMncs": [
+      {
+        "mcc": "<string>",
+        "mnc": "<string>"
+      },
+      {
+        "mcc": "<string>",
+        "mnc": "<string>"
+      }
+    ],
+    "naiRealms": [
+      {
+        "format": "<string>",
+        "realm": "<string>",
+        "methods": [
+          {
+            "id": "<string>",
+            "authenticationTypes": "<object>"
+          },
+          {
+            "id": "<string>",
+            "authenticationTypes": "<object>"
+          }
+        ]
+      },
+      {
+        "format": "<string>",
+        "realm": "<string>",
+        "methods": [
+          {
+            "id": "<string>",
+            "authenticationTypes": "<object>"
+          },
+          {
+            "id": "<string>",
+            "authenticationTypes": "<object>"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+docs {
+  Update the Hotspot 2.0 settings of an SSID
+}

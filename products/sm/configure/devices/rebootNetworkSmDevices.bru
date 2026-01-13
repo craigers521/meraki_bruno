@@ -1,0 +1,57 @@
+meta {
+  name: rebootNetworkSmDevices
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/reboot
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "wifiMacs": [
+      "<string>",
+      "<string>"
+    ],
+    "ids": [
+      "<string>",
+      "<string>"
+    ],
+    "serials": [
+      "<string>",
+      "<string>"
+    ],
+    "scope": [
+      "<string>",
+      "<string>"
+    ],
+    "kextPaths": [
+      "<string>",
+      "<string>"
+    ],
+    "notifyUser": "<boolean>",
+    "rebuildKernelCache": "<boolean>",
+    "requestRequiresNetworkTether": "<boolean>"
+  }
+}
+
+docs {
+  Reboot a set of endpoints
+}

@@ -1,0 +1,37 @@
+meta {
+  name: updateOrganizationActionBatch
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/actionBatches/:actionBatchId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  actionBatchId: {{actionBatchId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "confirmed": "<boolean>",
+    "synchronous": "<boolean>"
+  }
+}
+
+docs {
+  Update an action batch
+}

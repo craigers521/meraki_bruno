@@ -1,0 +1,40 @@
+meta {
+  name: getOrganizationWirelessControllerDevicesInterfacesL3StatusesChangeHistoryByDevice
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/wirelessController/devices/interfaces/l3/statuses/changeHistory/byDevice
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~includeInterfacesWithoutChanges: {{includeInterfacesWithoutChanges}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List wireless LAN controller layer 3 interfaces history status in an organization
+}

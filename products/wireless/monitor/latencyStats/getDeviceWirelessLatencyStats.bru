@@ -1,0 +1,39 @@
+meta {
+  name: getDeviceWirelessLatencyStats
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/wireless/latencyStats
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~band: {{band}}
+  ~ssid: {{ssid}}
+  ~vlan: {{vlan}}
+  ~apTag: {{apTag}}
+  ~fields: {{fields}}
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Aggregated latency info for a given AP on this network
+}

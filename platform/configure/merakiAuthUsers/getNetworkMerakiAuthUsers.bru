@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkMerakiAuthUsers
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/merakiAuthUsers
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the authorized users configured under Meraki Authentication for a network (splash guest or RADIUS users for a wireless network, or client VPN users for a MX network)
+}

@@ -1,0 +1,52 @@
+meta {
+  name: claimIntoOrganization
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/claim
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "orders": [
+      "<string>",
+      "<string>"
+    ],
+    "serials": [
+      "<string>",
+      "<string>"
+    ],
+    "licenses": [
+      {
+        "key": "<string>",
+        "mode": "<string>"
+      },
+      {
+        "key": "<string>",
+        "mode": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Claim a list of devices, licenses, and/or orders into an organization inventory. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory. This operation can be used up to ten times within a single five minute window.
+}

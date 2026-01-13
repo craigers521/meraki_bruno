@@ -1,0 +1,41 @@
+meta {
+  name: updateNetworkSmDevicesFields
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/fields
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "deviceFields": {
+      "name": "<string>",
+      "notes": "<string>"
+    },
+    "wifiMac": "<string>",
+    "id": "<string>",
+    "serial": "<string>"
+  }
+}
+
+docs {
+  Modify the fields of a device
+}

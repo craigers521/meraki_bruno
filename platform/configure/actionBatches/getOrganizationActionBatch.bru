@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationActionBatch
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/actionBatches/:actionBatchId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  actionBatchId: {{actionBatchId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return an action batch
+}

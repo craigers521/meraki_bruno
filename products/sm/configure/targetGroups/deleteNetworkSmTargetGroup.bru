@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkSmTargetGroup
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/sm/targetGroups/:targetGroupId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  targetGroupId: {{targetGroupId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a target group from a network
+}

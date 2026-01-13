@@ -1,0 +1,60 @@
+meta {
+  name: updateNetworkWirelessSsidSchedules
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/schedules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "ranges": [
+      {
+        "startDay": "<string>",
+        "startTime": "<string>",
+        "endDay": "<string>",
+        "endTime": "<string>"
+      },
+      {
+        "startDay": "<string>",
+        "startTime": "<string>",
+        "endDay": "<string>",
+        "endTime": "<string>"
+      }
+    ],
+    "rangesInSeconds": [
+      {
+        "start": "<integer>",
+        "end": "<integer>"
+      },
+      {
+        "start": "<integer>",
+        "end": "<integer>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the outage schedule for the SSID
+}

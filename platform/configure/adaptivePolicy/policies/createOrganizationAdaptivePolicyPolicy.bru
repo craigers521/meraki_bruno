@@ -1,0 +1,55 @@
+meta {
+  name: createOrganizationAdaptivePolicyPolicy
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/adaptivePolicy/policies
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "sourceGroup": {
+      "id": "<string>",
+      "name": "<string>",
+      "sgt": "<integer>"
+    },
+    "destinationGroup": {
+      "id": "<string>",
+      "name": "<string>",
+      "sgt": "<integer>"
+    },
+    "acls": [
+      {
+        "id": "<string>",
+        "name": "<string>"
+      },
+      {
+        "id": "<string>",
+        "name": "<string>"
+      }
+    ],
+    "lastEntryRule": "<string>"
+  }
+}
+
+docs {
+  Add an Adaptive Policy
+}

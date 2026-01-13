@@ -1,0 +1,42 @@
+meta {
+  name: updateNetworkSwitchQosRule
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/qosRules/:qosRuleId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  qosRuleId: {{qosRuleId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "vlan": "<integer>",
+    "protocol": "<string>",
+    "srcPort": "<integer>",
+    "srcPortRange": "<string>",
+    "dstPort": "<integer>",
+    "dstPortRange": "<string>",
+    "dscp": "<integer>"
+  }
+}
+
+docs {
+  Update a quality of service rule
+}

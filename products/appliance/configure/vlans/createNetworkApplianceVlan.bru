@@ -1,0 +1,97 @@
+meta {
+  name: createNetworkApplianceVlan
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/appliance/vlans
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "id": "<string>",
+    "name": "<string>",
+    "subnet": "<string>",
+    "applianceIp": "<string>",
+    "groupPolicyId": "<string>",
+    "templateVlanType": "same",
+    "cidr": "<string>",
+    "mask": "<integer>",
+    "ipv6": {
+      "enabled": "<boolean>",
+      "prefixAssignments": [
+        {
+          "autonomous": "<boolean>",
+          "staticPrefix": "<string>",
+          "staticApplianceIp6": "<string>",
+          "origin": {
+            "type": "<string>",
+            "interfaces": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          }
+        },
+        {
+          "autonomous": "<boolean>",
+          "staticPrefix": "<string>",
+          "staticApplianceIp6": "<string>",
+          "origin": {
+            "type": "<string>",
+            "interfaces": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "dhcpHandling": "<string>",
+    "dhcpLeaseTime": "<string>",
+    "mandatoryDhcp": {
+      "enabled": "<boolean>"
+    },
+    "dhcpBootOptionsEnabled": "<boolean>",
+    "dhcpOptions": [
+      {
+        "code": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      },
+      {
+        "code": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Add a VLAN
+}

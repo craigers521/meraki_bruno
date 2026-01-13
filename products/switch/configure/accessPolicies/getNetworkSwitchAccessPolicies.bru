@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkSwitchAccessPolicies
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/switch/accessPolicies
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method
+}

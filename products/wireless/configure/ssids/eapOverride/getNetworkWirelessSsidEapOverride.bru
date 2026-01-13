@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkWirelessSsidEapOverride
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/eapOverride
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the EAP overridden parameters for an SSID
+}

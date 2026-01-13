@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceVpnSiteToSiteVpn
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/vpn/siteToSiteVpn
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the site-to-site VPN settings of a network. Only valid for MX networks.
+}

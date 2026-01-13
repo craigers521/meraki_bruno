@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkWirelessSsidHotspot20
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/hotspot20
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the Hotspot 2.0 settings for an SSID
+}

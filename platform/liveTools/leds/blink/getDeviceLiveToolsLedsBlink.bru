@@ -1,0 +1,29 @@
+meta {
+  name: getDeviceLiveToolsLedsBlink
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/liveTools/leds/blink/:ledsBlinkId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  ledsBlinkId: {{ledsBlinkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a blink LEDs job
+}

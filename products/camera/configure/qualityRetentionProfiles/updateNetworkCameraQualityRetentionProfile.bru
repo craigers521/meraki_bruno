@@ -1,0 +1,136 @@
+meta {
+  name: updateNetworkCameraQualityRetentionProfile
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/camera/qualityRetentionProfiles/:qualityRetentionProfileId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  qualityRetentionProfileId: {{qualityRetentionProfileId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "motionBasedRetentionEnabled": "<boolean>",
+    "restrictedBandwidthModeEnabled": "<boolean>",
+    "audioRecordingEnabled": "<boolean>",
+    "cloudArchiveEnabled": "<boolean>",
+    "motionDetectorVersion": "<integer>",
+    "smartRetention": {
+      "enabled": "<boolean>"
+    },
+    "scheduleId": "<string>",
+    "maxRetentionDays": "<integer>",
+    "videoSettings": {
+      "MV12/MV22/MV72": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV12WE": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV13": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV13M": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV21/MV71": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV22X/MV72X": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV23": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV23M": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV23X": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV32": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV33": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV33M": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV52": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV63": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV63M": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV63X": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV73": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV73M": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV73X": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV93": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV93M": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      },
+      "MV93X": {
+        "quality": "<string>",
+        "resolution": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Update an existing quality retention profile for this network.
+}

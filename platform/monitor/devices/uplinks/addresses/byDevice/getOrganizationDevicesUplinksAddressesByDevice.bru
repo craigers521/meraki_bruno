@@ -1,0 +1,43 @@
+meta {
+  name: getOrganizationDevicesUplinksAddressesByDevice
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices/uplinks/addresses/byDevice
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~tags: {{tags}}
+  ~tags: {{tags}}
+  ~tagsFilterType: {{tagsFilterType}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the current uplink addresses for devices in an organization.
+}

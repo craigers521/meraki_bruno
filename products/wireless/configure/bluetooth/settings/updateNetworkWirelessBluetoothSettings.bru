@@ -1,0 +1,40 @@
+meta {
+  name: updateNetworkWirelessBluetoothSettings
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/bluetooth/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "scanningEnabled": "<boolean>",
+    "advertisingEnabled": "<boolean>",
+    "uuid": "<string>",
+    "majorMinorAssignmentMode": "<string>",
+    "major": "<integer>",
+    "minor": "<integer>"
+  }
+}
+
+docs {
+  Update the Bluetooth settings for a network. See the docs page for <a href="https://documentation.meraki.com/MR/Bluetooth/Bluetooth_Low_Energy_(BLE)">Bluetooth settings</a>.
+}

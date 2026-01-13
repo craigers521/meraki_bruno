@@ -1,0 +1,37 @@
+meta {
+  name: updateNetworkSmTargetGroup
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/sm/targetGroups/:targetGroupId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  targetGroupId: {{targetGroupId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "scope": "<string>"
+  }
+}
+
+docs {
+  Update a target group
+}

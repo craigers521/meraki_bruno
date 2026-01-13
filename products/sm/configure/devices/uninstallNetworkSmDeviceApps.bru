@@ -1,0 +1,39 @@
+meta {
+  name: uninstallNetworkSmDeviceApps
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/:deviceId/uninstallApps
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  deviceId: {{deviceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "appIds": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Uninstall applications on a device
+}

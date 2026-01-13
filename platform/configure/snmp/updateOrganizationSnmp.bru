@@ -1,0 +1,44 @@
+meta {
+  name: updateOrganizationSnmp
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/snmp
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "v2cEnabled": "<boolean>",
+    "v3Enabled": "<boolean>",
+    "v3AuthMode": "<string>",
+    "v3AuthPass": "<string>",
+    "v3PrivMode": "<string>",
+    "v3PrivPass": "<string>",
+    "peerIps": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Update the SNMP settings for an organization
+}

@@ -1,0 +1,29 @@
+meta {
+  name: updateOrganizationCellularGatewayEsimsSwap
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/cellularGateway/esims/swap/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get the status of a profile swap.
+}

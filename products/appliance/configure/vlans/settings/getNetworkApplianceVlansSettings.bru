@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceVlansSettings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/vlans/settings
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns the enabled status of VLANs for the network
+}

@@ -1,0 +1,46 @@
+meta {
+  name: updateNetworkApplianceFirewallL7FirewallRules
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/l7FirewallRules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rules": [
+      {
+        "policy": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      },
+      {
+        "policy": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the MX L7 firewall rules for an MX network
+}

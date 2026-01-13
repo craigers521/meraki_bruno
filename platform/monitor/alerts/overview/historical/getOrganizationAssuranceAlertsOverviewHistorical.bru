@@ -1,0 +1,43 @@
+meta {
+  name: getOrganizationAssuranceAlertsOverviewHistorical
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/assurance/alerts/overview/historical
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~segmentDuration: {{segmentDuration}}
+  ~networkId: {{networkId}}
+  ~severity: {{severity}}
+  ~types: {{types}}
+  ~types: {{types}}
+  ~tsStart: {{tsStart}}
+  ~tsEnd: {{tsEnd}}
+  ~category: {{category}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~deviceTypes: {{deviceTypes}}
+  ~deviceTypes: {{deviceTypes}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns historical health alert overviews
+}

@@ -1,0 +1,48 @@
+meta {
+  name: updateNetworkMerakiAuthUser
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/merakiAuthUsers/:merakiAuthUserId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  merakiAuthUserId: {{merakiAuthUserId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "password": "<string>",
+    "emailPasswordToUser": "<boolean>",
+    "authorizations": [
+      {
+        "ssidNumber": "<integer>",
+        "expiresAt": "Never"
+      },
+      {
+        "ssidNumber": "<integer>",
+        "expiresAt": "Never"
+      }
+    ]
+  }
+}
+
+docs {
+  Update a user configured with Meraki Authentication (currently, 802.1X RADIUS, splash guest, and client VPN users can be updated)
+}

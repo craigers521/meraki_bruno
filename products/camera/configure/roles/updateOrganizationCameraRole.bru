@@ -1,0 +1,72 @@
+meta {
+  name: updateOrganizationCameraRole
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/camera/roles/:roleId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  roleId: {{roleId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "appliedOnDevices": [
+      {
+        "permissionScopeId": "<string>",
+        "tag": "<string>",
+        "id": "<string>",
+        "inNetworksWithTag": "<string>",
+        "inNetworksWithId": "<string>"
+      },
+      {
+        "permissionScopeId": "<string>",
+        "tag": "<string>",
+        "id": "<string>",
+        "inNetworksWithTag": "<string>",
+        "inNetworksWithId": "<string>"
+      }
+    ],
+    "appliedOnNetworks": [
+      {
+        "permissionScopeId": "<string>",
+        "tag": "<string>",
+        "id": "<string>"
+      },
+      {
+        "permissionScopeId": "<string>",
+        "tag": "<string>",
+        "id": "<string>"
+      }
+    ],
+    "appliedOrgWide": [
+      {
+        "permissionScopeId": "<string>"
+      },
+      {
+        "permissionScopeId": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update an existing role in this organization.
+}

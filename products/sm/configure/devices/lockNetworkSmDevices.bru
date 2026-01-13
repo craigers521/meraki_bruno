@@ -1,0 +1,51 @@
+meta {
+  name: lockNetworkSmDevices
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/lock
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "wifiMacs": [
+      "<string>",
+      "<string>"
+    ],
+    "ids": [
+      "<string>",
+      "<string>"
+    ],
+    "serials": [
+      "<string>",
+      "<string>"
+    ],
+    "scope": [
+      "<string>",
+      "<string>"
+    ],
+    "pin": "<integer>"
+  }
+}
+
+docs {
+  Lock a set of devices
+}

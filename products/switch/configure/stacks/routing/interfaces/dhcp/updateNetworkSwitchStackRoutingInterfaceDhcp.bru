@@ -1,0 +1,86 @@
+meta {
+  name: updateNetworkSwitchStackRoutingInterfaceDhcp
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces/:interfaceId/dhcp
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  switchStackId: {{switchStackId}}
+  interfaceId: {{interfaceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "dhcpMode": "<string>",
+    "dhcpRelayServerIps": [
+      "<string>",
+      "<string>"
+    ],
+    "dhcpLeaseTime": "<string>",
+    "dnsNameserversOption": "<string>",
+    "dnsCustomNameservers": [
+      "<string>",
+      "<string>"
+    ],
+    "bootOptionsEnabled": "<boolean>",
+    "bootNextServer": "<string>",
+    "bootFileName": "<string>",
+    "dhcpOptions": [
+      {
+        "code": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      },
+      {
+        "code": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      }
+    ],
+    "reservedIpRanges": [
+      {
+        "start": "<string>",
+        "end": "<string>",
+        "comment": "<string>"
+      },
+      {
+        "start": "<string>",
+        "end": "<string>",
+        "comment": "<string>"
+      }
+    ],
+    "fixedIpAssignments": [
+      {
+        "name": "<string>",
+        "mac": "<string>",
+        "ip": "<string>"
+      },
+      {
+        "name": "<string>",
+        "mac": "<string>",
+        "ip": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update a layer 3 interface DHCP configuration for a switch stack
+}

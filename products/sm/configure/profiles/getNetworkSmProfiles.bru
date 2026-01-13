@@ -1,0 +1,33 @@
+meta {
+  name: getNetworkSmProfiles
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sm/profiles
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~payloadTypes: {{payloadTypes}}
+  ~payloadTypes: {{payloadTypes}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List all profiles in a network
+}

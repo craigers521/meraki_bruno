@@ -1,0 +1,35 @@
+meta {
+  name: getOrganizationDevicesStatusesOverview
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices/statuses/overview
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return an overview of current device statuses
+}

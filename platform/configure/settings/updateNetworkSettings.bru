@@ -1,0 +1,49 @@
+meta {
+  name: updateNetworkSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "localStatusPageEnabled": "<boolean>",
+    "remoteStatusPageEnabled": "<boolean>",
+    "localStatusPage": {
+      "authentication": {
+        "enabled": "<boolean>",
+        "username": "<string>",
+        "password": "<string>"
+      }
+    },
+    "securePort": {
+      "enabled": "<boolean>"
+    },
+    "namedVlans": {
+      "enabled": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update the settings for a network
+}

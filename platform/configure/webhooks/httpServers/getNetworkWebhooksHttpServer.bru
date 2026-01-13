@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkWebhooksHttpServer
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  httpServerId: {{httpServerId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return an HTTP server for a network
+}

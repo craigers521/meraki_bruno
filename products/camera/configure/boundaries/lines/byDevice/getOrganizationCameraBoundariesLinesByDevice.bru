@@ -1,0 +1,33 @@
+meta {
+  name: getOrganizationCameraBoundariesLinesByDevice
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/camera/boundaries/lines/byDevice
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns all configured crossingline boundaries of cameras
+}

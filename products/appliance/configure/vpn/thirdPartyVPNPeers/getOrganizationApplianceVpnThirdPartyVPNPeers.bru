@@ -1,0 +1,28 @@
+meta {
+  name: getOrganizationApplianceVpnThirdPartyVPNPeers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/vpn/thirdPartyVPNPeers
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the third party VPN peers for an organization
+}

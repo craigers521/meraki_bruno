@@ -1,0 +1,41 @@
+meta {
+  name: updateNetworkSwitchStormControl
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/stormControl
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "broadcastThreshold": "<integer>",
+    "multicastThreshold": "<integer>",
+    "unknownUnicastThreshold": "<integer>",
+    "treatTheseTrafficTypesAsOneThreshold": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Update the storm control configuration for a switch network
+}

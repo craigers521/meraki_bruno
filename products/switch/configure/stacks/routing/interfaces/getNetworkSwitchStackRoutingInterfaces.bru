@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSwitchStackRoutingInterfaces
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  switchStackId: {{switchStackId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List layer 3 interfaces for a switch stack
+}

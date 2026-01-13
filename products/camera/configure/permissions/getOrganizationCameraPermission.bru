@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationCameraPermission
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/camera/permissions/:permissionScopeId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  permissionScopeId: {{permissionScopeId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Retrieve a single permission scope
+}

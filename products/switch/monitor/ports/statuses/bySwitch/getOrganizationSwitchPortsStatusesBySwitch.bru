@@ -1,0 +1,46 @@
+meta {
+  name: getOrganizationSwitchPortsStatusesBySwitch
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/switch/ports/statuses/bySwitch
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~configurationUpdatedAfter: {{configurationUpdatedAfter}}
+  ~mac: {{mac}}
+  ~macs: {{macs}}
+  ~macs: {{macs}}
+  ~name: {{name}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~portProfileIds: {{portProfileIds}}
+  ~portProfileIds: {{portProfileIds}}
+  ~serial: {{serial}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the switchports in an organization
+}

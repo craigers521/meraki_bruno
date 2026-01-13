@@ -1,0 +1,35 @@
+meta {
+  name: updateDeviceCameraVideoSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/camera/video/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "externalRtspEnabled": "<boolean>"
+  }
+}
+
+docs {
+  Update video settings for the given camera
+}

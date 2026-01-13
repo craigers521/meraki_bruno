@@ -1,0 +1,34 @@
+meta {
+  name: getOrganizationPolicyObjects
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/policyObjects
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Lists Policy Objects belonging to the organization.
+}

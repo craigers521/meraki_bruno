@@ -1,0 +1,28 @@
+meta {
+  name: getDeviceAppliancePrefixesDelegatedVlanAssignments
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/appliance/prefixes/delegated/vlanAssignments
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return prefixes assigned to all IPv6 enabled VLANs on an appliance.
+}

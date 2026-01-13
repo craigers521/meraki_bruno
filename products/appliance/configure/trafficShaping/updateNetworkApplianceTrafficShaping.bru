@@ -1,0 +1,38 @@
+meta {
+  name: updateNetworkApplianceTrafficShaping
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/trafficShaping
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "globalBandwidthLimits": {
+      "limitUp": "<integer>",
+      "limitDown": "<integer>"
+    }
+  }
+}
+
+docs {
+  Update the traffic shaping settings for an MX network
+}

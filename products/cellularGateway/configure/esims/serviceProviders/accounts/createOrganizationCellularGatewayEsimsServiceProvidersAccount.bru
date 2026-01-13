@@ -1,0 +1,41 @@
+meta {
+  name: createOrganizationCellularGatewayEsimsServiceProvidersAccount
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "accountId": "<string>",
+    "apiKey": "<string>",
+    "serviceProvider": {
+      "name": "<string>"
+    },
+    "title": "<string>",
+    "username": "<string>"
+  }
+}
+
+docs {
+  Add a service provider account.
+}

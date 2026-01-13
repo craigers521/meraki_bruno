@@ -1,0 +1,28 @@
+meta {
+  name: getOrganizationSnmp
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/snmp
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the SNMP settings for an organization
+}

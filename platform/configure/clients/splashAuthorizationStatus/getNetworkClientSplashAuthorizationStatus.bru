@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkClientSplashAuthorizationStatus
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/clients/:clientId/splashAuthorizationStatus
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  clientId: {{clientId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the splash authorization for a client, for each SSID they've associated with through splash. Only enabled SSIDs with Click-through splash enabled will be included. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+}

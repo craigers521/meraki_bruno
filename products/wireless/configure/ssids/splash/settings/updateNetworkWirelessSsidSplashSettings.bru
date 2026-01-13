@@ -1,0 +1,91 @@
+meta {
+  name: updateNetworkWirelessSsidSplashSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/splash/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "splashUrl": "<string>",
+    "useSplashUrl": "<boolean>",
+    "splashTimeout": "<integer>",
+    "redirectUrl": "<string>",
+    "useRedirectUrl": "<boolean>",
+    "welcomeMessage": "<string>",
+    "themeId": "<string>",
+    "splashLogo": {
+      "md5": "<string>",
+      "extension": "<string>",
+      "image": {
+        "format": "<string>",
+        "contents": "<byte>"
+      }
+    },
+    "splashImage": {
+      "md5": "<string>",
+      "extension": "<string>",
+      "image": {
+        "format": "<string>",
+        "contents": "<byte>"
+      }
+    },
+    "splashPrepaidFront": {
+      "md5": "<string>",
+      "extension": "<string>",
+      "image": {
+        "format": "<string>",
+        "contents": "<byte>"
+      }
+    },
+    "blockAllTrafficBeforeSignOn": "<boolean>",
+    "controllerDisconnectionBehavior": "<string>",
+    "allowSimultaneousLogins": "<boolean>",
+    "guestSponsorship": {
+      "durationInMinutes": "<integer>",
+      "guestCanRequestTimeframe": "<boolean>"
+    },
+    "billing": {
+      "freeAccess": {
+        "enabled": "<boolean>",
+        "durationInMinutes": "<integer>"
+      },
+      "prepaidAccessFastLoginEnabled": "<boolean>",
+      "replyToEmailAddress": "<string>"
+    },
+    "sentryEnrollment": {
+      "systemsManagerNetwork": {
+        "id": "<string>"
+      },
+      "strength": "<string>",
+      "enforcedSystems": [
+        "<string>",
+        "<string>"
+      ]
+    }
+  }
+}
+
+docs {
+  Modify the splash page settings for the given SSID
+}

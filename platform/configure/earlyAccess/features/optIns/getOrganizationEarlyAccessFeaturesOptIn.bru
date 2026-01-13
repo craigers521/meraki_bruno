@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationEarlyAccessFeaturesOptIn
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/earlyAccess/features/optIns/:optInId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  optInId: {{optInId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Show an early access feature opt-in for an organization
+}

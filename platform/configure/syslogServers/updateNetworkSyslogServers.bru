@@ -1,0 +1,64 @@
+meta {
+  name: updateNetworkSyslogServers
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/syslogServers
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "servers": [
+      {
+        "host": "<string>",
+        "port": "<integer>",
+        "roles": [
+          "<string>",
+          "<string>"
+        ],
+        "encryption": {
+          "enabled": "<boolean>",
+          "certificate": {
+            "id": "<string>"
+          }
+        }
+      },
+      {
+        "host": "<string>",
+        "port": "<integer>",
+        "roles": [
+          "<string>",
+          "<string>"
+        ],
+        "encryption": {
+          "enabled": "<boolean>",
+          "certificate": {
+            "id": "<string>"
+          }
+        }
+      }
+    ]
+  }
+}
+
+docs {
+  Update the syslog servers for a network
+}

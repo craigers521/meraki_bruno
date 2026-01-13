@@ -1,0 +1,28 @@
+meta {
+  name: getDeviceCellularGatewayPortForwardingRules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/cellularGateway/portForwardingRules
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns the port forwarding rules for a single MG.
+}

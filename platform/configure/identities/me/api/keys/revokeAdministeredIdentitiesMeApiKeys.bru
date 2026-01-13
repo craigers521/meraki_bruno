@@ -1,0 +1,24 @@
+meta {
+  name: revokeAdministeredIdentitiesMeApiKeys
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/administered/identities/me/api/keys/:suffix/revoke
+  body: none
+  auth: bearer
+}
+
+params:path {
+  suffix: {{suffix}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Revokes an identity's API key, using the last four characters of the key. For users who have access to more than one organization, the change will take up to five minutes to propagate. If one of the organizations is currently under maintenance, the change may not propagate fully until after the maintenance has been completed.
+}

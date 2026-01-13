@@ -1,0 +1,58 @@
+meta {
+  name: updateOrganizationLoginSecurity
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/loginSecurity
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enforcePasswordExpiration": "<boolean>",
+    "passwordExpirationDays": "<integer>",
+    "enforceDifferentPasswords": "<boolean>",
+    "numDifferentPasswords": "<integer>",
+    "enforceStrongPasswords": "<boolean>",
+    "enforceAccountLockout": "<boolean>",
+    "accountLockoutAttempts": "<integer>",
+    "enforceIdleTimeout": "<boolean>",
+    "idleTimeoutMinutes": "<integer>",
+    "enforceTwoFactorAuth": "<boolean>",
+    "enforceLoginIpRanges": "<boolean>",
+    "loginIpRanges": [
+      "<string>",
+      "<string>"
+    ],
+    "apiAuthentication": {
+      "ipRestrictionsForKeys": {
+        "enabled": "<boolean>",
+        "ranges": [
+          "<string>",
+          "<string>"
+        ]
+      }
+    }
+  }
+}
+
+docs {
+  Update the login security settings for an organization
+}

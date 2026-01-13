@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSmDeviceCellularUsageHistory
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/:deviceId/cellularUsageHistory
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  deviceId: {{deviceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the client's daily cellular data usage history. Usage data is in kilobytes.
+}

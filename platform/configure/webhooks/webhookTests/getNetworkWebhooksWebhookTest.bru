@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkWebhooksWebhookTest
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/webhooks/webhookTests/:webhookTestId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  webhookTestId: {{webhookTestId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the status of a webhook test for a network
+}

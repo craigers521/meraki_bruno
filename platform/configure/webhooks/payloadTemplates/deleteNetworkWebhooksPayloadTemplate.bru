@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkWebhooksPayloadTemplate
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  payloadTemplateId: {{payloadTemplateId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Destroy a webhook payload template for a network. Does not work for included templates ('wpt_00001', 'wpt_00002', 'wpt_00003', 'wpt_00004', 'wpt_00005' or 'wpt_00006')
+}

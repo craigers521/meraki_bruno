@@ -1,0 +1,36 @@
+meta {
+  name: updateNetworkWirelessElectronicShelfLabel
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/electronicShelfLabel
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "hostname": "<string>",
+    "enabled": "<boolean>"
+  }
+}
+
+docs {
+  Update the ESL settings of a wireless network
+}

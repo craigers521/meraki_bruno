@@ -1,0 +1,29 @@
+meta {
+  name: refreshNetworkSmDeviceDetails
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/:deviceId/refreshDetails
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  deviceId: {{deviceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Refresh the details of a device
+}

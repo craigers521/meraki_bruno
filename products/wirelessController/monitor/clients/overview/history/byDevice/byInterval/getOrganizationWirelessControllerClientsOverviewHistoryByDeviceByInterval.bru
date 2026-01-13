@@ -1,0 +1,42 @@
+meta {
+  name: getOrganizationWirelessControllerClientsOverviewHistoryByDeviceByInterval
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/wirelessController/clients/overview/history/byDevice/byInterval
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~resolution: {{resolution}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List wireless client counts of wireless LAN controllers over time in an organization
+}

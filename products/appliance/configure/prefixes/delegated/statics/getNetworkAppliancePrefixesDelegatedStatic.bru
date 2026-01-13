@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkAppliancePrefixesDelegatedStatic
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  staticDelegatedPrefixId: {{staticDelegatedPrefixId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a static delegated prefix from a network
+}

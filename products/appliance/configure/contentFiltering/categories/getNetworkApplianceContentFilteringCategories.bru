@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceContentFilteringCategories
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/contentFiltering/categories
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List all available content filtering categories for an MX network
+}

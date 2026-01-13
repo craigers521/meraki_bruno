@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationPolicyObject
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/policyObjects/:policyObjectId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  policyObjectId: {{policyObjectId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Deletes a Policy Object.
+}

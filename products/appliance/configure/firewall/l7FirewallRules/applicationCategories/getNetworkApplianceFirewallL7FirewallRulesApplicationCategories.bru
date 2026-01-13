@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceFirewallL7FirewallRulesApplicationCategories
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/l7FirewallRules/applicationCategories
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the L7 firewall application categories and their associated applications for an MX network
+}

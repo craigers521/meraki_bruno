@@ -1,0 +1,56 @@
+meta {
+  name: getOrganizationDevices
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~configurationUpdatedAfter: {{configurationUpdatedAfter}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+  ~tags: {{tags}}
+  ~tags: {{tags}}
+  ~tagsFilterType: {{tagsFilterType}}
+  ~name: {{name}}
+  ~mac: {{mac}}
+  ~serial: {{serial}}
+  ~model: {{model}}
+  ~macs: {{macs}}
+  ~macs: {{macs}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~sensorMetrics: {{sensorMetrics}}
+  ~sensorMetrics: {{sensorMetrics}}
+  ~sensorAlertProfileIds: {{sensorAlertProfileIds}}
+  ~sensorAlertProfileIds: {{sensorAlertProfileIds}}
+  ~models: {{models}}
+  ~models: {{models}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the devices in an organization that have been assigned to a network.
+}

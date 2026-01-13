@@ -1,0 +1,36 @@
+meta {
+  name: updateOrganizationCameraOnboardingStatuses
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/camera/onboarding/statuses
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "serial": "<string>",
+    "wirelessCredentialsSent": "<boolean>"
+  }
+}
+
+docs {
+  Notify that credential handoff to camera has completed
+}

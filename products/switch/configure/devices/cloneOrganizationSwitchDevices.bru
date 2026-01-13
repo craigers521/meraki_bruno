@@ -1,0 +1,39 @@
+meta {
+  name: cloneOrganizationSwitchDevices
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/switch/devices/clone
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "sourceSerial": "<string>",
+    "targetSerials": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Clone port-level and some switch-level configuration settings from a source switch to one or more target switches. Cloned settings include: Aggregation Groups, Power Settings, Multicast Settings, MTU Configuration, STP Bridge priority, Port Mirroring
+}

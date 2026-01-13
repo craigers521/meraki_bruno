@@ -1,0 +1,28 @@
+meta {
+  name: deferNetworkFirmwareUpgradesStagedEvents
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events/defer
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Postpone by 1 week all pending staged upgrade stages for a network
+}

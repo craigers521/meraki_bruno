@@ -1,0 +1,40 @@
+meta {
+  name: getDeviceSensorCommands
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/sensor/commands
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~operations: {{operations}}
+  ~operations: {{operations}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~sortOrder: {{sortOrder}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns a historical log of all commands
+}

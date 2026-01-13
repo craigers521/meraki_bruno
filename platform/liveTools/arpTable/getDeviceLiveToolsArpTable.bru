@@ -1,0 +1,29 @@
+meta {
+  name: getDeviceLiveToolsArpTable
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/liveTools/arpTable/:arpTableId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  arpTableId: {{arpTableId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return an ARP table live tool job.
+}

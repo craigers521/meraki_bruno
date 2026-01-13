@@ -1,0 +1,202 @@
+meta {
+  name: updateNetworkApplianceTrafficShapingUplinkSelection
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/trafficShaping/uplinkSelection
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "activeActiveAutoVpnEnabled": "<boolean>",
+    "defaultUplink": "<string>",
+    "loadBalancingEnabled": "<boolean>",
+    "failoverAndFailback": {
+      "immediate": {
+        "enabled": "<boolean>"
+      }
+    },
+    "wanTrafficUplinkPreferences": [
+      {
+        "trafficFilters": [
+          {
+            "type": "<string>",
+            "value": {
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          {
+            "type": "<string>",
+            "value": {
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        ],
+        "preferredUplink": "<string>"
+      },
+      {
+        "trafficFilters": [
+          {
+            "type": "<string>",
+            "value": {
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          {
+            "type": "<string>",
+            "value": {
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        ],
+        "preferredUplink": "<string>"
+      }
+    ],
+    "vpnTrafficUplinkPreferences": [
+      {
+        "trafficFilters": [
+          {
+            "type": "<string>",
+            "value": {
+              "id": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          {
+            "type": "<string>",
+            "value": {
+              "id": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        ],
+        "preferredUplink": "<string>",
+        "failOverCriterion": "<string>",
+        "performanceClass": {
+          "type": "<string>",
+          "builtinPerformanceClassName": "<string>",
+          "customPerformanceClassId": "<string>"
+        }
+      },
+      {
+        "trafficFilters": [
+          {
+            "type": "<string>",
+            "value": {
+              "id": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          {
+            "type": "<string>",
+            "value": {
+              "id": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        ],
+        "preferredUplink": "<string>",
+        "failOverCriterion": "<string>",
+        "performanceClass": {
+          "type": "<string>",
+          "builtinPerformanceClassName": "<string>",
+          "customPerformanceClassId": "<string>"
+        }
+      }
+    ]
+  }
+}
+
+docs {
+  Update uplink selection settings for an MX network
+}

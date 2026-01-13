@@ -1,0 +1,34 @@
+meta {
+  name: getNetworkSplashLoginAttempts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/splashLoginAttempts
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ssidNumber: {{ssidNumber}}
+  ~loginIdentifier: {{loginIdentifier}}
+  ~timespan: {{timespan}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the splash login attempts for a network
+}

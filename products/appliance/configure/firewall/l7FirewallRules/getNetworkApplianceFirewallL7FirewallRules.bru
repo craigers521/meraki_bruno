@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceFirewallL7FirewallRules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/l7FirewallRules
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the MX L7 firewall rules for an MX network
+}

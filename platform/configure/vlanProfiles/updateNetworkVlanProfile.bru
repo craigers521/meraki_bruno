@@ -1,0 +1,62 @@
+meta {
+  name: updateNetworkVlanProfile
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/vlanProfiles/:iname
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  iname: {{iname}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "vlanNames": [
+      {
+        "name": "<string>",
+        "vlanId": "<string>",
+        "adaptivePolicyGroup": {
+          "id": "<string>"
+        }
+      },
+      {
+        "name": "<string>",
+        "vlanId": "<string>",
+        "adaptivePolicyGroup": {
+          "id": "<string>"
+        }
+      }
+    ],
+    "vlanGroups": [
+      {
+        "name": "<string>",
+        "vlanIds": "<string>"
+      },
+      {
+        "name": "<string>",
+        "vlanIds": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update an existing VLAN profile of a network
+}

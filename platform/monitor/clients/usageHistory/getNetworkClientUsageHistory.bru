@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkClientUsageHistory
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/clients/:clientId/usageHistory
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  clientId: {{clientId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the client's daily usage history. Usage data is in kilobytes. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+}

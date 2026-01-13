@@ -1,0 +1,37 @@
+meta {
+  name: getOrganizationDevicesOverviewByModel
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices/overview/byModel
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~models: {{models}}
+  ~models: {{models}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Lists the count for each device model
+}

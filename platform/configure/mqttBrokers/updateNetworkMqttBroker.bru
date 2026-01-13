@@ -1,0 +1,49 @@
+meta {
+  name: updateNetworkMqttBroker
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/mqttBrokers/:mqttBrokerId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  mqttBrokerId: {{mqttBrokerId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "host": "<string>",
+    "port": "<integer>",
+    "security": {
+      "mode": "<string>",
+      "tls": {
+        "caCertificate": "<string>",
+        "verifyHostnames": "<boolean>"
+      }
+    },
+    "authentication": {
+      "username": "<string>",
+      "password": "<string>"
+    }
+  }
+}
+
+docs {
+  Update an MQTT broker
+}

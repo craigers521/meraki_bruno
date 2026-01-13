@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkSwitchQosRule
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/switch/qosRules/:qosRuleId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  qosRuleId: {{qosRuleId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a quality of service rule
+}

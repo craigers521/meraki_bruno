@@ -1,0 +1,45 @@
+meta {
+  name: updateNetworkWirelessSsidEapOverride
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/eapOverride
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "timeout": "<integer>",
+    "identity": {
+      "retries": "<integer>",
+      "timeout": "<integer>"
+    },
+    "maxRetries": "<integer>",
+    "eapolKey": {
+      "retries": "<integer>",
+      "timeoutInMs": "<integer>"
+    }
+  }
+}
+
+docs {
+  Update the EAP overridden parameters for an SSID.
+}

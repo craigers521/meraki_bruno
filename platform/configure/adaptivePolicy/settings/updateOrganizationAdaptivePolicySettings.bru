@@ -1,0 +1,38 @@
+meta {
+  name: updateOrganizationAdaptivePolicySettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/adaptivePolicy/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabledNetworks": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Update global adaptive policy settings
+}

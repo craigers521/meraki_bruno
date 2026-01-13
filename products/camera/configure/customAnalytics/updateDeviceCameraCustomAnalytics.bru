@@ -1,0 +1,46 @@
+meta {
+  name: updateDeviceCameraCustomAnalytics
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/camera/customAnalytics
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "artifactId": "<string>",
+    "parameters": [
+      {
+        "name": "<string>",
+        "value": "<string>"
+      },
+      {
+        "name": "<string>",
+        "value": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update custom analytics settings for a camera
+}

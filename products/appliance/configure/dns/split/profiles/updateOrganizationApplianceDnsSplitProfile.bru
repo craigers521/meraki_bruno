@@ -1,0 +1,46 @@
+meta {
+  name: updateOrganizationApplianceDnsSplitProfile
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/dns/split/profiles/:profileId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  profileId: {{profileId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "hostnames": [
+      "<string>",
+      "<string>"
+    ],
+    "nameservers": {
+      "addresses": [
+        "<string>",
+        "<string>"
+      ]
+    }
+  }
+}
+
+docs {
+  Update a split DNS profile
+}

@@ -1,0 +1,30 @@
+meta {
+  name: getOrganizationConfigTemplateSwitchProfilePorts
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/configTemplates/:configTemplateId/switch/profiles/:profileId/ports
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  configTemplateId: {{configTemplateId}}
+  profileId: {{profileId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return all the ports of a switch template
+}

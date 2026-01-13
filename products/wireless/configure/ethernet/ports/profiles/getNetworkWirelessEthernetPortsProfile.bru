@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkWirelessEthernetPortsProfile
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/ethernet/ports/profiles/:profileId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  profileId: {{profileId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Show the AP port profile by ID for this network
+}

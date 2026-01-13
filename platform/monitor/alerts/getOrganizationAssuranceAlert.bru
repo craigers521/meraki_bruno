@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationAssuranceAlert
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/assurance/alerts/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  id: 
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a singular Health Alert by its id
+}

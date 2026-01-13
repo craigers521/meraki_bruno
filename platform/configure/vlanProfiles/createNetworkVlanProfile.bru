@@ -1,0 +1,62 @@
+meta {
+  name: createNetworkVlanProfile
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/vlanProfiles
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "vlanNames": [
+      {
+        "name": "<string>",
+        "vlanId": "<string>",
+        "adaptivePolicyGroup": {
+          "id": "<string>"
+        }
+      },
+      {
+        "name": "<string>",
+        "vlanId": "<string>",
+        "adaptivePolicyGroup": {
+          "id": "<string>"
+        }
+      }
+    ],
+    "vlanGroups": [
+      {
+        "name": "<string>",
+        "vlanIds": "<string>"
+      },
+      {
+        "name": "<string>",
+        "vlanIds": "<string>"
+      }
+    ],
+    "iname": "<string>"
+  }
+}
+
+docs {
+  Create a VLAN profile for a network
+}

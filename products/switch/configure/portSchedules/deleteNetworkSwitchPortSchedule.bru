@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkSwitchPortSchedule
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/switch/portSchedules/:portScheduleId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  portScheduleId: {{portScheduleId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a switch port schedule
+}

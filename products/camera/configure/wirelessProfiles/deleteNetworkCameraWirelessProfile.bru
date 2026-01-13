@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkCameraWirelessProfile
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/camera/wirelessProfiles/:wirelessProfileId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  wirelessProfileId: {{wirelessProfileId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete an existing camera wireless profile for this network.
+}

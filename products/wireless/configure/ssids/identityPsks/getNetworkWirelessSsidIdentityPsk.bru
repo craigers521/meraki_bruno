@@ -1,0 +1,30 @@
+meta {
+  name: getNetworkWirelessSsidIdentityPsk
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/identityPsks/:identityPskId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  identityPskId: {{identityPskId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return an Identity PSK
+}

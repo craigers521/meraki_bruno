@@ -1,0 +1,40 @@
+meta {
+  name: getOrganizationCellularGatewayUplinkStatuses
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/cellularGateway/uplink/statuses
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~iccids: {{iccids}}
+  ~iccids: {{iccids}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the uplink status of every Meraki MG cellular gateway in the organization
+}

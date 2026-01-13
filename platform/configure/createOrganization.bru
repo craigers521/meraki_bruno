@@ -1,0 +1,46 @@
+meta {
+  name: createOrganization
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/organizations
+  body: json
+  auth: bearer
+}
+
+params:path {
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "management": {
+      "details": [
+        {
+          "name": "<string>",
+          "value": "<string>"
+        },
+        {
+          "name": "<string>",
+          "value": "<string>"
+        }
+      ]
+    }
+  }
+}
+
+docs {
+  Create a new organization
+}

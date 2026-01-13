@@ -1,0 +1,45 @@
+meta {
+  name: updateNetworkWirelessSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "meshingEnabled": "<boolean>",
+    "ipv6BridgeEnabled": "<boolean>",
+    "locationAnalyticsEnabled": "<boolean>",
+    "upgradeStrategy": "<string>",
+    "ledLightsOn": "<boolean>",
+    "namedVlans": {
+      "poolDhcpMonitoring": {
+        "enabled": "<boolean>",
+        "duration": "<integer>"
+      }
+    }
+  }
+}
+
+docs {
+  Update the wireless settings for a network
+}

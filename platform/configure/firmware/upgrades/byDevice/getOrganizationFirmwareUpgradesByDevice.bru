@@ -1,0 +1,45 @@
+meta {
+  name: getOrganizationFirmwareUpgradesByDevice
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/firmware/upgrades/byDevice
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~macs: {{macs}}
+  ~macs: {{macs}}
+  ~firmwareUpgradeBatchIds: {{firmwareUpgradeBatchIds}}
+  ~firmwareUpgradeBatchIds: {{firmwareUpgradeBatchIds}}
+  ~upgradeStatuses: {{upgradeStatuses}}
+  ~upgradeStatuses: {{upgradeStatuses}}
+  ~currentUpgradesOnly: {{currentUpgradesOnly}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get firmware upgrade status for the filtered devices. This endpoint currently only supports Meraki switches.
+}

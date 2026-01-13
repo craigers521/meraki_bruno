@@ -1,0 +1,62 @@
+meta {
+  name: updateNetworkApplianceStaticRoute
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/staticRoutes/:staticRouteId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  staticRouteId: {{staticRouteId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "subnet": "<string>",
+    "gatewayIp": "<string>",
+    "gatewayVlanId": "<string>",
+    "enabled": "<boolean>",
+    "fixedIpAssignments": {
+      "commodo80": {
+        "ip": "<string>",
+        "name": "<string>"
+      },
+      "adipisicing_33d": {
+        "ip": "<string>",
+        "name": "<string>"
+      }
+    },
+    "reservedIpRanges": [
+      {
+        "start": "<string>",
+        "end": "<string>",
+        "comment": "<string>"
+      },
+      {
+        "start": "<string>",
+        "end": "<string>",
+        "comment": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update a static route for an MX or teleworker network
+}

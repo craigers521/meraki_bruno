@@ -1,0 +1,39 @@
+meta {
+  name: getOrganizationCameraDetectionsHistoryByBoundaryByInterval
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/camera/detections/history/byBoundary/byInterval
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~boundaryIds: {{boundaryIds}}
+  ~boundaryIds: {{boundaryIds}}
+  ~ranges: {{ranges}}
+  ~ranges: {{ranges}}
+  ~duration: {{duration}}
+  ~perPage: {{perPage}}
+  ~boundaryTypes: {{boundaryTypes}}
+  ~boundaryTypes: {{boundaryTypes}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns analytics data for timespans
+}

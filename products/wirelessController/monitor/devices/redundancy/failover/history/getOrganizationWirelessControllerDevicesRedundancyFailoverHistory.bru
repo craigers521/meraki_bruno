@@ -1,0 +1,39 @@
+meta {
+  name: getOrganizationWirelessControllerDevicesRedundancyFailoverHistory
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/wirelessController/devices/redundancy/failover/history
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the failover events of wireless LAN controllers in an organization
+}

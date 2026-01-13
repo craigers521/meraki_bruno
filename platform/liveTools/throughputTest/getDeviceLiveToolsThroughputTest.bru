@@ -1,0 +1,29 @@
+meta {
+  name: getDeviceLiveToolsThroughputTest
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/liveTools/throughputTest/:throughputTestId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  throughputTestId: {{throughputTestId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a throughput test job
+}

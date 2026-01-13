@@ -1,0 +1,58 @@
+meta {
+  name: updateNetworkFloorPlan
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/floorPlans/:floorPlanId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  floorPlanId: {{floorPlanId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "center": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "bottomLeftCorner": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "bottomRightCorner": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "topLeftCorner": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "topRightCorner": {
+      "lat": "<float>",
+      "lng": "<float>"
+    },
+    "floorNumber": "<integer>",
+    "imageContents": "<byte>"
+  }
+}
+
+docs {
+  Update a floor plan's geolocation and other meta data
+}

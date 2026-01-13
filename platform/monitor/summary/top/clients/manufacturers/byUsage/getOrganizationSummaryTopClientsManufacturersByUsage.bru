@@ -1,0 +1,39 @@
+meta {
+  name: getOrganizationSummaryTopClientsManufacturersByUsage
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/summary/top/clients/manufacturers/byUsage
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkTag: {{networkTag}}
+  ~deviceTag: {{deviceTag}}
+  ~quantity: {{quantity}}
+  ~ssidName: {{ssidName}}
+  ~usageUplink: {{usageUplink}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return metrics for organization's top clients by data usage (in mb) over given time range, grouped by manufacturer.
+}

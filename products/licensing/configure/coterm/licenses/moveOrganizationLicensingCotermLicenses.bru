@@ -1,0 +1,66 @@
+meta {
+  name: moveOrganizationLicensingCotermLicenses
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/licensing/coterm/licenses/move
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "destination": {
+      "organizationId": "<string>",
+      "mode": "<string>"
+    },
+    "licenses": [
+      {
+        "key": "<string>",
+        "counts": [
+          {
+            "model": "<string>",
+            "count": "<integer>"
+          },
+          {
+            "model": "<string>",
+            "count": "<integer>"
+          }
+        ]
+      },
+      {
+        "key": "<string>",
+        "counts": [
+          {
+            "model": "<string>",
+            "count": "<integer>"
+          },
+          {
+            "model": "<string>",
+            "count": "<integer>"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+docs {
+  Moves a license to a different organization (coterm only)
+}

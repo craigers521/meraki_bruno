@@ -1,0 +1,40 @@
+meta {
+  name: updateNetworkApplianceSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "clientTrackingMethod": "<string>",
+    "deploymentMode": "<string>",
+    "dynamicDns": {
+      "prefix": "<string>",
+      "enabled": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update the appliance settings for a network
+}

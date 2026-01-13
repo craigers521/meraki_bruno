@@ -1,0 +1,28 @@
+meta {
+  name: getOrganizationAdaptivePolicyAcls
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/adaptivePolicy/acls
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List adaptive policy ACLs in a organization
+}

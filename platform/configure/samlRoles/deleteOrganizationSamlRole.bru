@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationSamlRole
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/samlRoles/:samlRoleId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  samlRoleId: {{samlRoleId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Remove a SAML role
+}

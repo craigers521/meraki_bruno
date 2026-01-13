@@ -1,0 +1,38 @@
+meta {
+  name: updateNetworkSwitchQosRulesOrder
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/qosRules/order
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "ruleIds": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Update the order in which the rules should be processed by the switch
+}

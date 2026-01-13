@@ -1,0 +1,43 @@
+meta {
+  name: getNetworkPiiSmDevicesForKey
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/pii/smDevicesForKey
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~username: {{username}}
+  ~email: {{email}}
+  ~mac: {{mac}}
+  ~serial: {{serial}}
+  ~imei: {{imei}}
+  ~bluetoothMac: {{bluetoothMac}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier. These device IDs can be used with the Systems Manager API endpoints to retrieve device details. Exactly one identifier will be accepted.
+  
+  ## ALTERNATE PATH
+  
+  ```
+  /organizations/{organizationId}/pii/smDevicesForKey
+  ```
+}

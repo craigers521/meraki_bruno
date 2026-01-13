@@ -1,0 +1,114 @@
+meta {
+  name: updateNetworkApplianceSdwanInternetPolicies
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/sdwan/internetPolicies
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "wanTrafficUplinkPreferences": [
+      {
+        "preferredUplink": "<string>",
+        "trafficFilters": [
+          {
+            "type": "<string>",
+            "value": {
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          {
+            "type": "<string>",
+            "value": {
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        ],
+        "failOverCriterion": "<string>",
+        "performanceClass": {
+          "type": "<string>",
+          "builtinPerformanceClassName": "<string>",
+          "customPerformanceClassId": "<string>"
+        }
+      },
+      {
+        "preferredUplink": "<string>",
+        "trafficFilters": [
+          {
+            "type": "<string>",
+            "value": {
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          {
+            "type": "<string>",
+            "value": {
+              "source": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "destination": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              "protocol": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        ],
+        "failOverCriterion": "<string>",
+        "performanceClass": {
+          "type": "<string>",
+          "builtinPerformanceClassName": "<string>",
+          "customPerformanceClassId": "<string>"
+        }
+      }
+    ]
+  }
+}
+
+docs {
+  Update SDWAN internet traffic preferences for an MX network
+}

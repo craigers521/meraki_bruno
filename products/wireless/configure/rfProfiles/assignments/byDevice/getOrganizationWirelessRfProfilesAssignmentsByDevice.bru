@@ -1,0 +1,48 @@
+meta {
+  name: getOrganizationWirelessRfProfilesAssignmentsByDevice
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/wireless/rfProfiles/assignments/byDevice
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+  ~name: {{name}}
+  ~mac: {{mac}}
+  ~serial: {{serial}}
+  ~model: {{model}}
+  ~macs: {{macs}}
+  ~macs: {{macs}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~models: {{models}}
+  ~models: {{models}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the RF profiles of an organization by device
+}

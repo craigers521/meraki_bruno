@@ -1,0 +1,37 @@
+meta {
+  name: updateNetworkSwitchRoutingMulticastRendezvousPoint
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/routing/multicast/rendezvousPoints/:rendezvousPointId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  rendezvousPointId: {{rendezvousPointId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "interfaceIp": "<string>",
+    "multicastGroup": "<string>"
+  }
+}
+
+docs {
+  Update a multicast rendezvous point
+}

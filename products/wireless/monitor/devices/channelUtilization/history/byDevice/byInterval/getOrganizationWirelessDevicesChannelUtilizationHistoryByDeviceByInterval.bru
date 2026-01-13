@@ -1,0 +1,42 @@
+meta {
+  name: getOrganizationWirelessDevicesChannelUtilizationHistoryByDeviceByInterval
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/history/byDevice/byInterval
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~interval: {{interval}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get a time-series of average channel utilization for all bands, segmented by device.
+}

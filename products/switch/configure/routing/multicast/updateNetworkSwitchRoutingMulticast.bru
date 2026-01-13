@@ -1,0 +1,72 @@
+meta {
+  name: updateNetworkSwitchRoutingMulticast
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/routing/multicast
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "defaultSettings": {
+      "igmpSnoopingEnabled": "<boolean>",
+      "floodUnknownMulticastTrafficEnabled": "<boolean>"
+    },
+    "overrides": [
+      {
+        "igmpSnoopingEnabled": "<boolean>",
+        "floodUnknownMulticastTrafficEnabled": "<boolean>",
+        "switchProfiles": [
+          "<string>",
+          "<string>"
+        ],
+        "switches": [
+          "<string>",
+          "<string>"
+        ],
+        "stacks": [
+          "<string>",
+          "<string>"
+        ]
+      },
+      {
+        "igmpSnoopingEnabled": "<boolean>",
+        "floodUnknownMulticastTrafficEnabled": "<boolean>",
+        "switchProfiles": [
+          "<string>",
+          "<string>"
+        ],
+        "switches": [
+          "<string>",
+          "<string>"
+        ],
+        "stacks": [
+          "<string>",
+          "<string>"
+        ]
+      }
+    ]
+  }
+}
+
+docs {
+  Update multicast settings for a network
+}

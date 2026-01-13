@@ -1,0 +1,42 @@
+meta {
+  name: updateNetworkSwitchStackRoutingStaticRoute
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/stacks/:switchStackId/routing/staticRoutes/:staticRouteId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  switchStackId: {{switchStackId}}
+  staticRouteId: {{staticRouteId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "subnet": "<string>",
+    "nextHopIp": "<string>",
+    "managementNextHop": "<string>",
+    "advertiseViaOspfEnabled": "<boolean>",
+    "preferOverOspfRoutesEnabled": "<boolean>"
+  }
+}
+
+docs {
+  Update a layer 3 static route for a switch stack
+}

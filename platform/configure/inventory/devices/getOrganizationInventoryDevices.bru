@@ -1,0 +1,51 @@
+meta {
+  name: getOrganizationInventoryDevices
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/inventory/devices
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~usedState: {{usedState}}
+  ~search: {{search}}
+  ~macs: {{macs}}
+  ~macs: {{macs}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~models: {{models}}
+  ~models: {{models}}
+  ~orderNumbers: {{orderNumbers}}
+  ~orderNumbers: {{orderNumbers}}
+  ~tags: {{tags}}
+  ~tags: {{tags}}
+  ~tagsFilterType: {{tagsFilterType}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the device inventory for an organization
+}

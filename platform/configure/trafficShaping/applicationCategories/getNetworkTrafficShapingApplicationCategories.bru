@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkTrafficShapingApplicationCategories
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/trafficShaping/applicationCategories
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns the application categories for traffic shaping rules. Only applicable on networks with a security applicance.
+}

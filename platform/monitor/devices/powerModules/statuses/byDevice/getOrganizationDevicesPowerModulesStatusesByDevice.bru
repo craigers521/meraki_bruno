@@ -1,0 +1,43 @@
+meta {
+  name: getOrganizationDevicesPowerModulesStatusesByDevice
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices/powerModules/statuses/byDevice
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~tags: {{tags}}
+  ~tags: {{tags}}
+  ~tagsFilterType: {{tagsFilterType}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the most recent status information for power modules in rackmount MX and MS devices that support them. The data returned by this endpoint is updated every 5 minutes.
+}

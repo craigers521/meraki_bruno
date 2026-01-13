@@ -1,0 +1,36 @@
+meta {
+  name: createNetworkSmTargetGroup
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/targetGroups
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "scope": "<string>"
+  }
+}
+
+docs {
+  Add a target group
+}

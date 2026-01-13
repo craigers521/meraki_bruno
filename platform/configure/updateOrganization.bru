@@ -1,0 +1,50 @@
+meta {
+  name: updateOrganization
+  type: http
+  seq: 15
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "management": {
+      "details": [
+        {
+          "name": "<string>",
+          "value": "<string>"
+        },
+        {
+          "name": "<string>",
+          "value": "<string>"
+        }
+      ]
+    },
+    "api": {
+      "enabled": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update an organization
+}

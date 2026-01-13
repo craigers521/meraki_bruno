@@ -1,0 +1,62 @@
+meta {
+  name: updateNetworkWirelessEthernetPortsProfile
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ethernet/ports/profiles/:profileId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  profileId: {{profileId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "ports": [
+      {
+        "name": "<string>",
+        "enabled": "<boolean>",
+        "ssid": "<integer>",
+        "pskGroupId": "<string>"
+      },
+      {
+        "name": "<string>",
+        "enabled": "<boolean>",
+        "ssid": "<integer>",
+        "pskGroupId": "<string>"
+      }
+    ],
+    "usbPorts": [
+      {
+        "name": "<string>",
+        "enabled": "<boolean>",
+        "ssid": "<integer>"
+      },
+      {
+        "name": "<string>",
+        "enabled": "<boolean>",
+        "ssid": "<integer>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the AP port profile by ID for this network
+}

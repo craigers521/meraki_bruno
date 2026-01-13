@@ -1,0 +1,41 @@
+meta {
+  name: updateOrganizationSmAdminsRole
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/sm/admins/roles/:roleId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  roleId: {{roleId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "scope": "<string>",
+    "tags": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Update a Limited Access Role
+}

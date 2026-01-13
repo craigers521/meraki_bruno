@@ -1,0 +1,40 @@
+meta {
+  name: updateNetworkCellularGatewayDhcp
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/cellularGateway/dhcp
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "dhcpLeaseTime": "<string>",
+    "dnsNameservers": "<string>",
+    "dnsCustomNameservers": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Update common DHCP settings of MGs
+}

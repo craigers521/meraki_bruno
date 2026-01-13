@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkSwitchDscpToCosMappings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/switch/dscpToCosMappings
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the DSCP to CoS mappings
+}

@@ -1,0 +1,43 @@
+meta {
+  name: getOrganizationApiRequestsOverviewResponseCodesByInterval
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/apiRequests/overview/responseCodes/byInterval
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~interval: {{interval}}
+  ~version: {{version}}
+  ~operationIds: {{operationIds}}
+  ~operationIds: {{operationIds}}
+  ~sourceIps: {{sourceIps}}
+  ~sourceIps: {{sourceIps}}
+  ~adminIds: {{adminIds}}
+  ~adminIds: {{adminIds}}
+  ~userAgent: {{userAgent}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Tracks organizations' API requests by response code across a given time period
+}

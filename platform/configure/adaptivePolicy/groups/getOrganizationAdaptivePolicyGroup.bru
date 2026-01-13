@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationAdaptivePolicyGroup
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/adaptivePolicy/groups/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  id: 
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns an adaptive policy group
+}

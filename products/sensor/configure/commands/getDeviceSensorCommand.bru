@@ -1,0 +1,29 @@
+meta {
+  name: getDeviceSensorCommand
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/sensor/commands/:commandId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  commandId: {{commandId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns information about the command's execution, including the status
+}

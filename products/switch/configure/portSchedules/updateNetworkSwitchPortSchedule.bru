@@ -1,0 +1,73 @@
+meta {
+  name: updateNetworkSwitchPortSchedule
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/portSchedules/:portScheduleId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  portScheduleId: {{portScheduleId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "portSchedule": {
+      "monday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "tuesday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "wednesday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "thursday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "friday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "saturday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "sunday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Update a switch port schedule
+}

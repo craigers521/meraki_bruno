@@ -1,0 +1,46 @@
+meta {
+  name: createDeviceLiveToolsWakeOnLan
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/liveTools/wakeOnLan
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "vlanId": "<integer>",
+    "mac": "<string>",
+    "callback": {
+      "url": "<string>",
+      "sharedSecret": "<string>",
+      "httpServer": {
+        "id": "<string>"
+      },
+      "payloadTemplate": {
+        "id": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Enqueue a job to send a Wake-on-LAN packet from the device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests.
+}

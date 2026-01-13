@@ -1,0 +1,36 @@
+meta {
+  name: createNetworkSwitchRoutingMulticastRendezvousPoint
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/switch/routing/multicast/rendezvousPoints
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "interfaceIp": "<string>",
+    "multicastGroup": "<string>"
+  }
+}
+
+docs {
+  Create a multicast rendezvous point
+}

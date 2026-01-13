@@ -1,0 +1,62 @@
+meta {
+  name: updateNetworkApplianceSsid
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/ssids/:number
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "enabled": "<boolean>",
+    "defaultVlanId": "<integer>",
+    "authMode": "<string>",
+    "psk": "<string>",
+    "radiusServers": [
+      {
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      },
+      {
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      }
+    ],
+    "encryptionMode": "<string>",
+    "wpaEncryptionMode": "<string>",
+    "visible": "<boolean>",
+    "dhcpEnforcedDeauthentication": {
+      "enabled": "<boolean>"
+    },
+    "dot11w": {
+      "enabled": "<boolean>",
+      "required": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update the attributes of an MX SSID
+}

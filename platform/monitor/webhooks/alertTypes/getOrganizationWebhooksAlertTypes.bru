@@ -1,0 +1,32 @@
+meta {
+  name: getOrganizationWebhooksAlertTypes
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/webhooks/alertTypes
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~productType: {{productType}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a list of alert types to be used with managing webhook alerts
+}

@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationAdaptivePolicyPolicy
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/adaptivePolicy/policies/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  id: 
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete an Adaptive Policy
+}

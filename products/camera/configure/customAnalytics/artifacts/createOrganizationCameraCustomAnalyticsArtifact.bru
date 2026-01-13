@@ -1,0 +1,35 @@
+meta {
+  name: createOrganizationCameraCustomAnalyticsArtifact
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/camera/customAnalytics/artifacts
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>"
+  }
+}
+
+docs {
+  Create custom analytics artifact. Returns an artifact upload URL with expiry time. Upload the artifact file with a put request to the returned upload URL before its expiry.
+}

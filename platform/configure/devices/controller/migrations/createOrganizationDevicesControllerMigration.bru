@@ -1,0 +1,39 @@
+meta {
+  name: createOrganizationDevicesControllerMigration
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/devices/controller/migrations
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "serials": [
+      "<string>",
+      "<string>"
+    ],
+    "target": "<string>"
+  }
+}
+
+docs {
+  Migrate devices to another controller or management mode
+}

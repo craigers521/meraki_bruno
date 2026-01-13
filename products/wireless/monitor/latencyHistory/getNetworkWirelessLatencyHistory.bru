@@ -1,0 +1,42 @@
+meta {
+  name: getNetworkWirelessLatencyHistory
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/latencyHistory
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~resolution: {{resolution}}
+  ~autoResolution: {{autoResolution}}
+  ~clientId: {{clientId}}
+  ~deviceSerial: {{deviceSerial}}
+  ~apTag: {{apTag}}
+  ~band: {{band}}
+  ~ssid: {{ssid}}
+  ~accessCategory: {{accessCategory}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return average wireless latency over time for a network, device, or network client
+}

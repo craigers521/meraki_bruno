@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationAlertsProfile
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/alerts/profiles/:alertConfigId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  alertConfigId: {{alertConfigId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Removes an organization-wide alert config
+}

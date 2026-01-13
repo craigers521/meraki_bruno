@@ -1,0 +1,58 @@
+meta {
+  name: updateNetworkSwitchAccessControlLists
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/accessControlLists
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rules": [
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "srcCidr": "<string>",
+        "dstCidr": "<string>",
+        "comment": "<string>",
+        "ipVersion": "<string>",
+        "srcPort": "<string>",
+        "dstPort": "<string>",
+        "vlan": "<string>"
+      },
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "srcCidr": "<string>",
+        "dstCidr": "<string>",
+        "comment": "<string>",
+        "ipVersion": "<string>",
+        "srcPort": "<string>",
+        "dstPort": "<string>",
+        "vlan": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the access control lists for a MS network
+}

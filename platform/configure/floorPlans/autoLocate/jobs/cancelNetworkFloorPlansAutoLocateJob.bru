@@ -1,0 +1,25 @@
+meta {
+  name: cancelNetworkFloorPlansAutoLocateJob
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/floorPlans/autoLocate/jobs/:jobId/cancel
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  jobId: {{jobId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Cancel a scheduled or running auto locate job
+}

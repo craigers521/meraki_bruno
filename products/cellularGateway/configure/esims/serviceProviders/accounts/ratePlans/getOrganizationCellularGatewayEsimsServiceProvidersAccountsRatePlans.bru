@@ -1,0 +1,33 @@
+meta {
+  name: getOrganizationCellularGatewayEsimsServiceProvidersAccountsRatePlans
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts/ratePlans
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~accountIds: {{accountIds}}
+  ~accountIds: {{accountIds}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  The rate plans available for a given provider.
+}

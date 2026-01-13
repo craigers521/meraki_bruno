@@ -1,0 +1,40 @@
+meta {
+  name: getNetworkVlanProfilesAssignmentsByDevice
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/vlanProfiles/assignments/byDevice
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+  ~stackIds: {{stackIds}}
+  ~stackIds: {{stackIds}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get the assigned VLAN Profiles for devices in a network
+}

@@ -1,0 +1,28 @@
+meta {
+  name: getOrganizationInsightMonitoredMediaServers
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/insight/monitoredMediaServers
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the monitored media servers for this organization. Only valid for organizations with Meraki Insight.
+}

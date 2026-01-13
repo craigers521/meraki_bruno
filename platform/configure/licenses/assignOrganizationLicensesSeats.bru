@@ -1,0 +1,37 @@
+meta {
+  name: assignOrganizationLicensesSeats
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/licenses/assignSeats
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "licenseId": "<string>",
+    "networkId": "<string>",
+    "seatCount": "<integer>"
+  }
+}
+
+docs {
+  Assign SM seats to a network. This will increase the managed SM device limit of the network
+}

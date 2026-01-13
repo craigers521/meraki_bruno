@@ -1,0 +1,26 @@
+meta {
+  name: deleteNetworkWirelessSsidIdentityPsk
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/identityPsks/:identityPskId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  identityPskId: {{identityPskId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete an Identity PSK
+}

@@ -1,0 +1,51 @@
+meta {
+  name: updateNetworkSwitchDhcpServerPolicy
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/dhcpServerPolicy
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "alerts": {
+      "email": {
+        "enabled": "<boolean>"
+      }
+    },
+    "defaultPolicy": "<string>",
+    "allowedServers": [
+      "<string>",
+      "<string>"
+    ],
+    "blockedServers": [
+      "<string>",
+      "<string>"
+    ],
+    "arpInspection": {
+      "enabled": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update the DHCP server settings. Blocked/allowed servers are only applied when default policy is allow/block, respectively
+}

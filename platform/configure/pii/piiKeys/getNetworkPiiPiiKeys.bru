@@ -1,0 +1,43 @@
+meta {
+  name: getNetworkPiiPiiKeys
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/pii/piiKeys
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~username: {{username}}
+  ~email: {{email}}
+  ~mac: {{mac}}
+  ~serial: {{serial}}
+  ~imei: {{imei}}
+  ~bluetoothMac: {{bluetoothMac}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the keys required to access Personally Identifiable Information (PII) for a given identifier. Exactly one identifier will be accepted. If the organization contains org-wide Systems Manager users matching the key provided then there will be an entry with the key "0" containing the applicable keys.
+  
+  ## ALTERNATE PATH
+  
+  ```
+  /organizations/{organizationId}/pii/piiKeys
+  ```
+}

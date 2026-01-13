@@ -1,0 +1,50 @@
+meta {
+  name: getNetworkEvents
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/events
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~productType: {{productType}}
+  ~includedEventTypes[]: {{includedEventTypes[]}}
+  ~includedEventTypes[]: {{includedEventTypes[]}}
+  ~excludedEventTypes[]: {{excludedEventTypes[]}}
+  ~excludedEventTypes[]: {{excludedEventTypes[]}}
+  ~deviceMac: {{deviceMac}}
+  ~deviceSerial: {{deviceSerial}}
+  ~deviceName: {{deviceName}}
+  ~clientIp: {{clientIp}}
+  ~clientMac: {{clientMac}}
+  ~clientName: {{clientName}}
+  ~smDeviceMac: {{smDeviceMac}}
+  ~smDeviceName: {{smDeviceName}}
+  ~eventDetails: {{eventDetails}}
+  ~eventSeverity: {{eventSeverity}}
+  ~isCatalyst: {{isCatalyst}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the events for the network
+}

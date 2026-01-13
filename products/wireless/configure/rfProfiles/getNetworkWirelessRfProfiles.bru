@@ -1,0 +1,32 @@
+meta {
+  name: getNetworkWirelessRfProfiles
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/rfProfiles
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~includeTemplateProfiles: {{includeTemplateProfiles}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List RF profiles for this network
+}

@@ -1,0 +1,53 @@
+meta {
+  name: updateDeviceSwitchRoutingInterface
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/switch/routing/interfaces/:interfaceId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  interfaceId: {{interfaceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "subnet": "<string>",
+    "interfaceIp": "<string>",
+    "multicastRouting": "<string>",
+    "vlanId": "<integer>",
+    "defaultGateway": "<string>",
+    "ospfSettings": {
+      "area": "<string>",
+      "cost": "<integer>",
+      "isPassiveEnabled": "<boolean>"
+    },
+    "ipv6": {
+      "assignmentMode": "<string>",
+      "prefix": "<string>",
+      "address": "<string>",
+      "gateway": "<string>"
+    },
+    "vrf": "<object>"
+  }
+}
+
+docs {
+  Update a layer 3 interface for a switch
+}

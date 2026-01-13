@@ -1,0 +1,44 @@
+meta {
+  name: createDeviceLiveToolsThroughputTest
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/liveTools/throughputTest
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "callback": {
+      "url": "<string>",
+      "sharedSecret": "<string>",
+      "httpServer": {
+        "id": "<string>"
+      },
+      "payloadTemplate": {
+        "id": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Enqueue a job to test a device throughput, the test will run for 10 secs to test throughput. This endpoint has a rate limit of one request every five seconds per device.
+}

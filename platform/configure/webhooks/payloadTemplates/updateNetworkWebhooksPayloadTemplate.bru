@@ -1,0 +1,49 @@
+meta {
+  name: updateNetworkWebhooksPayloadTemplate
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  payloadTemplateId: {{payloadTemplateId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "body": "<string>",
+    "headers": [
+      {
+        "name": "<string>",
+        "template": "<string>"
+      },
+      {
+        "name": "<string>",
+        "template": "<string>"
+      }
+    ],
+    "bodyFile": "<byte>",
+    "headersFile": "<byte>"
+  }
+}
+
+docs {
+  Update a webhook payload template for a network
+}

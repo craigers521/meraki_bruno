@@ -1,0 +1,56 @@
+meta {
+  name: updateNetworkApplianceTrafficShapingVpnExclusions
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/trafficShaping/vpnExclusions
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "custom": [
+      {
+        "protocol": "<string>",
+        "destination": "<string>",
+        "port": "<string>"
+      },
+      {
+        "protocol": "<string>",
+        "destination": "<string>",
+        "port": "<string>"
+      }
+    ],
+    "majorApplications": [
+      {
+        "id": "<string>",
+        "name": "<string>"
+      },
+      {
+        "id": "<string>",
+        "name": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update VPN exclusion rules for an MX network.
+}

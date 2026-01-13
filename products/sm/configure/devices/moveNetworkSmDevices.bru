@@ -1,0 +1,51 @@
+meta {
+  name: moveNetworkSmDevices
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/move
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "newNetwork": "<string>",
+    "wifiMacs": [
+      "<string>",
+      "<string>"
+    ],
+    "ids": [
+      "<string>",
+      "<string>"
+    ],
+    "serials": [
+      "<string>",
+      "<string>"
+    ],
+    "scope": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Move a set of devices to a new network
+}

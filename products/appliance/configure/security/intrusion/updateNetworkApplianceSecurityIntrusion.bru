@@ -1,0 +1,47 @@
+meta {
+  name: updateNetworkApplianceSecurityIntrusion
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/security/intrusion
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "mode": "<string>",
+    "idsRulesets": "<string>",
+    "protectedNetworks": {
+      "useDefault": "<boolean>",
+      "includedCidr": [
+        "<string>",
+        "<string>"
+      ],
+      "excludedCidr": [
+        "<string>",
+        "<string>"
+      ]
+    }
+  }
+}
+
+docs {
+  Set the supported intrusion settings for an MX network
+}

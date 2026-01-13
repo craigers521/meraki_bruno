@@ -1,0 +1,47 @@
+meta {
+  name: getOrganizationDevicesStatuses
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices/statuses
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~statuses: {{statuses}}
+  ~statuses: {{statuses}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+  ~models: {{models}}
+  ~models: {{models}}
+  ~tags: {{tags}}
+  ~tags: {{tags}}
+  ~tagsFilterType: {{tagsFilterType}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the status of every Meraki device in the organization
+}

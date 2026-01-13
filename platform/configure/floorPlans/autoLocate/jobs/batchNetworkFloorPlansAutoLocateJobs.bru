@@ -1,0 +1,52 @@
+meta {
+  name: batchNetworkFloorPlansAutoLocateJobs
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/floorPlans/autoLocate/jobs/batch
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "jobs": [
+      {
+        "floorPlanId": "<string>",
+        "refresh": [
+          "<string>",
+          "<string>"
+        ],
+        "scheduledAt": "<dateTime>"
+      },
+      {
+        "floorPlanId": "<string>",
+        "refresh": [
+          "<string>",
+          "<string>"
+        ],
+        "scheduledAt": "<dateTime>"
+      }
+    ]
+  }
+}
+
+docs {
+  Schedule auto locate jobs for one or more floor plans in a network
+}

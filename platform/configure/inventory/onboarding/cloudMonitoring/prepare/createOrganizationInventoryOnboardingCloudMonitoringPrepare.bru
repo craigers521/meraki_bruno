@@ -1,0 +1,125 @@
+meta {
+  name: createOrganizationInventoryOnboardingCloudMonitoringPrepare
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/inventory/onboarding/cloudMonitoring/prepare
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "devices": [
+      {
+        "sudi": "<string>",
+        "tunnel": {
+          "certificateName": "<string>",
+          "name": "<string>",
+          "loopbackNumber": "<integer>",
+          "localInterface": "<integer>"
+        },
+        "user": {
+          "username": "<string>"
+        },
+        "vty": {
+          "startLineNumber": "<integer>",
+          "endLineNumber": "<integer>",
+          "authentication": {
+            "group": {
+              "name": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "authorization": {
+            "group": {
+              "name": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "accessList": {
+            "vtyIn": {
+              "name": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            },
+            "vtyOut": {
+              "name": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "rotaryNumber": "<integer>"
+        }
+      },
+      {
+        "sudi": "<string>",
+        "tunnel": {
+          "certificateName": "<string>",
+          "name": "<string>",
+          "loopbackNumber": "<integer>",
+          "localInterface": "<integer>"
+        },
+        "user": {
+          "username": "<string>"
+        },
+        "vty": {
+          "startLineNumber": "<integer>",
+          "endLineNumber": "<integer>",
+          "authentication": {
+            "group": {
+              "name": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "authorization": {
+            "group": {
+              "name": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "accessList": {
+            "vtyIn": {
+              "name": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            },
+            "vtyOut": {
+              "name": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "rotaryNumber": "<integer>"
+        }
+      }
+    ],
+    "options": {
+      "skipCommit": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Initiates or updates an import session. An import ID will be generated and used when you are ready to commit the import.
+}

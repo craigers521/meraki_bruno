@@ -1,0 +1,34 @@
+meta {
+  name: getNetworkSwitchDhcpServerPolicyArpInspectionTrustedServers
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/switch/dhcpServerPolicy/arpInspection/trustedServers
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the list of servers trusted by Dynamic ARP Inspection on this network. These are also known as allow listed snoop entries
+}

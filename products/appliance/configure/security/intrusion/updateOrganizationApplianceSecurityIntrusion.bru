@@ -1,0 +1,44 @@
+meta {
+  name: updateOrganizationApplianceSecurityIntrusion
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/security/intrusion
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "allowedRules": [
+      {
+        "ruleId": "<string>",
+        "message": "<string>"
+      },
+      {
+        "ruleId": "<string>",
+        "message": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Sets supported intrusion settings for an organization
+}

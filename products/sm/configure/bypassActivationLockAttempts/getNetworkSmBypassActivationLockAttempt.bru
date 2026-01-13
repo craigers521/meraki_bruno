@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSmBypassActivationLockAttempt
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sm/bypassActivationLockAttempts/:attemptId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  attemptId: {{attemptId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Bypass activation lock attempt status
+}

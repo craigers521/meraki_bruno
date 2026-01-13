@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationAdmin
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/admins/:adminId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  adminId: {{adminId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Revoke all access for a dashboard administrator within this organization
+}

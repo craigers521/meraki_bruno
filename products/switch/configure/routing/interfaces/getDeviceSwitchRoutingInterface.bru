@@ -1,0 +1,29 @@
+meta {
+  name: getDeviceSwitchRoutingInterface
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/switch/routing/interfaces/:interfaceId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  interfaceId: {{interfaceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a layer 3 interface for a switch
+}

@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceFirewallOneToOneNatRules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/oneToOneNatRules
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the 1:1 NAT mapping rules for an MX network
+}

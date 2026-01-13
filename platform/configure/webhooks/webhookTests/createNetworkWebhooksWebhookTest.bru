@@ -1,0 +1,39 @@
+meta {
+  name: createNetworkWebhooksWebhookTest
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/webhooks/webhookTests
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "url": "<string>",
+    "sharedSecret": "",
+    "payloadTemplateId": "<string>",
+    "payloadTemplateName": "<string>",
+    "alertTypeId": "power_supply_down"
+  }
+}
+
+docs {
+  Send a test webhook for a network
+}

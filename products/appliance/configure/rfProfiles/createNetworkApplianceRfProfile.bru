@@ -1,0 +1,61 @@
+meta {
+  name: createNetworkApplianceRfProfile
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/appliance/rfProfiles
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "twoFourGhzSettings": {
+      "minBitrate": "<float>",
+      "axEnabled": "<boolean>"
+    },
+    "fiveGhzSettings": {
+      "minBitrate": "<integer>",
+      "axEnabled": "<boolean>"
+    },
+    "perSsidSettings": {
+      "1": {
+        "bandOperationMode": "<string>",
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "2": {
+        "bandOperationMode": "<string>",
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "3": {
+        "bandOperationMode": "<string>",
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "4": {
+        "bandOperationMode": "<string>",
+        "bandSteeringEnabled": "<boolean>"
+      }
+    }
+  }
+}
+
+docs {
+  Creates new RF profile for this network
+}

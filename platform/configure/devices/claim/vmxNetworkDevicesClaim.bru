@@ -1,0 +1,35 @@
+meta {
+  name: vmxNetworkDevicesClaim
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/devices/claim/vmx
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "size": "<string>"
+  }
+}
+
+docs {
+  Claim a vMX into a network
+}

@@ -1,0 +1,38 @@
+meta {
+  name: getOrganizationFloorPlansAutoLocateStatuses
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/floorPlans/autoLocate/statuses
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~floorPlanIds: {{floorPlanIds}}
+  ~floorPlanIds: {{floorPlanIds}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the status of auto locate for each floorplan in your organization
+}

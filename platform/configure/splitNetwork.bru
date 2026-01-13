@@ -1,0 +1,28 @@
+meta {
+  name: splitNetwork
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/split
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Split a combined network into individual networks for each type of device
+}

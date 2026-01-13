@@ -1,0 +1,262 @@
+meta {
+  name: updateNetworkWirelessSsid
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "enabled": "<boolean>",
+    "authMode": "<string>",
+    "enterpriseAdminAccess": "<string>",
+    "encryptionMode": "<string>",
+    "psk": "<string>",
+    "wpaEncryptionMode": "<string>",
+    "dot11w": {
+      "enabled": "<boolean>",
+      "required": "<boolean>"
+    },
+    "dot11r": {
+      "enabled": "<boolean>",
+      "adaptive": "<boolean>"
+    },
+    "splashPage": "<string>",
+    "splashGuestSponsorDomains": [
+      "<string>",
+      "<string>"
+    ],
+    "oauth": {
+      "allowedDomains": [
+        "<string>",
+        "<string>"
+      ]
+    },
+    "localRadius": {
+      "cacheTimeout": "<integer>",
+      "passwordAuthentication": {
+        "enabled": "<boolean>"
+      },
+      "certificateAuthentication": {
+        "enabled": "<boolean>",
+        "useLdap": "<boolean>",
+        "useOcsp": "<boolean>",
+        "ocspResponderUrl": "<string>",
+        "clientRootCaCertificate": {
+          "contents": "<string>"
+        }
+      }
+    },
+    "ldap": {
+      "servers": [
+        {
+          "host": "<string>",
+          "port": "<integer>"
+        },
+        {
+          "host": "<string>",
+          "port": "<integer>"
+        }
+      ],
+      "credentials": {
+        "distinguishedName": "<string>",
+        "password": "<string>"
+      },
+      "baseDistinguishedName": "<string>",
+      "serverCaCertificate": {
+        "contents": "<string>"
+      }
+    },
+    "activeDirectory": {
+      "servers": [
+        {
+          "host": "<string>",
+          "port": "<integer>"
+        },
+        {
+          "host": "<string>",
+          "port": "<integer>"
+        }
+      ],
+      "credentials": {
+        "logonName": "<string>",
+        "password": "<string>"
+      }
+    },
+    "radiusServers": [
+      {
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>",
+        "radsecEnabled": "<boolean>",
+        "openRoamingCertificateId": "<integer>",
+        "caCertificate": "<string>"
+      },
+      {
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>",
+        "radsecEnabled": "<boolean>",
+        "openRoamingCertificateId": "<integer>",
+        "caCertificate": "<string>"
+      }
+    ],
+    "radiusProxyEnabled": "<boolean>",
+    "radiusTestingEnabled": "<boolean>",
+    "radiusCalledStationId": "<string>",
+    "radiusAuthenticationNasId": "<string>",
+    "radiusServerTimeout": "<integer>",
+    "radiusServerAttemptsLimit": "<integer>",
+    "radiusFallbackEnabled": "<boolean>",
+    "radiusRadsec": {
+      "tlsTunnel": {
+        "timeout": "<integer>"
+      }
+    },
+    "radiusCoaEnabled": "<boolean>",
+    "radiusFailoverPolicy": "<string>",
+    "radiusLoadBalancingPolicy": "<string>",
+    "radiusAccountingEnabled": "<boolean>",
+    "radiusAccountingServers": [
+      {
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>",
+        "radsecEnabled": "<boolean>",
+        "caCertificate": "<string>"
+      },
+      {
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>",
+        "radsecEnabled": "<boolean>",
+        "caCertificate": "<string>"
+      }
+    ],
+    "radiusAccountingInterimInterval": "<integer>",
+    "radiusAttributeForGroupPolicies": "<string>",
+    "ipAssignmentMode": "<string>",
+    "useVlanTagging": "<boolean>",
+    "concentratorNetworkId": "<string>",
+    "secondaryConcentratorNetworkId": "<string>",
+    "disassociateClientsOnVpnFailover": "<boolean>",
+    "vlanId": "<integer>",
+    "defaultVlanId": "<integer>",
+    "apTagsAndVlanIds": [
+      {
+        "tags": [
+          "<string>",
+          "<string>"
+        ],
+        "vlanId": "<integer>"
+      },
+      {
+        "tags": [
+          "<string>",
+          "<string>"
+        ],
+        "vlanId": "<integer>"
+      }
+    ],
+    "walledGardenEnabled": "<boolean>",
+    "walledGardenRanges": [
+      "<string>",
+      "<string>"
+    ],
+    "gre": {
+      "concentrator": {
+        "host": "<string>"
+      },
+      "key": "<integer>"
+    },
+    "radiusOverride": "<boolean>",
+    "radiusGuestVlanEnabled": "<boolean>",
+    "radiusGuestVlanId": "<integer>",
+    "minBitrate": "<float>",
+    "bandSelection": "<string>",
+    "perClientBandwidthLimitUp": "<integer>",
+    "perClientBandwidthLimitDown": "<integer>",
+    "perSsidBandwidthLimitUp": "<integer>",
+    "perSsidBandwidthLimitDown": "<integer>",
+    "lanIsolationEnabled": "<boolean>",
+    "visible": "<boolean>",
+    "availableOnAllAps": "<boolean>",
+    "availabilityTags": [
+      "<string>",
+      "<string>"
+    ],
+    "mandatoryDhcpEnabled": "<boolean>",
+    "adultContentFilteringEnabled": "<boolean>",
+    "dnsRewrite": {
+      "enabled": "<boolean>",
+      "dnsCustomNameservers": [
+        "<string>",
+        "<string>"
+      ]
+    },
+    "speedBurst": {
+      "enabled": "<boolean>"
+    },
+    "namedVlans": {
+      "tagging": {
+        "enabled": "<boolean>",
+        "defaultVlanName": "<string>",
+        "byApTags": [
+          {
+            "tags": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ],
+            "vlanName": "<string>"
+          },
+          {
+            "tags": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ],
+            "vlanName": "<string>"
+          }
+        ]
+      },
+      "radius": {
+        "guestVlan": {
+          "enabled": "<boolean>",
+          "name": "<string>"
+        }
+      }
+    }
+  }
+}
+
+docs {
+  Update the attributes of an MR SSID
+}

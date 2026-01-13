@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSmDeviceSecurityCenters
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/:deviceId/securityCenters
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  deviceId: {{deviceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the security centers on a device
+}

@@ -1,0 +1,63 @@
+meta {
+  name: updateNetworkWirelessSsidVpn
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/vpn
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "concentrator": {
+      "networkId": "<string>",
+      "vlanId": "<integer>"
+    },
+    "splitTunnel": {
+      "enabled": "<boolean>",
+      "rules": [
+        {
+          "destCidr": "<string>",
+          "policy": "<string>",
+          "protocol": "<string>",
+          "destPort": "<string>",
+          "comment": "<string>"
+        },
+        {
+          "destCidr": "<string>",
+          "policy": "<string>",
+          "protocol": "<string>",
+          "destPort": "<string>",
+          "comment": "<string>"
+        }
+      ]
+    },
+    "failover": {
+      "requestIp": "<string>",
+      "heartbeatInterval": "<integer>",
+      "idleTimeout": "<integer>"
+    }
+  }
+}
+
+docs {
+  Update the VPN settings for the SSID
+}

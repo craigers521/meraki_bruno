@@ -1,0 +1,28 @@
+meta {
+  name: getDeviceSwitchPorts
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/switch/ports
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the switch ports for a switch
+}

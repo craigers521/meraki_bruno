@@ -1,0 +1,43 @@
+meta {
+  name: getNetworkPiiSmOwnersForKey
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/pii/smOwnersForKey
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~username: {{username}}
+  ~email: {{email}}
+  ~mac: {{mac}}
+  ~serial: {{serial}}
+  ~imei: {{imei}}
+  ~bluetoothMac: {{bluetoothMac}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier. These owner IDs can be used with the Systems Manager API endpoints to retrieve owner details. Exactly one identifier will be accepted.
+  
+  ## ALTERNATE PATH
+  
+  ```
+  /organizations/{organizationId}/pii/smOwnersForKey
+  ```
+}

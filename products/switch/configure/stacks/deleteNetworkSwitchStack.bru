@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkSwitchStack
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/switch/stacks/:switchStackId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  switchStackId: {{switchStackId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a stack
+}

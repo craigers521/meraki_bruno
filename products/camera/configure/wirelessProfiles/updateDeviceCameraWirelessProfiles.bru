@@ -1,0 +1,39 @@
+meta {
+  name: updateDeviceCameraWirelessProfiles
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/camera/wirelessProfiles
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "ids": {
+      "primary": "<string>",
+      "secondary": "<string>",
+      "backup": "<string>"
+    }
+  }
+}
+
+docs {
+  Assign wireless profiles to the given camera. Incremental updates are not supported, all profile assignment need to be supplied at once.
+}

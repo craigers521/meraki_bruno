@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationCellularGatewayEsimsServiceProvidersAccount
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts/:accountId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  accountId: {{accountId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Remove a service provider account's integration with the Dashboard.
+}

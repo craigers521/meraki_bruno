@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkSensorRelationships
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sensor/relationships
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the sensor roles for devices in a given network
+}

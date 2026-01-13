@@ -1,0 +1,39 @@
+meta {
+  name: updateNetworkApplianceFirewallSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "spoofingProtection": {
+      "ipSourceGuard": {
+        "mode": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Update the firewall settings for this network
+}

@@ -1,0 +1,50 @@
+meta {
+  name: createNetworkPiiRequest
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/pii/requests
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "type": "<string>",
+    "datasets": [
+      "<string>",
+      "<string>"
+    ],
+    "username": "<string>",
+    "email": "<string>",
+    "mac": "<string>",
+    "smDeviceId": "<string>",
+    "smUserId": "<string>"
+  }
+}
+
+docs {
+  Submit a new delete or restrict processing PII request
+  
+  ## ALTERNATE PATH
+  
+  ```
+  /organizations/{organizationId}/pii/requests
+  ```
+}

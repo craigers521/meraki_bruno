@@ -1,0 +1,42 @@
+meta {
+  name: claimNetworkDevices
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/devices/claim
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~addAtomically: {{addAtomically}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "serials": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Claim devices into a network. (Note: for recently claimed devices, it may take a few minutes for API requests against that device to succeed). This operation can be used up to ten times within a single five minute window.
+}

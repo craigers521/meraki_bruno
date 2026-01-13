@@ -1,0 +1,28 @@
+meta {
+  name: rebootDevice
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/reboot
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Reboot a device. This endpoint has a sustained rate limit of one request every 60 seconds.
+}

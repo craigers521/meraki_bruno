@@ -1,0 +1,27 @@
+meta {
+  name: getAdministeredIdentitiesMe
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/administered/identities/me
+  body: none
+  auth: bearer
+}
+
+params:path {
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns the identity of the current user.
+}

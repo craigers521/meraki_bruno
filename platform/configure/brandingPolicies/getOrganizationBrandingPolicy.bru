@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationBrandingPolicy
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/brandingPolicies/:brandingPolicyId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  brandingPolicyId: {{brandingPolicyId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a branding policy
+}

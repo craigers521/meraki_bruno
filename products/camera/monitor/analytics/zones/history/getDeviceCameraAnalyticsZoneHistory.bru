@@ -1,0 +1,37 @@
+meta {
+  name: getDeviceCameraAnalyticsZoneHistory
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/camera/analytics/zones/:zoneId/history
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~resolution: {{resolution}}
+  ~objectType: {{objectType}}
+}
+
+params:path {
+  serial: {{serial}}
+  zoneId: {{zoneId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return historical records for analytic zones
+}

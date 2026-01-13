@@ -1,0 +1,45 @@
+meta {
+  name: createDeviceLiveToolsPingDevice
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/liveTools/pingDevice
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "count": "<integer>",
+    "callback": {
+      "url": "<string>",
+      "sharedSecret": "<string>",
+      "httpServer": {
+        "id": "<string>"
+      },
+      "payloadTemplate": {
+        "id": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Enqueue a job to check connectivity status to the device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests.
+}

@@ -1,0 +1,55 @@
+meta {
+  name: updateNetworkSwitchLinkAggregation
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/linkAggregations/:linkAggregationId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  linkAggregationId: {{linkAggregationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "switchPorts": [
+      {
+        "serial": "<string>",
+        "portId": "<string>"
+      },
+      {
+        "serial": "<string>",
+        "portId": "<string>"
+      }
+    ],
+    "switchProfilePorts": [
+      {
+        "profile": "<string>",
+        "portId": "<string>"
+      },
+      {
+        "profile": "<string>",
+        "portId": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update a link aggregation group
+}

@@ -1,0 +1,29 @@
+meta {
+  name: getDeviceLiveToolsCableTest
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/liveTools/cableTest/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  id: 
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a cable test live tool job.
+}

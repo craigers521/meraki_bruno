@@ -1,0 +1,31 @@
+meta {
+  name: deleteNetworkPiiRequest
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/pii/requests/:requestId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  requestId: {{requestId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a restrict processing PII request
+  
+  ## ALTERNATE PATH
+  
+  ```
+  /organizations/{organizationId}/pii/requests/{requestId}
+  ```
+}

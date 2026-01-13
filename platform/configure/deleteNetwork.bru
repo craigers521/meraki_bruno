@@ -1,0 +1,24 @@
+meta {
+  name: deleteNetwork
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a network
+}

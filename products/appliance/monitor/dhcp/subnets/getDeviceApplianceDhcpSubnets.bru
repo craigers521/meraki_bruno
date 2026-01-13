@@ -1,0 +1,28 @@
+meta {
+  name: getDeviceApplianceDhcpSubnets
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/appliance/dhcp/subnets
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the DHCP subnet information for an appliance
+}

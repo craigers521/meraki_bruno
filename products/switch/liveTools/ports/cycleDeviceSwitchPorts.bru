@@ -1,0 +1,38 @@
+meta {
+  name: cycleDeviceSwitchPorts
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/switch/ports/cycle
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "ports": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Cycle a set of switch ports
+}

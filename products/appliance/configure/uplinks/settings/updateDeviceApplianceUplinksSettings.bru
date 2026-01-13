@@ -1,0 +1,110 @@
+meta {
+  name: updateDeviceApplianceUplinksSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/appliance/uplinks/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "interfaces": {
+      "wan1": {
+        "enabled": "<boolean>",
+        "vlanTagging": {
+          "enabled": "<boolean>",
+          "vlanId": "<integer>"
+        },
+        "svis": {
+          "ipv4": {
+            "assignmentMode": "<string>",
+            "address": "<string>",
+            "gateway": "<string>",
+            "nameservers": {
+              "addresses": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "ipv6": {
+            "assignmentMode": "<string>",
+            "address": "<string>",
+            "gateway": "<string>",
+            "nameservers": {
+              "addresses": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        },
+        "pppoe": {
+          "enabled": "<boolean>",
+          "authentication": {
+            "enabled": "<boolean>",
+            "username": "<string>",
+            "password": "<string>"
+          }
+        }
+      },
+      "wan2": {
+        "enabled": "<boolean>",
+        "vlanTagging": {
+          "enabled": "<boolean>",
+          "vlanId": "<integer>"
+        },
+        "svis": {
+          "ipv4": {
+            "assignmentMode": "<string>",
+            "address": "<string>",
+            "gateway": "<string>",
+            "nameservers": {
+              "addresses": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          },
+          "ipv6": {
+            "assignmentMode": "<string>",
+            "address": "<string>",
+            "gateway": "<string>",
+            "nameservers": {
+              "addresses": {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            }
+          }
+        },
+        "pppoe": {
+          "enabled": "<boolean>",
+          "authentication": {
+            "enabled": "<boolean>",
+            "username": "<string>",
+            "password": "<string>"
+          }
+        }
+      }
+    }
+  }
+}
+
+docs {
+  Update the uplink settings for an MX appliance
+}

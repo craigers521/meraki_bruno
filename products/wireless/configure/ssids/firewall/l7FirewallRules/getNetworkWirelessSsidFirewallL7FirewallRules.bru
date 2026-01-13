@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkWirelessSsidFirewallL7FirewallRules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/firewall/l7FirewallRules
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the L7 firewall rules for an SSID on an MR network
+}

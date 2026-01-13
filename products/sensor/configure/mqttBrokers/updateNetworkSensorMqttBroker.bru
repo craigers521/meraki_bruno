@@ -1,0 +1,36 @@
+meta {
+  name: updateNetworkSensorMqttBroker
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/sensor/mqttBrokers/:mqttBrokerId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  mqttBrokerId: {{mqttBrokerId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>"
+  }
+}
+
+docs {
+  Update the sensor settings of an MQTT broker. To update the broker itself, use /networks/{networkId}/mqttBrokers/{mqttBrokerId}.
+}

@@ -1,0 +1,94 @@
+meta {
+  name: createNetworkSwitchAccessPolicy
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/switch/accessPolicies
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "radiusServers": [
+      {
+        "organizationRadiusServerId": "<string>",
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      },
+      {
+        "organizationRadiusServerId": "<string>",
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      }
+    ],
+    "radiusTestingEnabled": "<boolean>",
+    "radiusCoaSupportEnabled": "<boolean>",
+    "radiusAccountingEnabled": "<boolean>",
+    "hostMode": "<string>",
+    "urlRedirectWalledGardenEnabled": "<boolean>",
+    "radius": {
+      "criticalAuth": {
+        "dataVlanId": "<integer>",
+        "voiceVlanId": "<integer>",
+        "suspendPortBounce": "<boolean>"
+      },
+      "failedAuthVlanId": "<integer>",
+      "reAuthenticationInterval": "<integer>",
+      "cache": {
+        "enabled": "<boolean>",
+        "timeout": "<integer>"
+      }
+    },
+    "guestPortBouncing": "<boolean>",
+    "radiusAccountingServers": [
+      {
+        "organizationRadiusServerId": "<string>",
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      },
+      {
+        "organizationRadiusServerId": "<string>",
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      }
+    ],
+    "radiusGroupAttribute": "<string>",
+    "accessPolicyType": "<string>",
+    "increaseAccessSpeed": "<boolean>",
+    "guestVlanId": "<integer>",
+    "dot1x": {
+      "controlDirection": "<string>"
+    },
+    "voiceVlanClients": "<boolean>",
+    "urlRedirectWalledGardenRanges": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Create an access policy for a switch network. If you would like to enable Meraki Authentication, set radiusServers to empty array.
+}

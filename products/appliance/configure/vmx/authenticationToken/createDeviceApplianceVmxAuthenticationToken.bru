@@ -1,0 +1,28 @@
+meta {
+  name: createDeviceApplianceVmxAuthenticationToken
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/appliance/vmx/authenticationToken
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Generate a new vMX authentication token
+}

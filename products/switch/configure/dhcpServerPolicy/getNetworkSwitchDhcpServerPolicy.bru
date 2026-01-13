@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkSwitchDhcpServerPolicy
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/switch/dhcpServerPolicy
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the DHCP server settings. Blocked/allowed servers are only applied when default policy is allow/block, respectively
+}

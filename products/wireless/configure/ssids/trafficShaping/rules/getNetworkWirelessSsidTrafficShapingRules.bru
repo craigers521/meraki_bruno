@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkWirelessSsidTrafficShapingRules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/trafficShaping/rules
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Display the traffic shaping settings for a SSID on an MR network
+}

@@ -1,0 +1,45 @@
+meta {
+  name: createDeviceLiveToolsLedsBlink
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/liveTools/leds/blink
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "duration": "<integer>",
+    "callback": {
+      "url": "<string>",
+      "sharedSecret": "<string>",
+      "httpServer": {
+        "id": "<string>"
+      },
+      "payloadTemplate": {
+        "id": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Enqueue a job to blink LEDs on a device. This endpoint has a rate limit of one request every 10 seconds.
+}

@@ -1,0 +1,269 @@
+meta {
+  name: createNetworkWirelessRfProfile
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/wireless/rfProfiles
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "bandSelectionType": "<string>",
+    "clientBalancingEnabled": "<boolean>",
+    "minBitrateType": "<string>",
+    "apBandSettings": {
+      "bandOperationMode": "<string>",
+      "bands": {
+        "enabled": [
+          "<string>",
+          "<string>"
+        ]
+      },
+      "bandSteeringEnabled": "<boolean>"
+    },
+    "twoFourGhzSettings": {
+      "maxPower": "<integer>",
+      "minPower": "<integer>",
+      "minBitrate": "<float>",
+      "validAutoChannels": [
+        "<integer>",
+        "<integer>"
+      ],
+      "axEnabled": "<boolean>",
+      "rxsop": "<integer>"
+    },
+    "fiveGhzSettings": {
+      "maxPower": "<integer>",
+      "minPower": "<integer>",
+      "minBitrate": "<integer>",
+      "validAutoChannels": [
+        "<integer>",
+        "<integer>"
+      ],
+      "channelWidth": "<string>",
+      "rxsop": "<integer>"
+    },
+    "sixGhzSettings": {
+      "maxPower": "<integer>",
+      "minPower": "<integer>",
+      "minBitrate": "<integer>",
+      "validAutoChannels": [
+        "<integer>",
+        "<integer>"
+      ],
+      "channelWidth": "<string>",
+      "rxsop": "<integer>"
+    },
+    "transmission": {
+      "enabled": "<boolean>"
+    },
+    "perSsidSettings": {
+      "0": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "1": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "2": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "3": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "4": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "5": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "6": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "7": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "8": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "9": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "10": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "11": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "12": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "13": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      },
+      "14": {
+        "minBitrate": "<float>",
+        "bandOperationMode": "<string>",
+        "bands": {
+          "enabled": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        "bandSteeringEnabled": "<boolean>"
+      }
+    },
+    "flexRadios": {
+      "byModel": [
+        {
+          "model": "<string>",
+          "bands": [
+            "<string>",
+            "<string>"
+          ]
+        },
+        {
+          "model": "<string>",
+          "bands": [
+            "<string>",
+            "<string>"
+          ]
+        }
+      ]
+    }
+  }
+}
+
+docs {
+  Creates new RF profile for this network
+}

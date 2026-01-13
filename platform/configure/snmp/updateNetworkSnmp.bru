@@ -1,0 +1,46 @@
+meta {
+  name: updateNetworkSnmp
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/snmp
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "access": "<string>",
+    "communityString": "<string>",
+    "users": [
+      {
+        "username": "<string>",
+        "passphrase": "<string>"
+      },
+      {
+        "username": "<string>",
+        "passphrase": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the SNMP settings for a network
+}

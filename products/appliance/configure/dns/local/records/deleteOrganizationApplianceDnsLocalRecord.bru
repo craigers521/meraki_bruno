@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationApplianceDnsLocalRecord
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/dns/local/records/:recordId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  recordId: {{recordId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Deletes a local DNS record
+}

@@ -1,0 +1,34 @@
+meta {
+  name: getOrganizationSmAdminsRoles
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/sm/admins/roles
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the Limited Access Roles for an organization
+}

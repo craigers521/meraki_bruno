@@ -1,0 +1,46 @@
+meta {
+  name: getNetworkWirelessClientConnectivityEvents
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/clients/:clientId/connectivityEvents
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~sortOrder: {{sortOrder}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~types: {{types}}
+  ~types: {{types}}
+  ~band: {{band}}
+  ~ssidNumber: {{ssidNumber}}
+  ~includedSeverities: {{includedSeverities}}
+  ~includedSeverities: {{includedSeverities}}
+  ~deviceSerial: {{deviceSerial}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  clientId: {{clientId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the wireless connectivity events for a client within a network in the timespan.
+}

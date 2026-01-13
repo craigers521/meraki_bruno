@@ -1,0 +1,62 @@
+meta {
+  name: updateOrganizationAlertsProfile
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/alerts/profiles/:alertConfigId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  alertConfigId: {{alertConfigId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "type": "<string>",
+    "alertCondition": {
+      "duration": "<integer>",
+      "window": "<integer>",
+      "bit_rate_bps": "<integer>",
+      "loss_ratio": "<float>",
+      "latency_ms": "<integer>",
+      "jitter_ms": "<integer>",
+      "mos": "<float>",
+      "interface": "<string>"
+    },
+    "recipients": {
+      "emails": [
+        "<string>",
+        "<string>"
+      ],
+      "httpServerIds": [
+        "<string>",
+        "<string>"
+      ]
+    },
+    "networkTags": [
+      "<string>",
+      "<string>"
+    ],
+    "description": "<string>"
+  }
+}
+
+docs {
+  Update an organization-wide alert config
+}

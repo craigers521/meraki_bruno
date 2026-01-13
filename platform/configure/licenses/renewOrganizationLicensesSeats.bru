@@ -1,0 +1,36 @@
+meta {
+  name: renewOrganizationLicensesSeats
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/licenses/renewSeats
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "licenseIdToRenew": "<string>",
+    "unusedLicenseId": "<string>"
+  }
+}
+
+docs {
+  Renew SM seats of a license. This will extend the license expiration date of managed SM devices covered by this license
+}

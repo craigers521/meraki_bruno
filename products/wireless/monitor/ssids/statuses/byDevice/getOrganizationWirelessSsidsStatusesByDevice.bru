@@ -1,0 +1,41 @@
+meta {
+  name: getOrganizationWirelessSsidsStatusesByDevice
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/wireless/ssids/statuses/byDevice
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~bssids: {{bssids}}
+  ~bssids: {{bssids}}
+  ~hideDisabled: {{hideDisabled}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List status information of all BSSIDs in your organization
+}

@@ -1,0 +1,108 @@
+meta {
+  name: updateNetworkApplianceFirewallOneToManyNatRules
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/oneToManyNatRules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rules": [
+      {
+        "publicIp": "<string>",
+        "uplink": "<string>",
+        "portRules": [
+          {
+            "name": "<string>",
+            "protocol": "<string>",
+            "publicPort": "<string>",
+            "localIp": "<string>",
+            "localPort": "<string>",
+            "allowedIps": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          },
+          {
+            "name": "<string>",
+            "protocol": "<string>",
+            "publicPort": "<string>",
+            "localIp": "<string>",
+            "localPort": "<string>",
+            "allowedIps": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "publicIp": "<string>",
+        "uplink": "<string>",
+        "portRules": [
+          {
+            "name": "<string>",
+            "protocol": "<string>",
+            "publicPort": "<string>",
+            "localIp": "<string>",
+            "localPort": "<string>",
+            "allowedIps": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          },
+          {
+            "name": "<string>",
+            "protocol": "<string>",
+            "publicPort": "<string>",
+            "localIp": "<string>",
+            "localPort": "<string>",
+            "allowedIps": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+
+docs {
+  Set the 1:Many NAT mapping rules for an MX network
+}

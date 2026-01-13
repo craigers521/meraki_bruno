@@ -1,0 +1,33 @@
+meta {
+  name: getOrganizations
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/organizations
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the organizations that the user has privileges on
+}

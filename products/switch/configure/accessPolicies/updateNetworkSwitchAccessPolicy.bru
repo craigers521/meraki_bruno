@@ -1,0 +1,99 @@
+meta {
+  name: updateNetworkSwitchAccessPolicy
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  accessPolicyNumber: {{accessPolicyNumber}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "radiusServers": [
+      {
+        "serverId": "<string>",
+        "organizationRadiusServerId": "<string>",
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      },
+      {
+        "serverId": "<string>",
+        "organizationRadiusServerId": "<string>",
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      }
+    ],
+    "radius": {
+      "criticalAuth": {
+        "dataVlanId": "<integer>",
+        "voiceVlanId": "<integer>",
+        "suspendPortBounce": "<boolean>"
+      },
+      "failedAuthVlanId": "<integer>",
+      "reAuthenticationInterval": "<integer>",
+      "cache": {
+        "enabled": "<boolean>",
+        "timeout": "<integer>"
+      }
+    },
+    "guestPortBouncing": "<boolean>",
+    "radiusTestingEnabled": "<boolean>",
+    "radiusCoaSupportEnabled": "<boolean>",
+    "radiusAccountingEnabled": "<boolean>",
+    "radiusAccountingServers": [
+      {
+        "serverId": "<string>",
+        "organizationRadiusServerId": "<string>",
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      },
+      {
+        "serverId": "<string>",
+        "organizationRadiusServerId": "<string>",
+        "host": "<string>",
+        "port": "<integer>",
+        "secret": "<string>"
+      }
+    ],
+    "radiusGroupAttribute": "<string>",
+    "hostMode": "<string>",
+    "accessPolicyType": "<string>",
+    "increaseAccessSpeed": "<boolean>",
+    "guestVlanId": "<integer>",
+    "dot1x": {
+      "controlDirection": "<string>"
+    },
+    "voiceVlanClients": "<boolean>",
+    "urlRedirectWalledGardenEnabled": "<boolean>",
+    "urlRedirectWalledGardenRanges": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Update an access policy for a switch network. If you would like to enable Meraki Authentication, set radiusServers to empty array.
+}

@@ -1,0 +1,32 @@
+meta {
+  name: getDeviceCameraVideoLink
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/camera/videoLink
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~timestamp: {{timestamp}}
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns video link to the specified camera. If a timestamp is supplied, it links to that timestamp.
+}

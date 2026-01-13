@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkCameraWirelessProfile
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/camera/wirelessProfiles/:wirelessProfileId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  wirelessProfileId: {{wirelessProfileId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Retrieve a single camera wireless profile.
+}

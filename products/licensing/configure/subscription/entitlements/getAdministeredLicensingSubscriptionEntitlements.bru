@@ -1,0 +1,32 @@
+meta {
+  name: getAdministeredLicensingSubscriptionEntitlements
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/administered/licensing/subscription/entitlements
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~skus: {{skus}}
+  ~skus: {{skus}}
+}
+
+params:path {
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Retrieve the list of purchasable entitlements
+}

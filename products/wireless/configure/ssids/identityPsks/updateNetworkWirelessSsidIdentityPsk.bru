@@ -1,0 +1,40 @@
+meta {
+  name: updateNetworkWirelessSsidIdentityPsk
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/identityPsks/:identityPskId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  identityPskId: {{identityPskId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "passphrase": "<string>",
+    "groupPolicyId": "<string>",
+    "expiresAt": "<dateTime>"
+  }
+}
+
+docs {
+  Update an Identity PSK
+}

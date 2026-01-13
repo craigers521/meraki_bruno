@@ -1,0 +1,28 @@
+meta {
+  name: getDeviceSwitchRoutingInterfaces
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/switch/routing/interfaces
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List layer 3 interfaces for a switch. Those for a stack may be found under switch stack routing.
+}

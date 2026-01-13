@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkApplianceFirewallFirewalledService
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/firewalledServices/:service
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  service: {{service}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the accessibility settings of the given service ('ICMP', 'web', or 'SNMP')
+}

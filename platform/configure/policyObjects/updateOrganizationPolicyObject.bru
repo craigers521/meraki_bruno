@@ -1,0 +1,44 @@
+meta {
+  name: updateOrganizationPolicyObject
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/policyObjects/:policyObjectId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  policyObjectId: {{policyObjectId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "cidr": "<string>",
+    "fqdn": "<string>",
+    "mask": "<string>",
+    "ip": "<string>",
+    "groupIds": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Updates a Policy Object.
+}

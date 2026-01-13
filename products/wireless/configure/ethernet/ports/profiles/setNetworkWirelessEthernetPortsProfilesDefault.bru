@@ -1,0 +1,35 @@
+meta {
+  name: setNetworkWirelessEthernetPortsProfilesDefault
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/wireless/ethernet/ports/profiles/setDefault
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "profileId": "<string>"
+  }
+}
+
+docs {
+  Set the AP port profile to be default for this network
+}

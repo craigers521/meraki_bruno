@@ -1,0 +1,37 @@
+meta {
+  name: updateOrganizationConfigTemplate
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/configTemplates/:configTemplateId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  configTemplateId: {{configTemplateId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "timeZone": "<string>"
+  }
+}
+
+docs {
+  Update a configuration template
+}

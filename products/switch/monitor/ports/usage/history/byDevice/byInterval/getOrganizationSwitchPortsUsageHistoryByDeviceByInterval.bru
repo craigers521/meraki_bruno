@@ -1,0 +1,50 @@
+meta {
+  name: getOrganizationSwitchPortsUsageHistoryByDeviceByInterval
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/switch/ports/usage/history/byDevice/byInterval
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~interval: {{interval}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~configurationUpdatedAfter: {{configurationUpdatedAfter}}
+  ~mac: {{mac}}
+  ~macs: {{macs}}
+  ~macs: {{macs}}
+  ~name: {{name}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~portProfileIds: {{portProfileIds}}
+  ~portProfileIds: {{portProfileIds}}
+  ~serial: {{serial}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the historical usage and traffic data of switchports in an organization.
+}

@@ -1,0 +1,48 @@
+meta {
+  name: getOrganizationAssuranceAlertsOverview
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/assurance/alerts/overview
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkId: {{networkId}}
+  ~severity: {{severity}}
+  ~types: {{types}}
+  ~types: {{types}}
+  ~tsStart: {{tsStart}}
+  ~tsEnd: {{tsEnd}}
+  ~category: {{category}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~deviceTypes: {{deviceTypes}}
+  ~deviceTypes: {{deviceTypes}}
+  ~deviceTags: {{deviceTags}}
+  ~deviceTags: {{deviceTags}}
+  ~active: {{active}}
+  ~dismissed: {{dismissed}}
+  ~resolved: {{resolved}}
+  ~suppressAlertsForOfflineNodes: {{suppressAlertsForOfflineNodes}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return overview of active health alerts for an organization
+}

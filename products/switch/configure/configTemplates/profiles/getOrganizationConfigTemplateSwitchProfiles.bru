@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationConfigTemplateSwitchProfiles
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/configTemplates/:configTemplateId/switch/profiles
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  configTemplateId: {{configTemplateId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the switch templates for your switch template configuration
+}

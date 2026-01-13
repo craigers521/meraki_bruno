@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkVlanProfile
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/vlanProfiles/:iname
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  iname: {{iname}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a VLAN profile of a network
+}

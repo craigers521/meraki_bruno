@@ -1,0 +1,49 @@
+meta {
+  name: createNetworkFirmwareUpgradesRollback
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/firmwareUpgrades/rollbacks
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "reasons": [
+      {
+        "category": "<string>",
+        "comment": "<string>"
+      },
+      {
+        "category": "<string>",
+        "comment": "<string>"
+      }
+    ],
+    "product": "<string>",
+    "time": "<dateTime>",
+    "toVersion": {
+      "id": "<string>"
+    }
+  }
+}
+
+docs {
+  Rollback a Firmware Upgrade For A Network
+}

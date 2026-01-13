@@ -1,0 +1,40 @@
+meta {
+  name: getNetworkWirelessFailedConnections
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/failedConnections
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~band: {{band}}
+  ~ssid: {{ssid}}
+  ~vlan: {{vlan}}
+  ~apTag: {{apTag}}
+  ~serial: {{serial}}
+  ~clientId: {{clientId}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List of all failed client connection events on this network in a given time range
+}

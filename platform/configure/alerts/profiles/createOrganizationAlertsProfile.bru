@@ -1,0 +1,60 @@
+meta {
+  name: createOrganizationAlertsProfile
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/alerts/profiles
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "type": "<string>",
+    "alertCondition": {
+      "duration": "<integer>",
+      "window": "<integer>",
+      "bit_rate_bps": "<integer>",
+      "loss_ratio": "<float>",
+      "latency_ms": "<integer>",
+      "jitter_ms": "<integer>",
+      "mos": "<float>",
+      "interface": "<string>"
+    },
+    "recipients": {
+      "emails": [
+        "<string>",
+        "<string>"
+      ],
+      "httpServerIds": [
+        "<string>",
+        "<string>"
+      ]
+    },
+    "networkTags": [
+      "<string>",
+      "<string>"
+    ],
+    "description": "<string>"
+  }
+}
+
+docs {
+  Create an organization-wide alert configuration
+}

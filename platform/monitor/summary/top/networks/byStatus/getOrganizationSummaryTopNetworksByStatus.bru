@@ -1,0 +1,39 @@
+meta {
+  name: getOrganizationSummaryTopNetworksByStatus
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/summary/top/networks/byStatus
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkTag: {{networkTag}}
+  ~deviceTag: {{deviceTag}}
+  ~quantity: {{quantity}}
+  ~ssidName: {{ssidName}}
+  ~usageUplink: {{usageUplink}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the client and status overview information for the networks in an organization. Usage is measured in kilobytes and from the last seven days.
+}

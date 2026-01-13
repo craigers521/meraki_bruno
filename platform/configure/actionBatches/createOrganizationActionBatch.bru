@@ -1,0 +1,58 @@
+meta {
+  name: createOrganizationActionBatch
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/actionBatches
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "actions": [
+      {
+        "resource": "<string>",
+        "operation": "<string>",
+        "body": "<object>"
+      },
+      {
+        "resource": "<string>",
+        "operation": "<string>",
+        "body": "<object>"
+      }
+    ],
+    "confirmed": "<boolean>",
+    "synchronous": "<boolean>",
+    "callback": {
+      "url": "<string>",
+      "sharedSecret": "<string>",
+      "httpServer": {
+        "id": "<string>"
+      },
+      "payloadTemplate": {
+        "id": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Create an action batch
+}

@@ -1,0 +1,122 @@
+meta {
+  name: updateNetworkFirmwareUpgrades
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/firmwareUpgrades
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "upgradeWindow": {
+      "dayOfWeek": "<string>",
+      "hourOfDay": "<string>"
+    },
+    "timezone": "<string>",
+    "products": {
+      "wireless": {
+        "nextUpgrade": {
+          "time": "<string>",
+          "toVersion": {
+            "id": "<string>"
+          }
+        },
+        "participateInNextBetaRelease": "<boolean>"
+      },
+      "appliance": {
+        "nextUpgrade": {
+          "time": "<string>",
+          "toVersion": {
+            "id": "<string>"
+          }
+        },
+        "participateInNextBetaRelease": "<boolean>"
+      },
+      "switch": {
+        "nextUpgrade": {
+          "time": "<string>",
+          "toVersion": {
+            "id": "<string>"
+          }
+        },
+        "participateInNextBetaRelease": "<boolean>"
+      },
+      "camera": {
+        "nextUpgrade": {
+          "time": "<string>",
+          "toVersion": {
+            "id": "<string>"
+          }
+        },
+        "participateInNextBetaRelease": "<boolean>"
+      },
+      "cellularGateway": {
+        "nextUpgrade": {
+          "time": "<string>",
+          "toVersion": {
+            "id": "<string>"
+          }
+        },
+        "participateInNextBetaRelease": "<boolean>"
+      },
+      "sensor": {
+        "nextUpgrade": {
+          "time": "<string>",
+          "toVersion": {
+            "id": "<string>"
+          }
+        },
+        "participateInNextBetaRelease": "<boolean>"
+      },
+      "wirelessController": {
+        "nextUpgrade": {
+          "time": "<string>",
+          "toVersion": {
+            "id": "<string>"
+          }
+        },
+        "participateInNextBetaRelease": "<boolean>"
+      },
+      "secureConnect": {
+        "nextUpgrade": {
+          "time": "<string>",
+          "toVersion": {
+            "id": "<string>"
+          }
+        },
+        "participateInNextBetaRelease": "<boolean>"
+      },
+      "switchCatalyst": {
+        "nextUpgrade": {
+          "time": "<string>",
+          "toVersion": {
+            "id": "<string>"
+          }
+        },
+        "participateInNextBetaRelease": "<boolean>"
+      }
+    }
+  }
+}
+
+docs {
+  Update firmware upgrade information for a network
+}

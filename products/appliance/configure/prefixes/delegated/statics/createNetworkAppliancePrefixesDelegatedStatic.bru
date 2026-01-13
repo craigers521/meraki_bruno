@@ -1,0 +1,43 @@
+meta {
+  name: createNetworkAppliancePrefixesDelegatedStatic
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "prefix": "<string>",
+    "origin": {
+      "type": "<string>",
+      "interfaces": [
+        "<string>",
+        "<string>"
+      ]
+    },
+    "description": "<string>"
+  }
+}
+
+docs {
+  Add a static delegated prefix from a network
+}

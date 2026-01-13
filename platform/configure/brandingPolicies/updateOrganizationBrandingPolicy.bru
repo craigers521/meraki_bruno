@@ -1,0 +1,68 @@
+meta {
+  name: updateOrganizationBrandingPolicy
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/brandingPolicies/:brandingPolicyId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  brandingPolicyId: {{brandingPolicyId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "enabled": "<boolean>",
+    "adminSettings": {
+      "appliesTo": "<string>",
+      "values": [
+        "<string>",
+        "<string>"
+      ]
+    },
+    "helpSettings": {
+      "helpTab": "<string>",
+      "getHelpSubtab": "<string>",
+      "communitySubtab": "<string>",
+      "casesSubtab": "<string>",
+      "dataProtectionRequestsSubtab": "<string>",
+      "getHelpSubtabKnowledgeBaseSearch": "<string>",
+      "universalSearchKnowledgeBaseSearch": "<string>",
+      "ciscoMerakiProductDocumentation": "<string>",
+      "supportContactInfo": "<string>",
+      "newFeaturesSubtab": "<string>",
+      "firewallInfoSubtab": "<string>",
+      "apiDocsSubtab": "<string>",
+      "hardwareReplacementsSubtab": "<string>",
+      "smForums": "<string>",
+      "helpWidget": "<string>"
+    },
+    "customLogo": {
+      "enabled": "<boolean>",
+      "image": {
+        "contents": "<byte>",
+        "format": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Update a branding policy
+}

@@ -1,0 +1,46 @@
+meta {
+  name: updateNetworkSwitchDscpToCosMappings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/dscpToCosMappings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "mappings": [
+      {
+        "dscp": "<integer>",
+        "cos": "<integer>",
+        "title": "<string>"
+      },
+      {
+        "dscp": "<integer>",
+        "cos": "<integer>",
+        "title": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the DSCP to CoS mappings
+}

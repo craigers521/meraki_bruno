@@ -1,0 +1,29 @@
+meta {
+  name: deleteNetworkFloorPlan
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/floorPlans/:floorPlanId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  floorPlanId: {{floorPlanId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Destroy a floor plan
+}

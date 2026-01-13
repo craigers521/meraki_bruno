@@ -1,0 +1,32 @@
+meta {
+  name: getDeviceCameraAnalyticsRecent
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/camera/analytics/recent
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~objectType: {{objectType}}
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns most recent record for analytics zones
+}

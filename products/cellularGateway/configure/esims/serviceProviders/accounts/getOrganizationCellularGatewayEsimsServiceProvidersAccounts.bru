@@ -1,0 +1,33 @@
+meta {
+  name: getOrganizationCellularGatewayEsimsServiceProvidersAccounts
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~accountIds: {{accountIds}}
+  ~accountIds: {{accountIds}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Inventory of service provider accounts tied to the organization.
+}

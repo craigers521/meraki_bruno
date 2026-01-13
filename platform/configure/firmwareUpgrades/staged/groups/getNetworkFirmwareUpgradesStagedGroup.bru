@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkFirmwareUpgradesStagedGroup
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups/:groupId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  groupId: {{groupId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get a Staged Upgrade Group from a network
+}

@@ -1,0 +1,37 @@
+meta {
+  name: blinkDeviceLeds
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/blinkLeds
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "duration": "<integer>",
+    "period": "<integer>",
+    "duty": "<integer>"
+  }
+}
+
+docs {
+  Blink the LEDs on a device.  This endpoint is deprecrated in favor of "/devices/{serial}/liveTools/leds/blink".
+}

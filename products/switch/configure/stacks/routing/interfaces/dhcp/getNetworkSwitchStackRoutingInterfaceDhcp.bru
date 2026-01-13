@@ -1,0 +1,30 @@
+meta {
+  name: getNetworkSwitchStackRoutingInterfaceDhcp
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces/:interfaceId/dhcp
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  switchStackId: {{switchStackId}}
+  interfaceId: {{interfaceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a layer 3 interface DHCP configuration for a switch stack
+}

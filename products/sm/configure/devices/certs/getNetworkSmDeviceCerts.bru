@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSmDeviceCerts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/:deviceId/certs
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  deviceId: {{deviceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the certs on a device
+}

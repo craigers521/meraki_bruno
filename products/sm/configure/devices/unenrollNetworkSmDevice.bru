@@ -1,0 +1,29 @@
+meta {
+  name: unenrollNetworkSmDevice
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/:deviceId/unenroll
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  deviceId: {{deviceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Unenroll a device
+}

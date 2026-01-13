@@ -1,0 +1,52 @@
+meta {
+  name: updateNetworkSwitchSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "vlan": "<integer>",
+    "useCombinedPower": "<boolean>",
+    "powerExceptions": [
+      {
+        "serial": "<string>",
+        "powerType": "<string>"
+      },
+      {
+        "serial": "<string>",
+        "powerType": "<string>"
+      }
+    ],
+    "uplinkClientSampling": {
+      "enabled": "<boolean>"
+    },
+    "macBlocklist": {
+      "enabled": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update switch network settings
+}

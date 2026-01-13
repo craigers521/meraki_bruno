@@ -1,0 +1,52 @@
+meta {
+  name: createNetworkSwitchStackRoutingInterface
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  switchStackId: {{switchStackId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "vlanId": "<integer>",
+    "subnet": "<string>",
+    "interfaceIp": "<string>",
+    "multicastRouting": "<string>",
+    "defaultGateway": "<string>",
+    "ospfSettings": {
+      "area": "<string>",
+      "cost": "<integer>",
+      "isPassiveEnabled": "<boolean>"
+    },
+    "ipv6": {
+      "assignmentMode": "<string>",
+      "prefix": "<string>",
+      "address": "<string>",
+      "gateway": "<string>"
+    }
+  }
+}
+
+docs {
+  Create a layer 3 interface for a switch stack
+}

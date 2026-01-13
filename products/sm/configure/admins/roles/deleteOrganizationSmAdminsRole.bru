@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationSmAdminsRole
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/sm/admins/roles/:roleId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  roleId: {{roleId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a Limited Access Role
+}

@@ -1,0 +1,45 @@
+meta {
+  name: reassignNetworkVlanProfilesAssignments
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/vlanProfiles/assignments/reassign
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "serials": [
+      "<string>",
+      "<string>"
+    ],
+    "stackIds": [
+      "<string>",
+      "<string>"
+    ],
+    "vlanProfile": {
+      "iname": "<string>"
+    }
+  }
+}
+
+docs {
+  Update the assigned VLAN Profile for devices in a network
+}

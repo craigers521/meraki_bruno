@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkApplianceStaticRoute
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/appliance/staticRoutes/:staticRouteId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  staticRouteId: {{staticRouteId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a static route from an MX or teleworker network
+}

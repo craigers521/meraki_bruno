@@ -1,0 +1,38 @@
+meta {
+  name: getOrganizationFirmwareUpgrades
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/firmware/upgrades
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~status: {{status}}
+  ~status: {{status}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get firmware upgrade information for an organization
+}

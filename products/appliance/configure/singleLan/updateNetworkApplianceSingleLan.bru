@@ -1,0 +1,76 @@
+meta {
+  name: updateNetworkApplianceSingleLan
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/singleLan
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "subnet": "<string>",
+    "applianceIp": "<string>",
+    "ipv6": {
+      "enabled": "<boolean>",
+      "prefixAssignments": [
+        {
+          "autonomous": "<boolean>",
+          "staticPrefix": "<string>",
+          "staticApplianceIp6": "<string>",
+          "origin": {
+            "type": "<string>",
+            "interfaces": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          }
+        },
+        {
+          "autonomous": "<boolean>",
+          "staticPrefix": "<string>",
+          "staticApplianceIp6": "<string>",
+          "origin": {
+            "type": "<string>",
+            "interfaces": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "mandatoryDhcp": {
+      "enabled": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update single LAN configuration
+}

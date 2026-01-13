@@ -1,0 +1,82 @@
+meta {
+  name: updateNetworkClientSplashAuthorizationStatus
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/clients/:clientId/splashAuthorizationStatus
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  clientId: {{clientId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "ssids": {
+      "0": {
+        "isAuthorized": "<boolean>"
+      },
+      "1": {
+        "isAuthorized": "<boolean>"
+      },
+      "2": {
+        "isAuthorized": "<boolean>"
+      },
+      "3": {
+        "isAuthorized": "<boolean>"
+      },
+      "4": {
+        "isAuthorized": "<boolean>"
+      },
+      "5": {
+        "isAuthorized": "<boolean>"
+      },
+      "6": {
+        "isAuthorized": "<boolean>"
+      },
+      "7": {
+        "isAuthorized": "<boolean>"
+      },
+      "8": {
+        "isAuthorized": "<boolean>"
+      },
+      "9": {
+        "isAuthorized": "<boolean>"
+      },
+      "10": {
+        "isAuthorized": "<boolean>"
+      },
+      "11": {
+        "isAuthorized": "<boolean>"
+      },
+      "12": {
+        "isAuthorized": "<boolean>"
+      },
+      "13": {
+        "isAuthorized": "<boolean>"
+      },
+      "14": {
+        "isAuthorized": "<boolean>"
+      }
+    }
+  }
+}
+
+docs {
+  Update a client's splash authorization. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+}

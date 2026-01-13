@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkGroupPolicy
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/groupPolicies/:groupPolicyId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  groupPolicyId: {{groupPolicyId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Display a group policy
+}

@@ -1,0 +1,53 @@
+meta {
+  name: recalculateNetworkFloorPlansAutoLocateJob
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/floorPlans/autoLocate/jobs/:jobId/recalculate
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  jobId: {{jobId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "devices": [
+      {
+        "serial": "<string>",
+        "autoLocate": {
+          "isAnchor": "<boolean>",
+          "lat": "<float>",
+          "lng": "<float>"
+        }
+      },
+      {
+        "serial": "<string>",
+        "autoLocate": {
+          "isAnchor": "<boolean>",
+          "lat": "<float>",
+          "lng": "<float>"
+        }
+      }
+    ]
+  }
+}
+
+docs {
+  Trigger auto locate recalculation for a job, and optionally set anchors
+}

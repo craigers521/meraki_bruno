@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkAppliancePort
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/ports/:portId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  portId: {{portId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return per-port VLAN settings for a single MX port.
+}

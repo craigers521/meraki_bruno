@@ -1,0 +1,40 @@
+meta {
+  name: getOrganizationSummaryTopApplicationsCategoriesByUsage
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/summary/top/applications/categories/byUsage
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkTag: {{networkTag}}
+  ~deviceTag: {{deviceTag}}
+  ~networkId: {{networkId}}
+  ~quantity: {{quantity}}
+  ~ssidName: {{ssidName}}
+  ~usageUplink: {{usageUplink}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the top application categories sorted by data usage over given time range. Default unit is megabytes.
+}

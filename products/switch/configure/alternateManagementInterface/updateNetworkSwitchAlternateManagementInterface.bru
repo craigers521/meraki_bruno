@@ -1,0 +1,54 @@
+meta {
+  name: updateNetworkSwitchAlternateManagementInterface
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/alternateManagementInterface
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "vlanId": "<integer>",
+    "protocols": [
+      "<string>",
+      "<string>"
+    ],
+    "switches": [
+      {
+        "serial": "<string>",
+        "alternateManagementIp": "<string>",
+        "subnetMask": "<string>",
+        "gateway": "<string>"
+      },
+      {
+        "serial": "<string>",
+        "alternateManagementIp": "<string>",
+        "subnetMask": "<string>",
+        "gateway": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the switch alternate management interface for the network
+}

@@ -1,0 +1,41 @@
+meta {
+  name: createNetworkSwitchQosRule
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/switch/qosRules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "vlan": "<integer>",
+    "protocol": "<string>",
+    "srcPort": "<integer>",
+    "srcPortRange": "<string>",
+    "dstPort": "<integer>",
+    "dstPortRange": "<string>",
+    "dscp": "<integer>"
+  }
+}
+
+docs {
+  Add a quality of service rule
+}

@@ -1,0 +1,48 @@
+meta {
+  name: updateOrganizationAdaptivePolicyGroup
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/adaptivePolicy/groups/:id
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  id: 
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "sgt": "<integer>",
+    "description": "<string>",
+    "policyObjects": [
+      {
+        "id": "<string>",
+        "name": "<string>"
+      },
+      {
+        "id": "<string>",
+        "name": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Updates an adaptive policy group. If updating "Infrastructure", only the SGT is allowed. Cannot update "Unknown".
+}

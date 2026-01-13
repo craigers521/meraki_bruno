@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationPolicyObjectsGroup
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/policyObjects/groups/:policyObjectGroupId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  policyObjectGroupId: {{policyObjectGroupId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Shows details of a Policy Object Group.
+}

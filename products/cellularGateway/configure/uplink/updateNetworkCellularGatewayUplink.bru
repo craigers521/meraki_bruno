@@ -1,0 +1,38 @@
+meta {
+  name: updateNetworkCellularGatewayUplink
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/cellularGateway/uplink
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "bandwidthLimits": {
+      "limitUp": "<integer>",
+      "limitDown": "<integer>"
+    }
+  }
+}
+
+docs {
+  Updates the uplink settings for your MG network.
+}

@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSmUserSoftwares
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sm/users/:userId/softwares
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  userId: {{userId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get a list of softwares associated with a user
+}

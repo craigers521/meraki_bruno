@@ -1,0 +1,136 @@
+meta {
+  name: updateOrganizationApplianceVpnThirdPartyVPNPeers
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/vpn/thirdPartyVPNPeers
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "peers": [
+      {
+        "name": "<string>",
+        "privateSubnets": [
+          "<string>",
+          "<string>"
+        ],
+        "secret": "<string>",
+        "publicIp": "<string>",
+        "publicHostname": "<string>",
+        "localId": "<string>",
+        "remoteId": "<string>",
+        "ipsecPolicies": {
+          "ikeCipherAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "ikeAuthAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "ikePrfAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "ikeDiffieHellmanGroup": [
+            "<string>",
+            "<string>"
+          ],
+          "ikeLifetime": "<integer>",
+          "childCipherAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "childAuthAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "childPfsGroup": [
+            "<string>",
+            "<string>"
+          ],
+          "childLifetime": "<integer>"
+        },
+        "ipsecPoliciesPreset": "<string>",
+        "ikeVersion": "1",
+        "networkTags": [
+          "<string>",
+          "<string>"
+        ]
+      },
+      {
+        "name": "<string>",
+        "privateSubnets": [
+          "<string>",
+          "<string>"
+        ],
+        "secret": "<string>",
+        "publicIp": "<string>",
+        "publicHostname": "<string>",
+        "localId": "<string>",
+        "remoteId": "<string>",
+        "ipsecPolicies": {
+          "ikeCipherAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "ikeAuthAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "ikePrfAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "ikeDiffieHellmanGroup": [
+            "<string>",
+            "<string>"
+          ],
+          "ikeLifetime": "<integer>",
+          "childCipherAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "childAuthAlgo": [
+            "<string>",
+            "<string>"
+          ],
+          "childPfsGroup": [
+            "<string>",
+            "<string>"
+          ],
+          "childLifetime": "<integer>"
+        },
+        "ipsecPoliciesPreset": "<string>",
+        "ikeVersion": "1",
+        "networkTags": [
+          "<string>",
+          "<string>"
+        ]
+      }
+    ]
+  }
+}
+
+docs {
+  Update the third party VPN peers for an organization
+}

@@ -1,0 +1,36 @@
+meta {
+  name: updateDeviceWirelessElectronicShelfLabel
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/wireless/electronicShelfLabel
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "channel": "<string>",
+    "enabled": "<boolean>"
+  }
+}
+
+docs {
+  Update the ESL settings of a device
+}

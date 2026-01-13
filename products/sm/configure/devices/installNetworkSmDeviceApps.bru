@@ -1,0 +1,40 @@
+meta {
+  name: installNetworkSmDeviceApps
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/:deviceId/installApps
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  deviceId: {{deviceId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "appIds": [
+      "<string>",
+      "<string>"
+    ],
+    "force": "<boolean>"
+  }
+}
+
+docs {
+  Install applications on a device
+}

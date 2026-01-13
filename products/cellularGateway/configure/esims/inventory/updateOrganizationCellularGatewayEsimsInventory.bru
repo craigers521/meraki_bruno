@@ -1,0 +1,36 @@
+meta {
+  name: updateOrganizationCellularGatewayEsimsInventory
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/cellularGateway/esims/inventory/:id
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  id: 
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "status": "<string>"
+  }
+}
+
+docs {
+  Toggle the status of an eSIM
+}

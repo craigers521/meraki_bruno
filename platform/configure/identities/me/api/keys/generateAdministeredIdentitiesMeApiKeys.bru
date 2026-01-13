@@ -1,0 +1,27 @@
+meta {
+  name: generateAdministeredIdentitiesMeApiKeys
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/administered/identities/me/api/keys/generate
+  body: none
+  auth: bearer
+}
+
+params:path {
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Generates an API key for an identity. For users who have access to more than one organization, the change will take up to five minutes to propagate. If one of the organizations is currently under maintenance, the change may not propagate fully until after the maintenance has been completed.
+}

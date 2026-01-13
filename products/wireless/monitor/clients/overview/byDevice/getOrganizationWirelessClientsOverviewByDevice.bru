@@ -1,0 +1,40 @@
+meta {
+  name: getOrganizationWirelessClientsOverviewByDevice
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/wireless/clients/overview/byDevice
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~campusGatewayClusterIds: {{campusGatewayClusterIds}}
+  ~campusGatewayClusterIds: {{campusGatewayClusterIds}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List access point client count at the moment in an organization
+}

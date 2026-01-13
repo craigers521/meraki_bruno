@@ -1,0 +1,61 @@
+meta {
+  name: createNetworkWirelessEthernetPortsProfile
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/wireless/ethernet/ports/profiles
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "ports": [
+      {
+        "name": "<string>",
+        "enabled": "<boolean>",
+        "ssid": "<integer>",
+        "pskGroupId": "<string>"
+      },
+      {
+        "name": "<string>",
+        "enabled": "<boolean>",
+        "ssid": "<integer>",
+        "pskGroupId": "<string>"
+      }
+    ],
+    "usbPorts": [
+      {
+        "name": "<string>",
+        "enabled": "<boolean>",
+        "ssid": "<integer>"
+      },
+      {
+        "name": "<string>",
+        "enabled": "<boolean>",
+        "ssid": "<integer>"
+      }
+    ]
+  }
+}
+
+docs {
+  Create an AP port profile
+}

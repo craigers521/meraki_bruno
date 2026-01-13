@@ -1,0 +1,37 @@
+meta {
+  name: updateNetworkClientPolicy
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/clients/:clientId/policy
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  clientId: {{clientId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "devicePolicy": "<string>",
+    "groupPolicyId": "<string>"
+  }
+}
+
+docs {
+  Update the policy assigned to a client on the network. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+}

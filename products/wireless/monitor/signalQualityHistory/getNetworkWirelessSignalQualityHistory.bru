@@ -1,0 +1,41 @@
+meta {
+  name: getNetworkWirelessSignalQualityHistory
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/signalQualityHistory
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~resolution: {{resolution}}
+  ~autoResolution: {{autoResolution}}
+  ~clientId: {{clientId}}
+  ~deviceSerial: {{deviceSerial}}
+  ~apTag: {{apTag}}
+  ~band: {{band}}
+  ~ssid: {{ssid}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return signal quality (SNR/RSSI) over time for a device or network client
+}

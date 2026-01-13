@@ -1,0 +1,57 @@
+meta {
+  name: updateNetworkWirelessSsidBonjourForwarding
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/bonjourForwarding
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "rules": [
+      {
+        "vlanId": "<string>",
+        "services": [
+          "<string>",
+          "<string>"
+        ],
+        "description": "<string>"
+      },
+      {
+        "vlanId": "<string>",
+        "services": [
+          "<string>",
+          "<string>"
+        ],
+        "description": "<string>"
+      }
+    ],
+    "exception": {
+      "enabled": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update the bonjour forwarding setting and rules for the SSID
+}

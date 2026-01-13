@@ -1,0 +1,48 @@
+meta {
+  name: batchNetworkFloorPlansDevicesUpdate
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/floorPlans/devices/batchUpdate
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "assignments": [
+      {
+        "serial": "<string>",
+        "floorPlan": {
+          "id": "<string>"
+        }
+      },
+      {
+        "serial": "<string>",
+        "floorPlan": {
+          "id": "<string>"
+        }
+      }
+    ]
+  }
+}
+
+docs {
+  Update floorplan assignments for a batch of devices
+}

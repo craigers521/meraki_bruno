@@ -1,0 +1,46 @@
+meta {
+  name: createOrganizationNetwork
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/networks
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "productTypes": [
+      "<string>",
+      "<string>"
+    ],
+    "tags": [
+      "<string>",
+      "<string>"
+    ],
+    "timeZone": "<string>",
+    "copyFromNetworkId": "<string>",
+    "notes": "<string>"
+  }
+}
+
+docs {
+  Create a network
+}

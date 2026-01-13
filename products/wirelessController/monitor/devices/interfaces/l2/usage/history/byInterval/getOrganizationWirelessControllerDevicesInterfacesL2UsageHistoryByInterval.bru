@@ -1,0 +1,39 @@
+meta {
+  name: getOrganizationWirelessControllerDevicesInterfacesL2UsageHistoryByInterval
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/wirelessController/devices/interfaces/l2/usage/history/byInterval
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List wireless LAN controller layer 2 interfaces history usage in an organization
+}

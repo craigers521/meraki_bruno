@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkWirelessEthernetPortsProfile
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/wireless/ethernet/ports/profiles/:profileId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  profileId: {{profileId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete an AP port profile
+}

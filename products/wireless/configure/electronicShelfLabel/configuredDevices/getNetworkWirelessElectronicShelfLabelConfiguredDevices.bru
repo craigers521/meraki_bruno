@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkWirelessElectronicShelfLabelConfiguredDevices
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/electronicShelfLabel/configuredDevices
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get a list of all ESL eligible devices of a network
+}

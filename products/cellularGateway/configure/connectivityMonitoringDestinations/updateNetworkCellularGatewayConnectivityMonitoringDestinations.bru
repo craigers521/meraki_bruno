@@ -1,0 +1,46 @@
+meta {
+  name: updateNetworkCellularGatewayConnectivityMonitoringDestinations
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/cellularGateway/connectivityMonitoringDestinations
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "destinations": [
+      {
+        "ip": "<string>",
+        "description": "",
+        "default": false
+      },
+      {
+        "ip": "<string>",
+        "description": "",
+        "default": false
+      }
+    ]
+  }
+}
+
+docs {
+  Update the connectivity testing destinations for an MG network
+}

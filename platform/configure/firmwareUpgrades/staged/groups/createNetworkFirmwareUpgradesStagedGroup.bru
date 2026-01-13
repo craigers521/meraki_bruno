@@ -1,0 +1,59 @@
+meta {
+  name: createNetworkFirmwareUpgradesStagedGroup
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "isDefault": "<boolean>",
+    "description": "<string>",
+    "assignedDevices": {
+      "devices": [
+        {
+          "serial": "<string>",
+          "name": "<string>"
+        },
+        {
+          "serial": "<string>",
+          "name": "<string>"
+        }
+      ],
+      "switchStacks": [
+        {
+          "id": "<string>",
+          "name": "<string>"
+        },
+        {
+          "id": "<string>",
+          "name": "<string>"
+        }
+      ]
+    }
+  }
+}
+
+docs {
+  Create a Staged Upgrade Group for a network
+}

@@ -1,0 +1,34 @@
+meta {
+  name: getAdministeredLicensingSubscriptionSubscriptionsComplianceStatuses
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/administered/licensing/subscription/subscriptions/compliance/statuses
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~organizationIds: {{organizationIds}}
+  ~organizationIds: {{organizationIds}}
+  ~subscriptionIds: {{subscriptionIds}}
+  ~subscriptionIds: {{subscriptionIds}}
+}
+
+params:path {
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get compliance status for requested subscriptions
+}

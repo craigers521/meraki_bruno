@@ -1,0 +1,37 @@
+meta {
+  name: createOrganizationSplashThemeAsset
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/splash/themes/:themeIdentifier/assets
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  themeIdentifier: {{themeIdentifier}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "content": "<byte>"
+  }
+}
+
+docs {
+  Create a Splash Theme Asset
+}

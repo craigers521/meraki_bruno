@@ -1,0 +1,29 @@
+meta {
+  name: getDeviceLiveToolsWakeOnLan
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/liveTools/wakeOnLan/:wakeOnLanId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  wakeOnLanId: {{wakeOnLanId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a Wake-on-LAN job
+}

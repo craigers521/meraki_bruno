@@ -1,0 +1,56 @@
+meta {
+  name: updateOrganizationAdaptivePolicyAcl
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/adaptivePolicy/acls/:aclId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  aclId: {{aclId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "description": "<string>",
+    "rules": [
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "srcPort": "<string>",
+        "dstPort": "<string>",
+        "log": "<boolean>",
+        "tcpEstablished": "<boolean>"
+      },
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "srcPort": "<string>",
+        "dstPort": "<string>",
+        "log": "<boolean>",
+        "tcpEstablished": "<boolean>"
+      }
+    ],
+    "ipVersion": "<string>"
+  }
+}
+
+docs {
+  Updates an adaptive policy ACL
+}

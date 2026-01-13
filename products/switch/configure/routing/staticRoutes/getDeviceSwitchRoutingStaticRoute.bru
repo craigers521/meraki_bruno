@@ -1,0 +1,29 @@
+meta {
+  name: getDeviceSwitchRoutingStaticRoute
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/switch/routing/staticRoutes/:staticRouteId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  staticRouteId: {{staticRouteId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a layer 3 static route for a switch
+}

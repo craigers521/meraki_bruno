@@ -1,0 +1,35 @@
+meta {
+  name: unbindNetwork
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/unbind
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "retainConfigs": "<boolean>"
+  }
+}
+
+docs {
+  Unbind a network from a template.
+}

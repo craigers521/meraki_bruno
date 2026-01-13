@@ -1,0 +1,40 @@
+meta {
+  name: updateNetworkWirelessAirMarshalRule
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/airMarshal/rules/:ruleId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  ruleId: {{ruleId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "type": "<string>",
+    "match": {
+      "type": "<string>",
+      "string": "<string>"
+    }
+  }
+}
+
+docs {
+  Update a rule
+}

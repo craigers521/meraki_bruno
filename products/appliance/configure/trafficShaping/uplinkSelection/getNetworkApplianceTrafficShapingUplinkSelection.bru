@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceTrafficShapingUplinkSelection
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/trafficShaping/uplinkSelection
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Show uplink selection settings for an MX network
+}

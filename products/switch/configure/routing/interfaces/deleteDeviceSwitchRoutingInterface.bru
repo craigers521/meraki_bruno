@@ -1,0 +1,25 @@
+meta {
+  name: deleteDeviceSwitchRoutingInterface
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/devices/:serial/switch/routing/interfaces/:interfaceId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  interfaceId: {{interfaceId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a layer 3 interface from the switch
+}

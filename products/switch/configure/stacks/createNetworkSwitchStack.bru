@@ -1,0 +1,39 @@
+meta {
+  name: createNetworkSwitchStack
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/switch/stacks
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "serials": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Create a switch stack
+}

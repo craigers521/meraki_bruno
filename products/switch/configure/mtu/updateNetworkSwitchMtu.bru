@@ -1,0 +1,59 @@
+meta {
+  name: updateNetworkSwitchMtu
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/mtu
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "defaultMtuSize": "<integer>",
+    "overrides": [
+      {
+        "mtuSize": "<integer>",
+        "switches": [
+          "<string>",
+          "<string>"
+        ],
+        "switchProfiles": [
+          "<string>",
+          "<string>"
+        ]
+      },
+      {
+        "mtuSize": "<integer>",
+        "switches": [
+          "<string>",
+          "<string>"
+        ],
+        "switchProfiles": [
+          "<string>",
+          "<string>"
+        ]
+      }
+    ]
+  }
+}
+
+docs {
+  Update the MTU configuration
+}

@@ -1,0 +1,39 @@
+meta {
+  name: getOrganizationDevicesControllerMigrations
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices/controller/migrations
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~target: {{target}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Retrieve device migration statuses in an organization
+}

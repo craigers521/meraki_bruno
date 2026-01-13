@@ -1,0 +1,28 @@
+meta {
+  name: getOrganizationApplianceSecurityIntrusion
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/security/intrusion
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns all supported intrusion settings for an organization
+}

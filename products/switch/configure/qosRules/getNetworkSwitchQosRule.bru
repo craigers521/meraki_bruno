@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSwitchQosRule
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/switch/qosRules/:qosRuleId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  qosRuleId: {{qosRuleId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a quality of service rule
+}

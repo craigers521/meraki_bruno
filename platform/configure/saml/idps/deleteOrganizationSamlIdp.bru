@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationSamlIdp
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/saml/idps/:idpId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  idpId: {{idpId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Remove a SAML IdP in your organization.
+}

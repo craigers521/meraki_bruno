@@ -1,0 +1,44 @@
+meta {
+  name: updateDeviceWirelessRadioSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/wireless/radio/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rfProfileId": "<string>",
+    "twoFourGhzSettings": {
+      "channel": "<integer>",
+      "targetPower": "<integer>"
+    },
+    "fiveGhzSettings": {
+      "channel": "<integer>",
+      "channelWidth": "<integer>",
+      "targetPower": "<integer>"
+    }
+  }
+}
+
+docs {
+  Update the radio settings of a device
+}

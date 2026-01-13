@@ -1,0 +1,58 @@
+meta {
+  name: updateNetworkWirelessAlternateManagementInterface
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/alternateManagementInterface
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "vlanId": "<integer>",
+    "protocols": [
+      "<string>",
+      "<string>"
+    ],
+    "accessPoints": [
+      {
+        "serial": "<string>",
+        "alternateManagementIp": "<string>",
+        "subnetMask": "<string>",
+        "gateway": "<string>",
+        "dns1": "<string>",
+        "dns2": "<string>"
+      },
+      {
+        "serial": "<string>",
+        "alternateManagementIp": "<string>",
+        "subnetMask": "<string>",
+        "gateway": "<string>",
+        "dns1": "<string>",
+        "dns2": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update alternate management interface and device static IP
+}

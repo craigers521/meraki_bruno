@@ -1,0 +1,36 @@
+meta {
+  name: removeNetworkSwitchStack
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/switch/stacks/:switchStackId/remove
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  switchStackId: {{switchStackId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "serial": "<string>"
+  }
+}
+
+docs {
+  Remove a switch from a stack
+}

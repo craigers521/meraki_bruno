@@ -1,0 +1,67 @@
+meta {
+  name: updateNetworkSwitchStp
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/stp
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rstpEnabled": "<boolean>",
+    "stpBridgePriority": [
+      {
+        "stpPriority": "<integer>",
+        "switchProfiles": [
+          "<string>",
+          "<string>"
+        ],
+        "switches": [
+          "<string>",
+          "<string>"
+        ],
+        "stacks": [
+          "<string>",
+          "<string>"
+        ]
+      },
+      {
+        "stpPriority": "<integer>",
+        "switchProfiles": [
+          "<string>",
+          "<string>"
+        ],
+        "switches": [
+          "<string>",
+          "<string>"
+        ],
+        "stacks": [
+          "<string>",
+          "<string>"
+        ]
+      }
+    ]
+  }
+}
+
+docs {
+  Updates STP settings
+}

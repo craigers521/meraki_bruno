@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkApplianceFirewallInboundCellularFirewallRules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/inboundCellularFirewallRules
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the inbound cellular firewall rules for an MX network
+}

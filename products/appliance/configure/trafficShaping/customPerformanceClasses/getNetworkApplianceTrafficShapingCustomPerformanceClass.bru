@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkApplianceTrafficShapingCustomPerformanceClass
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/appliance/trafficShaping/customPerformanceClasses/:customPerformanceClassId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  customPerformanceClassId: {{customPerformanceClassId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a custom performance class for an MX network
+}

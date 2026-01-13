@@ -1,0 +1,34 @@
+meta {
+  name: removeNetworkDevices
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/devices/remove
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "serial": "<string>"
+  }
+}
+
+docs {
+  Remove a single device
+}

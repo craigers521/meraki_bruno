@@ -1,0 +1,44 @@
+meta {
+  name: updateDeviceSensorRelationships
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/sensor/relationships
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "livestream": {
+      "relatedDevices": [
+        {
+          "serial": "<string>"
+        },
+        {
+          "serial": "<string>"
+        }
+      ]
+    }
+  }
+}
+
+docs {
+  Assign one or more sensor roles to a given sensor or camera device.
+}

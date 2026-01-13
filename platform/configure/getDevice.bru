@@ -1,0 +1,28 @@
+meta {
+  name: getDevice
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a single device
+}

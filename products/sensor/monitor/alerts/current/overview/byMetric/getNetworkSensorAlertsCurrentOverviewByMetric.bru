@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkSensorAlertsCurrentOverviewByMetric
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sensor/alerts/current/overview/byMetric
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return an overview of currently alerting sensors by metric
+}

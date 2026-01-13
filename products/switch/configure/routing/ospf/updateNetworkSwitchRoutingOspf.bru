@@ -1,0 +1,71 @@
+meta {
+  name: updateNetworkSwitchRoutingOspf
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/routing/ospf
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "helloTimerInSeconds": "<integer>",
+    "deadTimerInSeconds": "<integer>",
+    "areas": [
+      {
+        "areaId": "<string>",
+        "areaName": "<string>",
+        "areaType": "<string>"
+      },
+      {
+        "areaId": "<string>",
+        "areaName": "<string>",
+        "areaType": "<string>"
+      }
+    ],
+    "v3": {
+      "enabled": "<boolean>",
+      "helloTimerInSeconds": "<integer>",
+      "deadTimerInSeconds": "<integer>",
+      "areas": [
+        {
+          "areaId": "<string>",
+          "areaName": "<string>",
+          "areaType": "<string>"
+        },
+        {
+          "areaId": "<string>",
+          "areaName": "<string>",
+          "areaType": "<string>"
+        }
+      ]
+    },
+    "md5AuthenticationEnabled": "<boolean>",
+    "md5AuthenticationKey": {
+      "id": "<integer>",
+      "passphrase": "<string>"
+    }
+  }
+}
+
+docs {
+  Update layer 3 OSPF routing configuration
+}

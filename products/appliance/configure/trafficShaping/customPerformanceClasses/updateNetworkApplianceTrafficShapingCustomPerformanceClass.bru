@@ -1,0 +1,39 @@
+meta {
+  name: updateNetworkApplianceTrafficShapingCustomPerformanceClass
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/trafficShaping/customPerformanceClasses/:customPerformanceClassId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  customPerformanceClassId: {{customPerformanceClassId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "maxLatency": "<integer>",
+    "maxJitter": "<integer>",
+    "maxLossPercentage": "<integer>"
+  }
+}
+
+docs {
+  Update a custom performance class for an MX network
+}

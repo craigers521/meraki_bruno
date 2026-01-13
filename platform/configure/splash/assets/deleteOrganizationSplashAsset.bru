@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationSplashAsset
+  type: http
+  seq: 1
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/splash/assets/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  id: 
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a Splash Theme Asset
+}

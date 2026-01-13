@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkSmUserAccessDevice
+  type: http
+  seq: 1
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/sm/userAccessDevices/:userAccessDeviceId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  userAccessDeviceId: {{userAccessDeviceId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a User Access Device
+}

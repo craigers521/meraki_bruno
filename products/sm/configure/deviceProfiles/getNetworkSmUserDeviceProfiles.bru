@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSmUserDeviceProfiles
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sm/users/:userId/deviceProfiles
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  userId: {{userId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get the profiles associated with a user
+}

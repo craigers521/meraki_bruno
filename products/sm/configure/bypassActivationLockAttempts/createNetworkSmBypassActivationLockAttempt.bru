@@ -1,0 +1,38 @@
+meta {
+  name: createNetworkSmBypassActivationLockAttempt
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/bypassActivationLockAttempts
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "ids": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Bypass activation lock attempt
+}

@@ -1,0 +1,35 @@
+meta {
+  name: updateNetworkApplianceVlansSettings
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/vlans/settings
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "vlansEnabled": "<boolean>"
+  }
+}
+
+docs {
+  Enable/Disable VLANs for the given network
+}

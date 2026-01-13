@@ -1,0 +1,47 @@
+meta {
+  name: updateNetworkTrafficAnalysis
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/trafficAnalysis
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "mode": "<string>",
+    "customPieChartItems": [
+      {
+        "name": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      },
+      {
+        "name": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the traffic analysis settings for a network
+}

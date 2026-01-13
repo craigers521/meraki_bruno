@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkWirelessRfProfile
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/rfProfiles/:rfProfileId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  rfProfileId: {{rfProfileId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a RF profile
+}

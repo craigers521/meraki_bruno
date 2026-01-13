@@ -1,0 +1,77 @@
+meta {
+  name: updateNetworkApplianceVpnBgp
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/vpn/bgp
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "asNumber": "<integer>",
+    "ibgpHoldTimer": "<integer>",
+    "neighbors": [
+      {
+        "remoteAsNumber": "<integer>",
+        "ebgpHoldTimer": "<integer>",
+        "ebgpMultihop": "<integer>",
+        "ip": "<string>",
+        "ipv6": {
+          "address": "<string>"
+        },
+        "receiveLimit": "<integer>",
+        "allowTransit": "<boolean>",
+        "sourceInterface": "<string>",
+        "nextHopIp": "<string>",
+        "ttlSecurity": {
+          "enabled": "<boolean>"
+        },
+        "authentication": {
+          "password": "<string>"
+        }
+      },
+      {
+        "remoteAsNumber": "<integer>",
+        "ebgpHoldTimer": "<integer>",
+        "ebgpMultihop": "<integer>",
+        "ip": "<string>",
+        "ipv6": {
+          "address": "<string>"
+        },
+        "receiveLimit": "<integer>",
+        "allowTransit": "<boolean>",
+        "sourceInterface": "<string>",
+        "nextHopIp": "<string>",
+        "ttlSecurity": {
+          "enabled": "<boolean>"
+        },
+        "authentication": {
+          "password": "<string>"
+        }
+      }
+    ]
+  }
+}
+
+docs {
+  Update a Hub BGP Configuration
+}

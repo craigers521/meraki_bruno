@@ -1,0 +1,62 @@
+meta {
+  name: rollbacksNetworkFirmwareUpgradesStagedEvents
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events/rollbacks
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "stages": [
+      {
+        "group": {
+          "id": "<string>"
+        },
+        "milestones": {
+          "scheduledFor": "<string>"
+        }
+      },
+      {
+        "group": {
+          "id": "<string>"
+        },
+        "milestones": {
+          "scheduledFor": "<string>"
+        }
+      }
+    ],
+    "reasons": [
+      {
+        "category": "<string>",
+        "comment": "<string>"
+      },
+      {
+        "category": "<string>",
+        "comment": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Rollback a Staged Upgrade Event for a network
+}

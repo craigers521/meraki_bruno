@@ -1,0 +1,47 @@
+meta {
+  name: updateNetworkApplianceContentFiltering
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/contentFiltering
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "allowedUrlPatterns": [
+      "<string>",
+      "<string>"
+    ],
+    "blockedUrlPatterns": [
+      "<string>",
+      "<string>"
+    ],
+    "blockedUrlCategories": [
+      "<string>",
+      "<string>"
+    ],
+    "urlCategoryListSize": "<string>"
+  }
+}
+
+docs {
+  Update the content filtering settings for an MX network
+}

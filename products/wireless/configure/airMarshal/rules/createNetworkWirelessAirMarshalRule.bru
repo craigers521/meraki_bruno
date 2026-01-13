@@ -1,0 +1,39 @@
+meta {
+  name: createNetworkWirelessAirMarshalRule
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/wireless/airMarshal/rules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "type": "<string>",
+    "match": {
+      "type": "<string>",
+      "string": "<string>"
+    }
+  }
+}
+
+docs {
+  Creates a new rule
+}

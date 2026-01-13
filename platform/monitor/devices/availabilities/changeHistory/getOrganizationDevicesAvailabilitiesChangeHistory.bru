@@ -1,0 +1,45 @@
+meta {
+  name: getOrganizationDevicesAvailabilitiesChangeHistory
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices/availabilities/changeHistory
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~serials: {{serials}}
+  ~serials: {{serials}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~statuses: {{statuses}}
+  ~statuses: {{statuses}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the availability history information for devices in an organization.
+}

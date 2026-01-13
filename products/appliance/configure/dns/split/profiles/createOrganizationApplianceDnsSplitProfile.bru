@@ -1,0 +1,45 @@
+meta {
+  name: createOrganizationApplianceDnsSplitProfile
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/dns/split/profiles
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "hostnames": [
+      "<string>",
+      "<string>"
+    ],
+    "nameservers": {
+      "addresses": [
+        "<string>",
+        "<string>"
+      ]
+    }
+  }
+}
+
+docs {
+  Create a new split DNS profile
+}

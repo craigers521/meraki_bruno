@@ -1,0 +1,42 @@
+meta {
+  name: updateNetwork
+  type: http
+  seq: 14
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "timeZone": "<string>",
+    "tags": [
+      "<string>",
+      "<string>"
+    ],
+    "enrollmentString": "<string>",
+    "notes": "<string>"
+  }
+}
+
+docs {
+  Update a network
+}

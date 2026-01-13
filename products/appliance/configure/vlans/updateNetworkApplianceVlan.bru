@@ -1,0 +1,118 @@
+meta {
+  name: updateNetworkApplianceVlan
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/vlans/:vlanId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  vlanId: {{vlanId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "subnet": "<string>",
+    "applianceIp": "<string>",
+    "groupPolicyId": "<string>",
+    "vpnNatSubnet": "<string>",
+    "dhcpHandling": "<string>",
+    "dhcpRelayServerIps": [
+      "<string>",
+      "<string>"
+    ],
+    "dhcpLeaseTime": "<string>",
+    "dhcpBootOptionsEnabled": "<boolean>",
+    "dhcpBootNextServer": "<string>",
+    "dhcpBootFilename": "<string>",
+    "fixedIpAssignments": "<object>",
+    "reservedIpRanges": [
+      {
+        "start": "<string>",
+        "end": "<string>",
+        "comment": "<string>"
+      },
+      {
+        "start": "<string>",
+        "end": "<string>",
+        "comment": "<string>"
+      }
+    ],
+    "dnsNameservers": "<string>",
+    "dhcpOptions": [
+      {
+        "code": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      },
+      {
+        "code": "<string>",
+        "type": "<string>",
+        "value": "<string>"
+      }
+    ],
+    "templateVlanType": "<string>",
+    "cidr": "<string>",
+    "mask": "<integer>",
+    "ipv6": {
+      "enabled": "<boolean>",
+      "prefixAssignments": [
+        {
+          "autonomous": "<boolean>",
+          "staticPrefix": "<string>",
+          "staticApplianceIp6": "<string>",
+          "origin": {
+            "type": "<string>",
+            "interfaces": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          }
+        },
+        {
+          "autonomous": "<boolean>",
+          "staticPrefix": "<string>",
+          "staticApplianceIp6": "<string>",
+          "origin": {
+            "type": "<string>",
+            "interfaces": [
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              },
+              {
+                "value": "<Error: Too many levels of nesting to fake this schema>"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "mandatoryDhcp": {
+      "enabled": "<boolean>"
+    }
+  }
+}
+
+docs {
+  Update a VLAN
+}

@@ -1,0 +1,26 @@
+meta {
+  name: deleteNetworkSwitchStackRoutingInterface
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces/:interfaceId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  switchStackId: {{switchStackId}}
+  interfaceId: {{interfaceId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete a layer 3 interface from a switch stack
+}

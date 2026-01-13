@@ -1,0 +1,125 @@
+meta {
+  name: updateNetworkWirelessSsidTrafficShapingRules
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/trafficShaping/rules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "trafficShapingEnabled": "<boolean>",
+    "defaultRulesEnabled": "<boolean>",
+    "rules": [
+      {
+        "definitions": {
+          "type": "array",
+          "description": "    A list of objects describing the definitions of your traffic shaping rule. At least one definition is required.\n",
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "type",
+              "value"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "application",
+                  "applicationCategory",
+                  "host",
+                  "ipRange",
+                  "localNet",
+                  "port"
+                ],
+                "description": "The type of definition. Can be one of 'application', 'applicationCategory', 'host', 'port', 'ipRange' or 'localNet'.",
+                "default": "<string>"
+              },
+              "value": {
+                "type": "string",
+                "description": "    If \"type\" is 'host', 'port', 'ipRange' or 'localNet', then \"value\" must be a string, matching either\n    a hostname (e.g. \"somesite.com\"), a port (e.g. 8080), or an IP range (\"192.1.0.0\",\n    \"192.1.0.0/16\", or \"10.1.0.0/16:80\"). 'localNet' also supports CIDR notation, excluding\n    custom ports.\n     If \"type\" is 'application' or 'applicationCategory', then \"value\" must be an object\n    with the structure { \"id\": \"meraki:layer7/...\" }, where \"id\" is the application category or\n    application ID (for a list of IDs for your network, use the trafficShaping/applicationCategories\n    endpoint).\n",
+                "default": "<string>"
+              }
+            }
+          }
+        },
+        "perClientBandwidthLimits": {
+          "settings": "<string>",
+          "bandwidthLimits": {
+            "limitUp": "<integer>",
+            "limitDown": "<integer>"
+          }
+        },
+        "dscpTagValue": "<integer>",
+        "pcpTagValue": "<integer>"
+      },
+      {
+        "definitions": {
+          "type": "array",
+          "description": "    A list of objects describing the definitions of your traffic shaping rule. At least one definition is required.\n",
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "type",
+              "value"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "application",
+                  "applicationCategory",
+                  "host",
+                  "ipRange",
+                  "localNet",
+                  "port"
+                ],
+                "description": "The type of definition. Can be one of 'application', 'applicationCategory', 'host', 'port', 'ipRange' or 'localNet'.",
+                "default": "<string>"
+              },
+              "value": {
+                "type": "string",
+                "description": "    If \"type\" is 'host', 'port', 'ipRange' or 'localNet', then \"value\" must be a string, matching either\n    a hostname (e.g. \"somesite.com\"), a port (e.g. 8080), or an IP range (\"192.1.0.0\",\n    \"192.1.0.0/16\", or \"10.1.0.0/16:80\"). 'localNet' also supports CIDR notation, excluding\n    custom ports.\n     If \"type\" is 'application' or 'applicationCategory', then \"value\" must be an object\n    with the structure { \"id\": \"meraki:layer7/...\" }, where \"id\" is the application category or\n    application ID (for a list of IDs for your network, use the trafficShaping/applicationCategories\n    endpoint).\n",
+                "default": "<string>"
+              }
+            }
+          }
+        },
+        "perClientBandwidthLimits": {
+          "settings": "<string>",
+          "bandwidthLimits": {
+            "limitUp": "<integer>",
+            "limitDown": "<integer>"
+          }
+        },
+        "dscpTagValue": "<integer>",
+        "pcpTagValue": "<integer>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the traffic shaping rules for an SSID on an MR network.
+}

@@ -1,0 +1,36 @@
+meta {
+  name: generateDeviceCameraSnapshot
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/camera/generateSnapshot
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "timestamp": "<dateTime>",
+    "fullframe": "<boolean>"
+  }
+}
+
+docs {
+  Generate a snapshot of what the camera sees at the specified time and return a link to that image.
+}

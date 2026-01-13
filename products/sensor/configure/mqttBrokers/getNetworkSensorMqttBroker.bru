@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSensorMqttBroker
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sensor/mqttBrokers/:mqttBrokerId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  mqttBrokerId: {{mqttBrokerId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the sensor settings of an MQTT broker. To get the broker itself, use /networks/{networkId}/mqttBrokers/{mqttBrokerId}.
+}

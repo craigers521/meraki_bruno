@@ -1,0 +1,36 @@
+meta {
+  name: getOrganizationDevicesUplinksLossAndLatency
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/devices/uplinksLossAndLatency
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~uplink: {{uplink}}
+  ~ip: {{ip}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the uplink loss and latency for every MX in the organization from at latest 2 minutes ago
+}

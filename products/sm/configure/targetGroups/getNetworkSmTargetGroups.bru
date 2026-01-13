@@ -1,0 +1,32 @@
+meta {
+  name: getNetworkSmTargetGroups
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sm/targetGroups
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~withDetails: {{withDetails}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the target groups in this network
+}

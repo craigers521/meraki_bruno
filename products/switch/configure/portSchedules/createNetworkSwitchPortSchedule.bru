@@ -1,0 +1,72 @@
+meta {
+  name: createNetworkSwitchPortSchedule
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/switch/portSchedules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "portSchedule": {
+      "monday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "tuesday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "wednesday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "thursday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "friday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "saturday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      },
+      "sunday": {
+        "active": "<boolean>",
+        "from": "<string>",
+        "to": "<string>"
+      }
+    }
+  }
+}
+
+docs {
+  Add a switch port schedule
+}

@@ -1,0 +1,39 @@
+meta {
+  name: getNetworkWirelessLatencyStats
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/wireless/latencyStats
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+  ~band: {{band}}
+  ~ssid: {{ssid}}
+  ~vlan: {{vlan}}
+  ~apTag: {{apTag}}
+  ~fields: {{fields}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Aggregated latency info for this network
+}

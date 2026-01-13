@@ -1,0 +1,55 @@
+meta {
+  name: updateNetworkWirelessBilling
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/billing
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "currency": "<string>",
+    "plans": [
+      {
+        "price": "<float>",
+        "bandwidthLimits": {
+          "limitUp": "<integer>",
+          "limitDown": "<integer>"
+        },
+        "timeLimit": "<string>",
+        "id": "<string>"
+      },
+      {
+        "price": "<float>",
+        "bandwidthLimits": {
+          "limitUp": "<integer>",
+          "limitDown": "<integer>"
+        },
+        "timeLimit": "<string>",
+        "id": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the billing settings
+}

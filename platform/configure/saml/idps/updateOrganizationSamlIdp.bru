@@ -1,0 +1,37 @@
+meta {
+  name: updateOrganizationSamlIdp
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/saml/idps/:idpId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  idpId: {{idpId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "x509certSha1Fingerprint": "<string>",
+    "sloLogoutUrl": "<string>"
+  }
+}
+
+docs {
+  Update a SAML IdP in your organization
+}

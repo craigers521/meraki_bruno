@@ -1,0 +1,40 @@
+meta {
+  name: updateDeviceCameraSense
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/camera/sense
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "senseEnabled": "<boolean>",
+    "mqttBrokerId": "<string>",
+    "audioDetection": {
+      "enabled": "<boolean>"
+    },
+    "detectionModelId": "<string>"
+  }
+}
+
+docs {
+  Update sense settings for the given camera
+}

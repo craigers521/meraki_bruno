@@ -1,0 +1,28 @@
+meta {
+  name: getNetwork
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a network
+}

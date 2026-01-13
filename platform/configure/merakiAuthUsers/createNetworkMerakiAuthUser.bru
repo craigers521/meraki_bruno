@@ -1,0 +1,50 @@
+meta {
+  name: createNetworkMerakiAuthUser
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/merakiAuthUsers
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "email": "<string>",
+    "authorizations": [
+      {
+        "ssidNumber": "<integer>",
+        "expiresAt": "Never"
+      },
+      {
+        "ssidNumber": "<integer>",
+        "expiresAt": "Never"
+      }
+    ],
+    "name": "<string>",
+    "password": "<string>",
+    "accountType": "802.1X",
+    "emailPasswordToUser": "<boolean>",
+    "isAdmin": "<boolean>"
+  }
+}
+
+docs {
+  Authorize a user configured with Meraki Authentication for a network (currently supports 802.1X, splash guest, and client VPN users, and currently, organizations have a 50,000 user cap)
+}

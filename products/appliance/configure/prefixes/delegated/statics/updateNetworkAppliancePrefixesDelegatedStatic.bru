@@ -1,0 +1,44 @@
+meta {
+  name: updateNetworkAppliancePrefixesDelegatedStatic
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  staticDelegatedPrefixId: {{staticDelegatedPrefixId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "prefix": "<string>",
+    "origin": {
+      "type": "<string>",
+      "interfaces": [
+        "<string>",
+        "<string>"
+      ]
+    },
+    "description": "<string>"
+  }
+}
+
+docs {
+  Update a static delegated prefix from a network
+}

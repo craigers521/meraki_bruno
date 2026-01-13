@@ -1,0 +1,52 @@
+meta {
+  name: updateNetworkWirelessSsidFirewallL3FirewallRules
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/wireless/ssids/:number/firewall/l3FirewallRules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  number: {{number}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rules": [
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "destCidr": "<string>",
+        "comment": "<string>",
+        "destPort": "<string>"
+      },
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "destCidr": "<string>",
+        "comment": "<string>",
+        "destPort": "<string>"
+      }
+    ],
+    "allowLanAccess": "<boolean>"
+  }
+}
+
+docs {
+  Update the L3 firewall rules of an SSID on an MR network
+}

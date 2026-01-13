@@ -1,0 +1,38 @@
+meta {
+  name: createNetworkApplianceStaticRoute
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/appliance/staticRoutes
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "subnet": "<string>",
+    "gatewayIp": "<string>",
+    "gatewayVlanId": "<string>"
+  }
+}
+
+docs {
+  Add a static route for an MX or teleworker network
+}

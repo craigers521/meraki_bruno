@@ -1,0 +1,39 @@
+meta {
+  name: moveOrganizationLicenses
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/organizations/:organizationId/licenses/move
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "destOrganizationId": "<string>",
+    "licenseIds": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Move licenses to another organization. This will also move any devices that the licenses are assigned to
+}

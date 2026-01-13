@@ -1,0 +1,45 @@
+meta {
+  name: getOrganizationWirelessDevicesPacketLossByClient
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/wireless/devices/packetLoss/byClient
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkIds: {{networkIds}}
+  ~networkIds: {{networkIds}}
+  ~ssids: {{ssids}}
+  ~ssids: {{ssids}}
+  ~bands: {{bands}}
+  ~bands: {{bands}}
+  ~macs: {{macs}}
+  ~macs: {{macs}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get average packet loss for the given timespan for all clients in the organization.
+}

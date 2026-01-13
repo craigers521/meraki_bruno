@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSensorAlertsProfile
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sensor/alerts/profiles/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  id: 
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Show details of a sensor alert profile for a network.
+}

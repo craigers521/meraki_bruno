@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationSmVppAccount
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/sm/vppAccounts/:vppAccountId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  vppAccountId: {{vppAccountId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get a hash containing the unparsed token of the VPP account with the given ID
+}

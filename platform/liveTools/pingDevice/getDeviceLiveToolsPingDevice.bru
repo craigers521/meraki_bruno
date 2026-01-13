@@ -1,0 +1,29 @@
+meta {
+  name: getDeviceLiveToolsPingDevice
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/devices/:serial/liveTools/pingDevice/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  id: 
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a ping device job. Latency unit in response is in milliseconds. Size is in bytes.
+}

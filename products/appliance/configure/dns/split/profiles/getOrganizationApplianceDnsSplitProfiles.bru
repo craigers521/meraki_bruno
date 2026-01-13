@@ -1,0 +1,33 @@
+meta {
+  name: getOrganizationApplianceDnsSplitProfiles
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/dns/split/profiles
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~profileIds: {{profileIds}}
+  ~profileIds: {{profileIds}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Fetch the split DNS profiles used in the organization
+}

@@ -1,0 +1,46 @@
+meta {
+  name: updateDevice
+  type: http
+  seq: 13
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "tags": [
+      "<string>",
+      "<string>"
+    ],
+    "lat": "<float>",
+    "lng": "<float>",
+    "address": "<string>",
+    "notes": "<string>",
+    "moveMapMarker": "<boolean>",
+    "switchProfileId": "<string>",
+    "floorPlanId": "<string>"
+  }
+}
+
+docs {
+  Update the attributes of a device
+}

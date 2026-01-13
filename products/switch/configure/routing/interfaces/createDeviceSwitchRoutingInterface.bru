@@ -1,0 +1,52 @@
+meta {
+  name: createDeviceSwitchRoutingInterface
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/devices/:serial/switch/routing/interfaces
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "subnet": "<string>",
+    "interfaceIp": "<string>",
+    "multicastRouting": "<string>",
+    "vlanId": "<integer>",
+    "defaultGateway": "<string>",
+    "ospfSettings": {
+      "area": "<string>",
+      "cost": "<integer>",
+      "isPassiveEnabled": "<boolean>"
+    },
+    "ipv6": {
+      "assignmentMode": "<string>",
+      "prefix": "<string>",
+      "address": "<string>",
+      "gateway": "<string>"
+    },
+    "vrf": "<object>"
+  }
+}
+
+docs {
+  Create a layer 3 interface for a switch
+}

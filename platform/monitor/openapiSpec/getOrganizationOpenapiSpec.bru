@@ -1,0 +1,32 @@
+meta {
+  name: getOrganizationOpenapiSpec
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/openapiSpec
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~version: {{version}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the OpenAPI Specification of the organization's API documentation in JSON
+}

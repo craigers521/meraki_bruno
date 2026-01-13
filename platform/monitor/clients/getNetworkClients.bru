@@ -1,0 +1,49 @@
+meta {
+  name: getNetworkClients
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/clients
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~t0: {{t0}}
+  ~timespan: {{timespan}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~statuses: {{statuses}}
+  ~statuses: {{statuses}}
+  ~ip: {{ip}}
+  ~ip6: {{ip6}}
+  ~ip6Local: {{ip6Local}}
+  ~mac: {{mac}}
+  ~os: {{os}}
+  ~pskGroup: {{pskGroup}}
+  ~description: {{description}}
+  ~vlan: {{vlan}}
+  ~namedVlan: {{namedVlan}}
+  ~recentDeviceConnections: {{recentDeviceConnections}}
+  ~recentDeviceConnections: {{recentDeviceConnections}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the clients that have used this network in the timespan. The data is updated at most once every five minutes.
+}

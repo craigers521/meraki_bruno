@@ -1,0 +1,39 @@
+meta {
+  name: getNetworkSmUsers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/sm/users
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ids: {{ids}}
+  ~ids: {{ids}}
+  ~usernames: {{usernames}}
+  ~usernames: {{usernames}}
+  ~emails: {{emails}}
+  ~emails: {{emails}}
+  ~scope: {{scope}}
+  ~scope: {{scope}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List the owners in an SM network with various specified fields and filters
+}

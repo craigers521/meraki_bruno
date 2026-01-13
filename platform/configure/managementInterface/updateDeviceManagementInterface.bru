@@ -1,0 +1,58 @@
+meta {
+  name: updateDeviceManagementInterface
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/managementInterface
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "wan1": {
+      "wanEnabled": "<string>",
+      "usingStaticIp": "<boolean>",
+      "staticIp": "<string>",
+      "staticGatewayIp": "<string>",
+      "staticSubnetMask": "<string>",
+      "staticDns": [
+        "<string>",
+        "<string>"
+      ],
+      "vlan": "<integer>"
+    },
+    "wan2": {
+      "wanEnabled": "<string>",
+      "usingStaticIp": "<boolean>",
+      "staticIp": "<string>",
+      "staticGatewayIp": "<string>",
+      "staticSubnetMask": "<string>",
+      "staticDns": [
+        "<string>",
+        "<string>"
+      ],
+      "vlan": "<integer>"
+    }
+  }
+}
+
+docs {
+  Update the management interface settings for a device
+}

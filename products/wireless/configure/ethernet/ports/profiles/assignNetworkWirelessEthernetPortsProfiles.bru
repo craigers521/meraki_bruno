@@ -1,0 +1,39 @@
+meta {
+  name: assignNetworkWirelessEthernetPortsProfiles
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/wireless/ethernet/ports/profiles/assign
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "serials": [
+      "<string>",
+      "<string>"
+    ],
+    "profileId": "<string>"
+  }
+}
+
+docs {
+  Assign AP port profile to list of APs
+}

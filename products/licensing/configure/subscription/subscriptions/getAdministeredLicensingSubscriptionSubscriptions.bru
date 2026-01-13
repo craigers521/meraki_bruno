@@ -1,0 +1,52 @@
+meta {
+  name: getAdministeredLicensingSubscriptionSubscriptions
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/administered/licensing/subscription/subscriptions
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+  ~subscriptionIds: {{subscriptionIds}}
+  ~subscriptionIds: {{subscriptionIds}}
+  ~organizationIds: {{organizationIds}}
+  ~organizationIds: {{organizationIds}}
+  ~statuses: {{statuses}}
+  ~statuses: {{statuses}}
+  ~productTypes: {{productTypes}}
+  ~productTypes: {{productTypes}}
+  ~name: {{name}}
+  ~lt: {{lt}}
+  ~gt: {{gt}}
+  ~lte: {{lte}}
+  ~gte: {{gte}}
+  ~neq: {{neq}}
+  ~lt: {{lt}}
+  ~gt: {{gt}}
+  ~lte: {{lte}}
+  ~gte: {{gte}}
+  ~neq: {{neq}}
+}
+
+params:path {
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  List available subscriptions
+}

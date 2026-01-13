@@ -1,0 +1,57 @@
+meta {
+  name: updateOrganizationApplianceVpnVpnFirewallRules
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/appliance/vpn/vpnFirewallRules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rules": [
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "srcCidr": "<string>",
+        "destCidr": "<string>",
+        "comment": "<string>",
+        "srcPort": "<string>",
+        "destPort": "<string>",
+        "syslogEnabled": "<boolean>"
+      },
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "srcCidr": "<string>",
+        "destCidr": "<string>",
+        "comment": "<string>",
+        "srcPort": "<string>",
+        "destPort": "<string>",
+        "syslogEnabled": "<boolean>"
+      }
+    ],
+    "syslogDefaultRule": "<boolean>"
+  }
+}
+
+docs {
+  Update the firewall rules of an organization's site-to-site VPN
+}

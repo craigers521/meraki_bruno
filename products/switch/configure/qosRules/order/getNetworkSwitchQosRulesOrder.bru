@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkSwitchQosRulesOrder
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/switch/qosRules/order
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the quality of service rule IDs by order in which they will be processed by the switch
+}

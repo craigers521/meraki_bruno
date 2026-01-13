@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkWebhooksPayloadTemplate
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  payloadTemplateId: {{payloadTemplateId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get the webhook payload template for a network
+}

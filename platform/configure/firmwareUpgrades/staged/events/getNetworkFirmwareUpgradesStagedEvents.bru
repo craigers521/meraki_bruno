@@ -1,0 +1,28 @@
+meta {
+  name: getNetworkFirmwareUpgradesStagedEvents
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Get the Staged Upgrade Event from a network
+}

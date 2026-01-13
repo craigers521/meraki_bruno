@@ -1,0 +1,25 @@
+meta {
+  name: deleteOrganizationCameraCustomAnalyticsArtifact
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/organizations/:organizationId/camera/customAnalytics/artifacts/:artifactId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  artifactId: {{artifactId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete Custom Analytics Artifact
+}

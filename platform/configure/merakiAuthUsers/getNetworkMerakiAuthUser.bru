@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkMerakiAuthUser
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/merakiAuthUsers/:merakiAuthUserId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  merakiAuthUserId: {{merakiAuthUserId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the Meraki Auth splash guest, RADIUS, or client VPN user
+}

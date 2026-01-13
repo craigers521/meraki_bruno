@@ -1,0 +1,40 @@
+meta {
+  name: updateOrganizationPolicyObjectsGroup
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/policyObjects/groups/:policyObjectGroupId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  policyObjectGroupId: {{policyObjectGroupId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "objectIds": [
+      "<integer>",
+      "<integer>"
+    ]
+  }
+}
+
+docs {
+  Updates a Policy Object Group.
+}

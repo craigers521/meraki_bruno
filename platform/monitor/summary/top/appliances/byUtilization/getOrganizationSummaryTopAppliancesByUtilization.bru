@@ -1,0 +1,39 @@
+meta {
+  name: getOrganizationSummaryTopAppliancesByUtilization
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/summary/top/appliances/byUtilization
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkTag: {{networkTag}}
+  ~deviceTag: {{deviceTag}}
+  ~quantity: {{quantity}}
+  ~ssidName: {{ssidName}}
+  ~usageUplink: {{usageUplink}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the top 10 appliances sorted by utilization over given time range.
+}

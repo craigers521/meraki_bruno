@@ -1,0 +1,57 @@
+meta {
+  name: updateNetworkApplianceFirewallL3FirewallRules
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/l3FirewallRules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rules": [
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "srcCidr": "<string>",
+        "destCidr": "<string>",
+        "comment": "<string>",
+        "srcPort": "<string>",
+        "destPort": "<string>",
+        "syslogEnabled": "<boolean>"
+      },
+      {
+        "policy": "<string>",
+        "protocol": "<string>",
+        "srcCidr": "<string>",
+        "destCidr": "<string>",
+        "comment": "<string>",
+        "srcPort": "<string>",
+        "destPort": "<string>",
+        "syslogEnabled": "<boolean>"
+      }
+    ],
+    "syslogDefaultRule": "<boolean>"
+  }
+}
+
+docs {
+  Update the L3 firewall rules of an MX network
+}

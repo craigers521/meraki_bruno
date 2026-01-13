@@ -1,0 +1,39 @@
+meta {
+  name: updateNetworkApplianceWarmSpare
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/warmSpare
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "enabled": "<boolean>",
+    "spareSerial": "<string>",
+    "uplinkMode": "<string>",
+    "virtualIp1": "<string>",
+    "virtualIp2": "<string>"
+  }
+}
+
+docs {
+  Update MX warm spare settings
+}

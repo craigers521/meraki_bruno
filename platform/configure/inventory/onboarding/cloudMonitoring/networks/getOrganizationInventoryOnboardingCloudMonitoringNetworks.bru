@@ -1,0 +1,36 @@
+meta {
+  name: getOrganizationInventoryOnboardingCloudMonitoringNetworks
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/inventory/onboarding/cloudMonitoring/networks
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~deviceType: {{deviceType}}
+  ~search: {{search}}
+  ~perPage: {{perPage}}
+  ~startingAfter: {{startingAfter}}
+  ~endingBefore: {{endingBefore}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Returns list of networks eligible for adding cloud monitored device
+}

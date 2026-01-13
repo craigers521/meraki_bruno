@@ -1,0 +1,55 @@
+meta {
+  name: updateNetworkApplianceVpnSiteToSiteVpn
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/vpn/siteToSiteVpn
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "mode": "<string>",
+    "hubs": [
+      {
+        "hubId": "<string>",
+        "useDefaultRoute": "<boolean>"
+      },
+      {
+        "hubId": "<string>",
+        "useDefaultRoute": "<boolean>"
+      }
+    ],
+    "subnets": [
+      {
+        "localSubnet": "<string>",
+        "useVpn": "<boolean>"
+      },
+      {
+        "localSubnet": "<string>",
+        "useVpn": "<boolean>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the site-to-site VPN settings of a network. Only valid for MX networks in NAT mode.
+}

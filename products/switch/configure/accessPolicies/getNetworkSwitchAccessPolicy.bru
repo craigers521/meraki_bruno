@@ -1,0 +1,29 @@
+meta {
+  name: getNetworkSwitchAccessPolicy
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  accessPolicyNumber: {{accessPolicyNumber}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return a specific access policy for a switch network
+}

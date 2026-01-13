@@ -1,0 +1,46 @@
+meta {
+  name: updateNetworkCameraWirelessProfile
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/camera/wirelessProfiles/:wirelessProfileId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  wirelessProfileId: {{wirelessProfileId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "ssid": {
+      "name": "<string>",
+      "authMode": "<string>",
+      "encryptionMode": "<string>",
+      "psk": "<string>"
+    },
+    "identity": {
+      "username": "<string>",
+      "password": "<string>"
+    }
+  }
+}
+
+docs {
+  Update an existing camera wireless profile in this network.
+}

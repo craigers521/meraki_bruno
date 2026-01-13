@@ -1,0 +1,60 @@
+meta {
+  name: updateDeviceCellularGatewayPortForwardingRules
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/devices/:serial/cellularGateway/portForwardingRules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  serial: {{serial}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rules": [
+      {
+        "lanIp": "<string>",
+        "publicPort": "<string>",
+        "localPort": "<string>",
+        "protocol": "<string>",
+        "access": "<string>",
+        "name": "<string>",
+        "allowedIps": [
+          "<string>",
+          "<string>"
+        ]
+      },
+      {
+        "lanIp": "<string>",
+        "publicPort": "<string>",
+        "localPort": "<string>",
+        "protocol": "<string>",
+        "access": "<string>",
+        "name": "<string>",
+        "allowedIps": [
+          "<string>",
+          "<string>"
+        ]
+      }
+    ]
+  }
+}
+
+docs {
+  Updates the port forwarding rules for a single MG.
+}

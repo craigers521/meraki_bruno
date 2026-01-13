@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkSensorAlertsProfile
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/sensor/alerts/profiles/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  id: 
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Deletes a sensor alert profile from a network.
+}

@@ -1,0 +1,55 @@
+meta {
+  name: modifyNetworkSmDevicesTags
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/sm/devices/modifyTags
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "tags": [
+      "<string>",
+      "<string>"
+    ],
+    "updateAction": "<string>",
+    "wifiMacs": [
+      "<string>",
+      "<string>"
+    ],
+    "ids": [
+      "<string>",
+      "<string>"
+    ],
+    "serials": [
+      "<string>",
+      "<string>"
+    ],
+    "scope": [
+      "<string>",
+      "<string>"
+    ]
+  }
+}
+
+docs {
+  Add, delete, or update the tags of a set of devices
+}

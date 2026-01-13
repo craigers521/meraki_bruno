@@ -1,0 +1,29 @@
+meta {
+  name: getOrganizationWebhooksCallbacksStatus
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/webhooks/callbacks/statuses/:callbackId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  callbackId: {{callbackId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return the status of an API callback
+}

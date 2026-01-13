@@ -1,0 +1,54 @@
+meta {
+  name: createNetworkSwitchLinkAggregation
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/switch/linkAggregations
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "switchPorts": [
+      {
+        "serial": "<string>",
+        "portId": "<string>"
+      },
+      {
+        "serial": "<string>",
+        "portId": "<string>"
+      }
+    ],
+    "switchProfilePorts": [
+      {
+        "profile": "<string>",
+        "portId": "<string>"
+      },
+      {
+        "profile": "<string>",
+        "portId": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Create a link aggregation group
+}

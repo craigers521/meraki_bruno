@@ -1,0 +1,57 @@
+meta {
+  name: updateOrganizationSamlRole
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/organizations/:organizationId/samlRoles/:samlRoleId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  samlRoleId: {{samlRoleId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "role": "<string>",
+    "orgAccess": "<string>",
+    "tags": [
+      {
+        "tag": "<string>",
+        "access": "<string>"
+      },
+      {
+        "tag": "<string>",
+        "access": "<string>"
+      }
+    ],
+    "networks": [
+      {
+        "id": "<string>",
+        "access": "<string>"
+      },
+      {
+        "id": "<string>",
+        "access": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update a SAML role
+}

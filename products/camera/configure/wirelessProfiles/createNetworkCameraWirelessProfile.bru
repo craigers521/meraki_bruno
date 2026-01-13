@@ -1,0 +1,45 @@
+meta {
+  name: createNetworkCameraWirelessProfile
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/networks/:networkId/camera/wirelessProfiles
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "ssid": {
+      "name": "<string>",
+      "authMode": "<string>",
+      "encryptionMode": "<string>",
+      "psk": "<string>"
+    },
+    "identity": {
+      "username": "<string>",
+      "password": "<string>"
+    }
+  }
+}
+
+docs {
+  Creates a new camera wireless profile for this network.
+}

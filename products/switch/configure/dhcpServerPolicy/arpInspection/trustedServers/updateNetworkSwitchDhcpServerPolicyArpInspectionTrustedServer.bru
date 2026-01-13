@@ -1,0 +1,40 @@
+meta {
+  name: updateNetworkSwitchDhcpServerPolicyArpInspectionTrustedServer
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/switch/dhcpServerPolicy/arpInspection/trustedServers/:trustedServerId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  trustedServerId: {{trustedServerId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "mac": "<string>",
+    "vlan": "<integer>",
+    "ipv4": {
+      "address": "<string>"
+    }
+  }
+}
+
+docs {
+  Update a server that is trusted by Dynamic ARP Inspection on this network
+}

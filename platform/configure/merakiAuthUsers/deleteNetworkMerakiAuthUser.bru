@@ -1,0 +1,29 @@
+meta {
+  name: deleteNetworkMerakiAuthUser
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/merakiAuthUsers/:merakiAuthUserId
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~delete: {{delete}}
+}
+
+params:path {
+  networkId: {{networkId}}
+  merakiAuthUserId: {{merakiAuthUserId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Delete an 802.1X RADIUS user, or deauthorize and optionally delete a splash guest or client VPN user.
+}

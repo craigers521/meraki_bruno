@@ -1,0 +1,25 @@
+meta {
+  name: deleteNetworkSwitchDhcpServerPolicyArpInspectionTrustedServer
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/networks/:networkId/switch/dhcpServerPolicy/arpInspection/trustedServers/:trustedServerId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  trustedServerId: {{trustedServerId}}
+  basePath: {{basePath}}
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Remove a server from being trusted by Dynamic ARP Inspection on this network
+}

@@ -1,0 +1,60 @@
+meta {
+  name: updateNetworkFirmwareUpgradesStagedGroup
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups/:groupId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  groupId: {{groupId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "name": "<string>",
+    "isDefault": "<boolean>",
+    "description": "<string>",
+    "assignedDevices": {
+      "devices": [
+        {
+          "serial": "<string>",
+          "name": "<string>"
+        },
+        {
+          "serial": "<string>",
+          "name": "<string>"
+        }
+      ],
+      "switchStacks": [
+        {
+          "id": "<string>",
+          "name": "<string>"
+        },
+        {
+          "id": "<string>",
+          "name": "<string>"
+        }
+      ]
+    }
+  }
+}
+
+docs {
+  Update a Staged Upgrade Group for a network
+}

@@ -1,0 +1,60 @@
+meta {
+  name: updateNetworkApplianceFirewallPortForwardingRules
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/networks/:networkId/appliance/firewall/portForwardingRules
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkId: {{networkId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "rules": [
+      {
+        "lanIp": "<string>",
+        "publicPort": "<string>",
+        "localPort": "<string>",
+        "allowedIps": [
+          "<string>",
+          "<string>"
+        ],
+        "protocol": "<string>",
+        "name": "<string>",
+        "uplink": "<string>"
+      },
+      {
+        "lanIp": "<string>",
+        "publicPort": "<string>",
+        "localPort": "<string>",
+        "allowedIps": [
+          "<string>",
+          "<string>"
+        ],
+        "protocol": "<string>",
+        "name": "<string>",
+        "uplink": "<string>"
+      }
+    ]
+  }
+}
+
+docs {
+  Update the port forwarding rules for an MX network
+}

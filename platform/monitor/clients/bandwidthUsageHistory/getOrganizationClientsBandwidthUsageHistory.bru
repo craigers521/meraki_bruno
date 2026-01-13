@@ -1,0 +1,38 @@
+meta {
+  name: getOrganizationClientsBandwidthUsageHistory
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/organizations/:organizationId/clients/bandwidthUsageHistory
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~networkTag: {{networkTag}}
+  ~deviceTag: {{deviceTag}}
+  ~ssidName: {{ssidName}}
+  ~usageUplink: {{usageUplink}}
+  ~t0: {{t0}}
+  ~t1: {{t1}}
+  ~timespan: {{timespan}}
+}
+
+params:path {
+  organizationId: {{organizationId}}
+  basePath: {{basePath}}
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+docs {
+  Return data usage (in megabits per second) over time for all clients in the given organization within a given time range.
+}
